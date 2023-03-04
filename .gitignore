@@ -1,0 +1,23 @@
+# Transient files
+*.dvi
+*.aux
+*.pdf
+*.log
+*.toc
+*.lot
+*.lof
+*.bcf
+*.run.xml
+*.bbl
+*.blg
+*.out
+*.fdb_latexmk
+*.fls
+*.gz
+
+# Supporting material
+thesis template
+sources
+
+# Work not started yet
+thesis

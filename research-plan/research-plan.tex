@@ -1,11 +1,5 @@
 \documentclass[utf8,english]{gradu3}
 
-% \usepackage{graphicx} % for including pictures
-
-% \usepackage{amsmath} % useful for math (optional)
-
-% \usepackage{booktabs} % good for beautiful tables
-
 % NOTE: This must be the last \usepackage in the whole document!
 \usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
 
@@ -45,17 +39,9 @@
 
 \author{Juho Kettunen}
 \contactinformation{\texttt{juho.kettunen@student.jyu.fi}}
-\supervisor{Oleksiy Khriyenko (?)}
-% use a separate \supervisor command for each supervisor, if there
-% are more than one
+\supervisor{Oleksiy Khriyenko}
 
 \maketitle
-
-% Glossary here.
-% List necessary terminology/abbreviations here.
-% \begin{thetermlist}
-%   \item[some term 1] asdfasdf
-% \end{thetermlist}
 
 \mainmatter
 
@@ -77,24 +63,6 @@ I chose this topic for three reasons:
         infrastructure and a wide variety of easily integratable services.
 \end{enumerate}
 
-% Example of figures:
-% \begin{figure}[h]\centering
-%   \includegraphics[height=5cm,keepaspectratio]{opus-kissa}
-%   \caption[Example figure]{Example how to include figures.}
-%   \label{fig:opus-kissa}
-% \end{figure}
-
-% Example of list and citations:
-% \begin{itemize}
-%   \item Inline: \textcite[Chapter~8.8.4]{aho-compilers}
-%   \item Inside parentheses: \parencite[Chapter~8.8.4]{aho-compilers}
-%   \item Multiple citations:
-%         \parencites%
-%         [see][Section~3.7]{biblatex-manual}%
-%         [regarding citations in general, see also][Section~5.3.2]%
-%         {biblatex-chicago-manual}%
-%         \relax.
-% \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Literature review}
@@ -102,7 +70,7 @@ I will use these sources for literature:
 \begin{itemize}
   \item \textcite{jykdok}
   \item \textcite{google-scholar}
-  \item "Snowballing" from bibliographies of promising sources, e.g. \textcite{thesis-time-tracking}
+  \item Snowballing from bibliographies of promising sources, e.g. \textcite{thesis-time-tracking}
   \item + other databases or seach engines that are discovered during research
 \end{itemize}
 
@@ -118,23 +86,27 @@ Example search terms:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Research questions}
 
-I aim to answer two research questions:
+I aim to answer three research questions:
 \begin{itemize}
-  \item How to address maintainability concerns when architecting cloud-native
-        applications?
   \item How much importance do cloud architects place on maintainability during
         the design phase?
+  \item How to address maintainability concerns when architecting cloud-native
+        applications?
+  \item Do the recommendations from literature match the views of architects
+        working in the field?
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Method}
 
-I will find existing suggestions and approaches from available literature.
-Then I will conduct a survey that is targeted at cloud architects of
-company Nordcloud, where I work.
-Finally, I will analyze the results of the survey and compare the results to
-those found in literature.
+I will conduct a survey that offers real-life insights into the research questions.
+It is targeted at cloud architects of company Nordcloud, where I work.
+
+First I will ascertain the perceived importance of maintainability.
+Then I will categorize the suggested approaches for addressing maintainability
+and contrast this to the respondents' years of experience in the target domain.
+Finally, I will compare the survey results to approaches suggested in the literature.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,9 +130,9 @@ Survey might include these questions:
 Question 1 will have a selection of software quality metrics that the architect should set in a priority order.
 
 Questions 2 and 3 are free-text answers.
-I will interpret answers to find common categories.
+I will interpret the answers to find common categories.
 
-Questions 4 through 6 are single-selection questions, with maybe these ranges:
+Questions 4 through 6 are single-selection questions, with these ranges:
 \begin{itemize}
   \item 0-2
   \item 2-5
@@ -175,9 +147,9 @@ There will be an optional feedback question in the end of the survey.
 Target audience is cloud architects working at Nordcloud, an IBM company.
 
 \section{How}
-I will post links to the survey to Nordcloud's internal Slack channels to reach
-the most of our cloud architects.
-architect least these communities will be targeted:
+I will post links to the survey on Nordcloud's internal Slack channels to reach
+most of our cloud architects.
+These communities will likely be targeted:
 \begin{itemize}
   \item \#tech-infra
   \item \#tech-dev
@@ -186,7 +158,7 @@ architect least these communities will be targeted:
   \item \#google-cloud
 \end{itemize}
 
-Some of these communities have overlapping audience, but the total audience is about 1600 people.
+Some of these communities have overlapping audience, but the total reach is about 1600 people.
 I assume our company to employ a few dozen cloud architects.
 My goal is to get 10-20 answers in order to conduct any statistical analysis on
 the data.
@@ -200,10 +172,11 @@ have enough answers to proceed.
 I will use my JYU Google account for all Google-related functions.
 
 Survey will be anonymous.
-Individual answers are stored in Google Forms until the thesis is complete,
+The form requires logging in with a Google account, but email addresses are not collected.
+Answers are stored in Google Forms until the thesis is complete,
 after which I will delete the survey.
 
-Analysis is stored in Google Sheets until the end of my study rights, and
+Analysis is stored in Google Sheets until the end of my study rights and
 subsequent removal of the Google account.
 
 Possible Python scripts used for analysis will be stored in my personal Github repository
@@ -239,7 +212,5 @@ This is OK because it won't contain any personal data.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \printbibliography
 
-% \appendix
-% \section{Some appendix topic}
 
 \end{document}

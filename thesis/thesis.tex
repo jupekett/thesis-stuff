@@ -1,0 +1,232 @@
+\documentclass[utf8,english]{gradu3}
+
+% NOTE: This must be the last \usepackage in the whole document!
+\usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
+
+\addbibresource{thesis.bib} % The file name of your bibliography database
+
+\begin{document}
+
+\title{Maintainability in cloud-native architecture}
+\translatedtitle{Ylläpidettävyys pilvinatiiveissa arkkitehtuureissa}
+\studyline{Software and Telecommunication Technology}
+\avainsanat{%
+  ylläpito,
+  ylläpidettävyys
+  julkinen pilvi,
+  pilvinatiivi,
+  pilviarkkitehti,
+  arkkitehtuuri,
+  ohjelmistoarkkitehtuuri,
+  pro gradu -tutkielmat
+}
+\keywords{%
+  maintenance,
+  maintainability,
+  public cloud,
+  cloud-native,
+  cloud architect,
+  architecture,
+  software architecture,
+  Master's Theses}
+\tiivistelma{%
+  Tutkielman tavoitteena on selvittää kuinka ylläpidettävyys huomioidaan
+  pilvinatiivien sovellusten arkkitehtuurisuunnitteluvaiheessa.  Tämän
+  saavuttamiseksi suoritan kyselyn Nordcloud-yrityksen pilviarkkitehtien
+  keskuudessa.  Ensin määritän kuinka tärkeänä ylläpidettävyyttä pidetään.
+  Sitten kategorisoin ehdotukset ylläpidettävyyden huomioimiseen, ja suhteutan
+  ne vastaajien kokemuksen määrään kohdealueelta. Lopuksi vertaan kyselyn
+  tuloksia kirjallisuudessa ehdotettuihin lähestymistapoihin.
+}
+\abstract{%
+  Goal of the thesis is to find out how maintainability is addressed during the
+  architectural design phase of cloud-native software development lifecycle. To
+  this end, I will conduct a survey among cloud architects of company Nordcloud,
+  where I work. First I will ascertain the perceived importance of
+  maintainability. Then I will categorize the suggested approaches for addressing
+  maintainability and relate this to the respondents' years of experience in the
+  target domain. Finally, I will compare the survey results to approaches
+  suggested in the literature.
+}
+
+\author{Juho Kettunen}
+\contactinformation{\texttt{juho.kettunen@student.jyu.fi}}
+\supervisor{Oleksiy Khriyenko}
+
+\maketitle
+
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+
+Goal of this thesis is to find out how maintainability is addressed during the
+architectural design phase of cloud-native software development lifecycle.
+I chose this topic for three reasons:
+\begin{enumerate}
+  \item Choices made during the architectural design phase cascade into
+        development and maintenance phases. Mistakes and oversights are
+        slower and more expensive to correct later.
+  \item Maintenance phase of the software lifecycle is prevalent.
+        It takes up the majority of total lifetime and costs.
+  \item Cloud-native approach helps reduce time-to-market and move costs from
+        capital expenditure to operational expenditure. Utilizing a public cloud
+        platform allows you to leverage a highly scalable, reliable and secure
+        infrastructure and a wide variety of easily integratable services.
+\end{enumerate}
+
+I aim to answer three research questions:
+\begin{itemize}
+  \item How much importance do cloud architects place on maintainability during
+        the design phase?
+  \item How to address maintainability concerns when architecting cloud-native
+        applications?
+  \item Do the recommendations from literature match the views of architects
+        working in the field?
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Theory}
+I will use these sources for literature:
+\begin{itemize}
+  \item \textcite{jykdok}
+  \item \textcite{google-scholar}
+  \item Snowballing from bibliographies of promising sources, e.g. \textcite{thesis-time-tracking}
+  \item + other databases or seach engines that are discovered during research
+\end{itemize}
+
+Example search terms:
+\begin{itemize}
+  \item "cloud native" AND maintainability
+  \item "cloud native" AND architecture
+  \item architecture AND maintainability
+  \item "cloud native" AND architecture AND maintainability
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Maintainability}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Architecture as a phase in software lifecycle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cloud-nativity}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Maintainability in cloud-native architecture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Method}
+
+I will conduct a survey that offers real-life insights into the research questions.
+It is targeted at cloud architects of company Nordcloud, where I work.
+
+First I will ascertain the perceived importance of maintainability.
+Then I will categorize the suggested approaches for addressing maintainability
+and contrast this to the respondents' years of experience in the target domain.
+Finally, I will compare the survey results to approaches suggested in the literature.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Survey}
+
+\subsection{What}
+Survey will manifest as a Google Form.
+It will include a data collection disclaimer and an agreement checkbox to proceed.
+
+Survey might include these questions:
+\begin{enumerate}
+  \item How would you prioritize these software quality metrics when designing cloud-native
+        architecture?
+  \item How can one address maintainability through platform- and technology choices?
+  \item How can one address maintainability through architecture?
+  \item Years of experience with cloud-native architecture?
+  \item Years of experience with software architecture in general?
+  \item Years of experience in IT?
+\end{enumerate}
+
+Question 1 will have a selection of software quality metrics that the architect should set in a priority order.
+
+Questions 2 and 3 are free-text answers.
+I will interpret the answers to find common categories.
+
+Questions 4 through 6 are single-selection questions, with these ranges:
+\begin{itemize}
+  \item 0-2
+  \item 2-5
+  \item 5-10
+  \item 10+
+\end{itemize}
+
+There will be an optional feedback question in the end of the survey.
+
+\subsection{Who}
+
+Target audience is cloud architects working at Nordcloud, an IBM company.
+
+\subsection{How}
+I will post links to the survey on Nordcloud's internal Slack channels to reach
+most of our cloud architects.
+These communities will likely be targeted:
+\begin{itemize}
+  \item \#tech-infra
+  \item \#tech-dev
+  \item \#aws
+  \item \#azure
+  \item \#google-cloud
+\end{itemize}
+
+Some of these communities have overlapping audience, but the total reach is about 1600 people.
+I assume our company to employ a few dozen cloud architects.
+My goal is to get 10-20 answers in order to conduct any statistical analysis on
+the data.
+
+\subsection{When}
+Survey will be sent out during Q2 of 2023.
+I will repost the survey in Slack up to 4 times once a week until I decide I
+have enough answers to proceed.
+
+\subsection{Storage of data and privacy concerns}
+I will use my JYU Google account for all Google-related functions.
+
+Survey will be anonymous.
+The form requires logging in with a Google account, but email addresses are not collected.
+Answers are stored in Google Forms until the thesis is complete,
+after which I will delete the survey.
+
+Analysis is stored in Google Sheets until the end of my study rights and
+subsequent removal of the Google account.
+
+Possible Python scripts used for analysis will be stored in my personal Github repository
+perpetually.
+This is OK because it won't contain any personal data.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analysis}
+
+\begin{itemize}
+  \item Interpret and list categories from answers to questions 2 and 3.
+  \item Calculate the most popular categories and point out possible outliers.
+  \item Compare categories to solutions proposed in literature.
+  \item Calculate statistical correlation between years of experience and:
+        \begin{itemize}
+          \item perceived importance of maintainability
+          \item number of categories proposed in 2 and 3
+          \item popularity of categories proposed in 2 and 3
+        \end{itemize}
+  \item (Create nice graphs to visualize the above)
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Discussion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography
+
+
+\end{document}

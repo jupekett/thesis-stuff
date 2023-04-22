@@ -1,9 +1,16 @@
 \documentclass[utf8,english]{gradu3}
 
+\usepackage{xcolor}
+
 % NOTE: This must be the last \usepackage in the whole document!
 \usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
 
 \addbibresource{thesis.bib} % The file name of your bibliography database
+
+% My custom macros
+\newcommand{\todo}[1]{\textbf{\textcolor{red}{#1}}}
+
+% Actual document
 
 \begin{document}
 
@@ -39,14 +46,14 @@
   tuloksia kirjallisuudessa ehdotettuihin lähestymistapoihin.
 }
 \abstract{%
-  Goal of the thesis is to find out how maintainability is addressed during the
-  architectural design phase of cloud-native software development lifecycle. To
-  this end, I will conduct a survey among cloud architects of company Nordcloud,
-  where I work. First I will ascertain the perceived importance of
-  maintainability. Then I will categorize the suggested approaches for addressing
-  maintainability and relate this to the respondents' years of experience in the
-  target domain. Finally, I will compare the survey results to approaches
-  suggested in the literature.
+  Goal of the thesis is to investigate how maintainability is addressed during
+  the architectural design phase of cloud-native software development lifecycle.
+  To this end, I conducted a survey among cloud architects of company Nordcloud,
+  where I work.
+  First I ascertain the perceived importance of maintainability.
+  Then I categorize the suggested approaches for addressing maintainability and
+  relate this to the respondents' years of experience in the target domain.
+  Finally, I compare the survey results to approaches suggested in the literature.
 }
 
 \author{Juho Kettunen}
@@ -60,20 +67,69 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
 
-Goal of this thesis is to find out how maintainability is addressed during the
-architectural design phase of cloud-native software development lifecycle.
+Goal of the thesis is to investigate how maintainability is addressed during
+the architectural design phase of cloud-native software development lifecycle.
 I chose this topic for three reasons:
 \begin{enumerate}
   \item Choices made during the architectural design phase cascade into
-        development and maintenance phases. Mistakes and oversights are
-        slower and more expensive to correct later.
+        development and maintenance phases.
+        Mistakes and oversights are slower and more expensive to correct later. \todo{<SOURCE?>}
   \item Maintenance phase of the software lifecycle is prevalent.
-        It takes up the majority of total lifetime and costs.
+        It takes up the majority of total lifetime and costs. \todo{<SOURCE?>}
   \item Cloud-native approach helps reduce time-to-market and move costs from
-        capital expenditure to operational expenditure. Utilizing a public cloud
-        platform allows you to leverage a highly scalable, reliable and secure
-        infrastructure and a wide variety of easily integratable services.
+        capital expenditure to operational expenditure. \todo{<SOURCE?>}
+        Utilizing a public cloud platform allows the company to leverage a
+        highly scalable, reliable and secure infrastructure and a wide variety
+        of easily integratable services. \todo{<SOURCE?>}
 \end{enumerate}
+
+\todo{REWRITE:}
+First I will ascertain the perceived importance of maintainability.
+Then I will categorize the suggested approaches for addressing maintainability
+and contrast this to the respondents' years of experience in the target domain.
+Finally, I will compare the survey results to approaches suggested in the literature.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Background}
+
+My main database for researching existing literature was the JYKDOK search engine for international articles \parencite{jykdok}.
+I decided to search keywords in abstracts, instead of full-text or only in title.
+In my opinion the full-text search would have been too lax, and title-only too strict.
+With these search terms I received between 4 to 473 results per search, which was sufficient:
+\begin{itemize}
+  \item (Abstract:"cloud native" AND Abstract:maintainability)
+  \item (Abstract:"cloud native" AND Abstract:architecture)
+  \item (Abstract:"cloud native" AND Abstract:maintenance)
+  \item (Abstract:architecture AND Abstract:maintainability AND Abstract:cloud)
+  \item (Abstract:serverless AND Abstract:maintainability)
+  \item (Abstract:serverless AND Abstract:operations)
+  \item (Abstract:"cloud-native" AND Abstract:quality AND Abstract:attribute)
+  \item (Abstract:software AND Abstract:"quality attribute" AND Abstract:maintainability)
+\end{itemize}
+
+To my chagrin, I was unable to find full-text of some articles with promising abstracts.
+In case of one specific article \footnote{\todo{MENTION THE STUDY}}, I emailed the authors, and they kindly sent me a PDF of it.
+
+I also employed an ad-hoc lightweight version of snowballing from bibliographies of
+promising sources, e.g. \textcite{thesis-time-tracking} \todo{<NOT THIS SOURCE, others?>}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cloud-nativity}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Architecture as a software lifecycle phase}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Maintainability}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Maintainability in cloud-native architecture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Method}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Research questions}
 
 I aim to answer three research questions:
 \begin{itemize}
@@ -85,72 +141,30 @@ I aim to answer three research questions:
         working in the field?
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Theory}
-I will use these sources for literature:
-\begin{itemize}
-  \item \textcite{jykdok}
-  \item \textcite{google-scholar}
-  \item Snowballing from bibliographies of promising sources, e.g. \textcite{thesis-time-tracking}
-  \item + other databases or seach engines that are discovered during research
-\end{itemize}
-
-Example search terms:
-\begin{itemize}
-  \item "cloud native" AND maintainability
-  \item "cloud native" AND architecture
-  \item architecture AND maintainability
-  \item "cloud native" AND architecture AND maintainability
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Maintainability}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Architecture as a phase in software lifecycle}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cloud-nativity}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Maintainability in cloud-native architecture}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Method}
-
-I will conduct a survey that offers real-life insights into the research questions.
-It is targeted at cloud architects of company Nordcloud, where I work.
-
-First I will ascertain the perceived importance of maintainability.
-Then I will categorize the suggested approaches for addressing maintainability
-and contrast this to the respondents' years of experience in the target domain.
-Finally, I will compare the survey results to approaches suggested in the literature.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Survey}
 
-\subsection{What}
-Survey will manifest as a Google Form.
-It will include a data collection disclaimer and an agreement checkbox to proceed.
+I conducted a survey that offers real-life insights into the research questions.
+Survey manifests as a Google Form.
+It also includes a data collection disclaimer and an agreement checkbox to proceed.
 
-Survey might include these questions:
+
+\subsection{Questions}
+First half of the survey gathers some demographic insights.
+The latter half is dedicated to the actual subject matter.
+These are the questions:
 \begin{enumerate}
-  \item How would you prioritize these software quality metrics when designing cloud-native
+  \item Years of experience in cloud-native architecture?
+  \item Years of experience in software architecture in general?
+  \item Years of experience in IT in general?
+  \item How do you prioritize these software quality attributes when designing cloud-native
         architecture?
-  \item How can one address maintainability through platform- and technology choices?
-  \item How can one address maintainability through architecture?
-  \item Years of experience with cloud-native architecture?
-  \item Years of experience with software architecture in general?
-  \item Years of experience in IT?
+  \item How do you address maintainability with platform- and technology choices?
+  \item How do you address maintainability with application architecture?
 \end{enumerate}
 
-Question 1 will have a selection of software quality metrics that the architect should set in a priority order.
-
-Questions 2 and 3 are free-text answers.
-I will interpret the answers to find common categories.
-
-Questions 4 through 6 are single-selection questions, with these ranges:
+Questions 1 through 3 are single-selection questions with these ranges:
 \begin{itemize}
   \item 0-2
   \item 2-5
@@ -158,19 +172,35 @@ Questions 4 through 6 are single-selection questions, with these ranges:
   \item 10+
 \end{itemize}
 
-There will be an optional feedback question in the end of the survey.
+Question 4 offers a selection of software quality attributes:
+\begin{itemize}
+  \item Performance
+  \item Reliability
+  \item Maintainability
+  \item Scalability
+  \item Security
+\end{itemize}
 
-\subsection{Who}
+The respondent should set these quality attributes in a priority order.
+Available priority choices are:
+\begin{itemize}
+  \item Most important
+  \item More important
+  \item Important
+  \item Less important
+  \item Least important
+\end{itemize}
 
-Target audience is cloud architects working at Nordcloud, an IBM company.
+Questions 5 and 6 are open questions, where the respondent can describe their thoughts through text in any format they like.
+I interpret the answers to find common categories from the suggestions.
 
-\subsection{How}
-I will post links to the survey on Nordcloud's internal Slack channels to reach
+\subsection{Target audience}
+The survey is targeted at cloud architects of \emph{Nordcloud, an IBM company}, where I work.
+I posted links to the survey on Nordcloud's internal Slack channels to reach
 most of our cloud architects.
-These communities will likely be targeted:
+These channels were used:
 \begin{itemize}
   \item \#tech-infra
-  \item \#tech-dev
   \item \#aws
   \item \#azure
   \item \#google-cloud
@@ -178,55 +208,149 @@ These communities will likely be targeted:
 
 Some of these communities have overlapping audience, but the total reach is about 1600 people.
 I assume our company to employ a few dozen cloud architects.
-My goal is to get 10-20 answers in order to conduct any statistical analysis on
+My goal was to get 10-20 answers in order to conduct any statistical analysis on
 the data.
+This goal was met within a week with 13 answers, with a final tally of \todo{<NUMBER>}.
 
-\subsection{When}
-Survey will be sent out during Q2 of 2023.
-I will repost the survey in Slack up to 4 times once a week until I decide I
-have enough answers to proceed.
+\subsection{Timeline}
+Survey was sent out on Monday 20.03.2023.
+I was prepared to repost the survey in Slack up to 4 times once a week, until I
+decide I have enough answers to proceed.
+In the end there was no need to repost, as a sufficient number of architects
+responded after the initial posting.
+In early April I was able to convince one additional architect in-person at our
+Jyväskylä office to respond.
+Some stray responses were still recorded up to 21.4.2023.
 
-\subsection{Storage of data and privacy concerns}
-I will use my JYU Google account for all Google-related functions.
+\subsection{Data privacy concerns}
+I use my JYU Google account for all Google-related functions.
 
-Survey will be anonymous.
-The form requires logging in with a Google account, but email addresses are not collected.
-Answers are stored in Google Forms until the thesis is complete,
-after which I will delete the survey.
+All answers are collected and analysed anonymously.
+Email addresses or other pieces of personal information are not collected.
+The form requires logging in with a Google account.
+This is enforced only to avoid accidental re-submissions.
 
-Analysis is stored in Google Sheets until the end of my study rights and
-subsequent removal of the Google account.
-
-Possible Python scripts used for analysis will be stored in my personal Github repository
-perpetually.
-This is OK because it won't contain any personal data.
+Individual answers and their aggregated analysis will be stored in Google Forms and
+Google Sheets in my student account until the end of my study rights and
+subsequent removal of the account.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analysis}
 
 \begin{itemize}
-  \item Interpret and list categories from answers to questions 2 and 3.
-  \item Calculate the most popular categories and point out possible outliers.
+  \item Calculate a relative grade for priority of maintainability based on answers to question 4.
+  \item Interpret and list the suggestions from answers to questions 5 and 6.
+  \item Normalize the suggestions to find common categories.
+  \item Find the most popular categories and point out possible outliers.
   \item Compare categories to solutions proposed in literature.
-  \item Calculate statistical correlation between years of experience and:
+  \item Bonus: Calculate statistical correlation between years of experience and:
         \begin{itemize}
           \item perceived importance of maintainability
-          \item number of categories proposed in 2 and 3
-          \item popularity of categories proposed in 2 and 3
+          \item number of categories proposed in 5 and 6
+          \item popularity of categories proposed in 5 and 6
         \end{itemize}
-  \item (Create nice graphs to visualize the above)
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Results}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Demographics (Q1-Q3)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Prioritization of maintainability (Q4)}
+
+\begin{table}[!h]
+  \begin{center}
+    \caption{Priority choices and their numerical weights}
+    \label{table:priorities1}
+    \begin{tabular}{|c|c|}
+      \hline
+      \textbf{Priority} & \textbf{Weight} \\
+      \hline
+      Most important & 5 \\
+      More important & 4 \\
+      Important & 3 \\
+      Less important & 2 \\
+      Least important & 1 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+
+\begin{table}[!h]
+  \begin{center}
+    \caption{Average priorities and other metrics for the quality attributes (QA)}
+    \label{table:priorities2}
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      \textbf{QA} & \textbf{Average} & \textbf{Min} & \textbf{Median} & \textbf{Max} \\
+      \hline
+      Security & 4.07 & 1 & 5 & 5 \\
+      Reliability & 3.80 & 1 & 4 & 5 \\
+      Maintainability & 2.67 & 1 & 3 & 4 \\
+      Scalability & 2.27 & 1 & 2 & 5 \\
+      Performance & 2.20 & 1 & 2 & 4 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+
+In table \ref{table:priorities3} are additionally listed the distances between the average priorities.
+From these values we can draw multiple conclusions.
+The top two quality attributes, Security and Reliability, are unequivocally the most highly prioritized attributes in the minds of our cloud architects.
+The distance between second and third most prioritized attributes is by far the largest individual jump in values.
+Maintainability is sitting quite comfortable in the middle of the range.
+This likely means it is considered important, but not a priority if sacrifices need to be made to software quality
+Performance and scalability are considered least important items in an almost identical amount.
+
+\begin{table}[!h]
+  \begin{center}
+    \caption{Average priorities and delta to next highest item}
+    \label{table:priorities3}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{QA} & \textbf{Average} & \textbf{$\Delta$} \\
+      \hline
+      Security & 4.07 & -\\
+      Reliability & 3.80 & 0.27\\
+      Maintainability & 2.67 & 1.13\\
+      Scalability & 2.27 & 0.40\\
+      Performance & 2.20 & 0.07\\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ways to improve maintainability (Q5 \& Q6)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experience vs. prioritization of maintainability}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experience vs. suggested ways to improve maintainability}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Discussion}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Conclusions}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \printbibliography
+
+\nocite{*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
 
 
 \end{document}

@@ -14,7 +14,13 @@
 *.fdb_latexmk
 *.fls
 *.gz
+*.glo
+*.glsdefs
+*.ist
+*.gls
+*.xdy
 
 # Supporting material
 thesis template
 sources
+*.jpg

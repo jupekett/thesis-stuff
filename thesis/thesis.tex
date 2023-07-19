@@ -1,3 +1,4 @@
+% Preamble starts here
 \documentclass[utf8,english]{gradu3}
 
 \usepackage{xcolor}
@@ -9,9 +10,11 @@
 
 % My custom macros
 \newcommand{\todo}[1]{\textbf{\textcolor{red}{#1}}}
+\newcommand{\tmp}[1]{\textit{{#1}}}
 
-% Actual document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Actual document begins here
 \begin{document}
 
 \title{Maintainability in cloud-native architecture}
@@ -62,10 +65,22 @@
 
 \maketitle
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thetermlist}
+  \item [Test] Term explanation
+\end{thetermlist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \mainmatter
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
+
 
 Goal of the thesis is to investigate how maintainability is addressed during
 the architectural design phase of cloud-native software development lifecycle.
@@ -83,11 +98,13 @@ I chose this topic for three reasons:
         of easily integratable services. \todo{<SOURCE?>}
 \end{enumerate}
 
-\todo{REWRITE:}
-First I will ascertain the perceived importance of maintainability.
+\todo{REWRITE! Check thesis template for good suggestions}
+\tmp{First I will ascertain the perceived importance of maintainability.
 Then I will categorize the suggested approaches for addressing maintainability
 and contrast this to the respondents' years of experience in the target domain.
-Finally, I will compare the survey results to approaches suggested in the literature.
+Finally, I will compare the survey results to approaches suggested in the literature.}
+
+\todo{last thing: thesis structure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,10 +126,10 @@ With these search terms I received between 4 to 473 results per search, which wa
 \end{itemize}
 
 To my chagrin, I was unable to find full-text of some articles with promising abstracts.
-In case of one specific article \footnote{\todo{MENTION THE STUDY}}, I emailed the authors, and they kindly sent me a PDF of it.
+In case of one specific article I emailed the authors \footnote{\textcite{Bogner2018}}, and they kindly sent me a PDF of it.
 
 I also employed an ad-hoc lightweight version of snowballing from bibliographies of
-promising sources, e.g. \textcite{thesis-time-tracking} \todo{<NOT THIS SOURCE, others?>}
+promising sources, e.g. \todo{example here?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cloud-nativity}
 
@@ -128,16 +145,18 @@ promising sources, e.g. \textcite{thesis-time-tracking} \todo{<NOT THIS SOURCE, 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Method}
 
+In this chapter I present the research method and goals. \todo{more}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Research questions}
 
 I aim to answer three research questions:
 \begin{itemize}
-  \item How much importance do cloud architects place on maintainability during
+  \item [\textbf{RQ1}] How much importance do cloud architects place on maintainability during
         the design phase?
-  \item How to address maintainability concerns when architecting cloud-native
+  \item [\textbf{RQ2}] How to address maintainability concerns when architecting cloud-native
         applications?
-  \item Do the recommendations from literature match the views of architects
+  \item [\textbf{RQ3}] Do the recommendations from literature match the views of architects
         working in the field?
 \end{itemize}
 
@@ -147,24 +166,25 @@ I aim to answer three research questions:
 
 I conducted a survey that offers real-life insights into the research questions.
 Survey manifests as a Google Form.
-It also includes a data collection disclaimer and an agreement checkbox to proceed.
+In the first section there is a data collection disclaimer and a mandatory agree-disagree choice,
+before the respondent can proceed to answer the actual questions.
 
 
 \subsection{Questions}
-First half of the survey gathers some demographic insights.
+The first half of the survey gathers some demographic insights.
 The latter half is dedicated to the actual subject matter.
-These are the questions:
+These are all the questions, excluding the prerequisite data collection agreement:
 \begin{enumerate}
-  \item Years of experience in cloud-native architecture?
-  \item Years of experience in software architecture in general?
-  \item Years of experience in IT in general?
-  \item How do you prioritize these software quality attributes when designing cloud-native
+  \item [\textbf{Q1}] Years of experience in cloud-native architecture?
+  \item [\textbf{Q2}] Years of experience in software architecture in general?
+  \item [\textbf{Q3}] Years of experience in IT in general?
+  \item [\textbf{Q4}] How do you prioritize these software quality attributes when designing cloud-native
         architecture?
-  \item How do you address maintainability with platform- and technology choices?
-  \item How do you address maintainability with application architecture?
+  \item [\textbf{Q5}] How do you address maintainability with platform- and technology choices?
+  \item [\textbf{Q6}] How do you address maintainability with application architecture?
 \end{enumerate}
 
-Questions 1 through 3 are single-selection questions with these ranges:
+Questions Q1 through Q3 are single-selection questions with these ranges:
 \begin{itemize}
   \item 0-2
   \item 2-5
@@ -172,7 +192,7 @@ Questions 1 through 3 are single-selection questions with these ranges:
   \item 10+
 \end{itemize}
 
-Question 4 offers a selection of software quality attributes:
+Question Q4 offers a selection of software quality attributes:
 \begin{itemize}
   \item Performance
   \item Reliability
@@ -182,7 +202,7 @@ Question 4 offers a selection of software quality attributes:
 \end{itemize}
 
 The respondent should set these quality attributes in a priority order.
-Available priority choices are:
+Available priority options are:
 \begin{itemize}
   \item Most important
   \item More important
@@ -191,13 +211,14 @@ Available priority choices are:
   \item Least important
 \end{itemize}
 
-Questions 5 and 6 are open questions, where the respondent can describe their thoughts through text in any format they like.
+Questions Q5 and Q6 are open questions, where the respondent can describe their
+thoughts through text in any structure they like.
 I interpret the answers to find common categories from the suggestions.
 
 \subsection{Target audience}
-The survey is targeted at cloud architects of \emph{Nordcloud, an IBM company}, where I work.
-I posted links to the survey on Nordcloud's internal Slack channels to reach
-most of our cloud architects.
+The survey is targeted at cloud architects of \textit{Nordcloud, an IBM company}, where I work.
+I posted the survey link along with an introductory message to Nordcloud's
+internal Slack channels to reach most of our cloud architects.
 These channels were used:
 \begin{itemize}
   \item \#tech-infra
@@ -206,15 +227,15 @@ These channels were used:
   \item \#google-cloud
 \end{itemize}
 
-Some of these communities have overlapping audience, but the total reach is about 1600 people.
+Some of these communities have overlapping audience, but the total reach is over a thousand people.
 I assume our company to employ a few dozen cloud architects.
-My goal was to get 10-20 answers in order to conduct any statistical analysis on
+My goal was to get 10-20 answers in order to conduct any meaningful statistical analysis on
 the data.
 This goal was met within a week with 13 answers, with a final tally of \todo{<NUMBER>}.
 
 \subsection{Timeline}
 Survey was sent out on Monday 20.03.2023.
-I was prepared to repost the survey in Slack up to 4 times once a week, until I
+I was prepared to repost the survey in Slack once a week up to four times until I
 decide I have enough answers to proceed.
 In the end there was no need to repost, as a sufficient number of architects
 responded after the initial posting.
@@ -224,31 +245,30 @@ Some stray responses were still recorded up to 21.4.2023.
 
 \subsection{Data privacy concerns}
 I use my JYU Google account for all Google-related functions.
-
-All answers are collected and analysed anonymously.
-Email addresses or other pieces of personal information are not collected.
-The form requires logging in with a Google account.
-This is enforced only to avoid accidental re-submissions.
-
 Individual answers and their aggregated analysis will be stored in Google Forms and
 Google Sheets in my student account until the end of my study rights and
 subsequent removal of the account.
+
+All answers are collected and analyzed anonymously.
+Email addresses or other pieces of personal information are not collected.
+Even though the form requires logging in with a Google account, it is enforced
+only to avoid accidental re-submissions.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analysis}
 
 \begin{itemize}
-  \item Calculate a relative grade for priority of maintainability based on answers to question 4.
-  \item Interpret and list the suggestions from answers to questions 5 and 6.
+  \item Calculate a relative grade for priority of maintainability based on answers to question Q4.
+  \item Interpret and list the suggestions from answers to questions Q5 and Q6.
   \item Normalize the suggestions to find common categories.
   \item Find the most popular categories and point out possible outliers.
   \item Compare categories to solutions proposed in literature.
   \item Bonus: Calculate statistical correlation between years of experience and:
         \begin{itemize}
           \item perceived importance of maintainability
-          \item number of categories proposed in 5 and 6
-          \item popularity of categories proposed in 5 and 6
+          \item number of categories proposed in Q5 and Q6
+          \item popularity of categories proposed in Q5 and Q6
         \end{itemize}
 \end{itemize}
 
@@ -256,57 +276,104 @@ subsequent removal of the account.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Results}
 
+In this section I present the results I gathered from the survey. \todo{more}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Demographics (Q1-Q3)}
+
+\tmp{
+  Show the pie diagrams from Google Forms as-is? Table with counts for each option?
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Prioritization of maintainability (Q4)}
 
+To calculate a priority score for each quality attribute, I gave the options an incremental integer value from 1 to 5.
+The value 1 corresponds to option \textit{Least Important}, while value 5 corresponds to \textit{Most important}.
+The absolute values chosen here are not of importance as long as the difference between each consecutive option is equal,
+in order not to introduce additional bias.
+This makes our scale analogous to the Likert scale \todo{ref?}, which is often used for questionnaires in research.
+
+
 \begin{table}[!h]
   \begin{center}
-    \caption{Priority choices and their numerical weights}
+    \caption{Priority options and their numerical weights}
     \label{table:priorities1}
     \begin{tabular}{|c|c|}
       \hline
       \textbf{Priority} & \textbf{Weight} \\
       \hline
-      Most important & 5 \\
-      More important & 4 \\
-      Important & 3 \\
-      Less important & 2 \\
+      Most important  & 5 \\
+      More important  & 4 \\
+      Important       & 3 \\
+      Less important  & 2 \\
       Least important & 1 \\
       \hline
     \end{tabular}
   \end{center}
 \end{table}
 
+Table \ref{table:priorities2} shows the average priorities and other relevant metrics for the quality attributes.
 
 \begin{table}[!h]
   \begin{center}
-    \caption{Average priorities and other metrics for the quality attributes (QA)}
+    \caption{Average priorities and other metrics for the quality attributes}
     \label{table:priorities2}
     \begin{tabular}{|c|c|c|c|c|}
       \hline
-      \textbf{QA} & \textbf{Average} & \textbf{Min} & \textbf{Median} & \textbf{Max} \\
+      \textbf{QA} & \textbf{Average} & \textbf{Min} & \textbf{Mode} & \textbf{Max} \\
       \hline
-      Security & 4.07 & 1 & 5 & 5 \\
-      Reliability & 3.80 & 1 & 4 & 5 \\
-      Maintainability & 2.67 & 1 & 3 & 4 \\
-      Scalability & 2.27 & 1 & 2 & 5 \\
-      Performance & 2.20 & 1 & 2 & 4 \\
+      Security        & 4.07 & 1 & 5 & 5 \\
+      Reliability     & 3.80 & 1 & 5 & 5 \\
+      Maintainability & 2.67 & 1 & 2 & 4 \\
+      Scalability     & 2.27 & 1 & 1 & 5 \\
+      Performance     & 2.20 & 1 & 1 & 4 \\
       \hline
     \end{tabular}
   \end{center}
 \end{table}
 
 
-In table \ref{table:priorities3} are additionally listed the distances between the average priorities.
-From these values we can draw multiple conclusions.
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ways to improve maintainability (Q5 \& Q6)}
+
+\tmp{%
+Extract suggestions, split to categories, present here, etc.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experience vs. prioritization of maintainability}
+
+\tmp{should be simple}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experience vs. suggested ways to improve maintainability}
+
+\tmp{Slightly more involved. Which metrics to select?
+\begin{itemize}
+  \item number of suggestions?
+  \item popularity of suggestions in context of survey?
+  \item popularity of suggestions in the wider context of existing research?
+\end{itemize}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Discussion}
+
+In this section I further discuss the results presented in previous chapter.
+\tmp{I also consider the existing literature and contrast my results against findings of those who have researched the topic before me.}
+
+
+In table \ref{table:priorities3} are listed the distances between the average priorities.
+Distances are calculated from results shown in table \ref{table:priorities2}.
+From these distances we can draw multiple conclusions.
 The top two quality attributes, Security and Reliability, are unequivocally the most highly prioritized attributes in the minds of our cloud architects.
 The distance between second and third most prioritized attributes is by far the largest individual jump in values.
 Maintainability is sitting quite comfortable in the middle of the range.
-This likely means it is considered important, but not a priority if sacrifices need to be made to software quality
-Performance and scalability are considered least important items in an almost identical amount.
+This likely means it is considered important, but not a priority if sacrifices need to be made to software quality.
+Performance and scalability are considered least important items to an almost identical degree.
 
 \begin{table}[!h]
   \begin{center}
@@ -316,29 +383,15 @@ Performance and scalability are considered least important items in an almost id
       \hline
       \textbf{QA} & \textbf{Average} & \textbf{$\Delta$} \\
       \hline
-      Security & 4.07 & -\\
-      Reliability & 3.80 & 0.27\\
+      Security        & 4.07 & -   \\
+      Reliability     & 3.80 & 0.27\\
       Maintainability & 2.67 & 1.13\\
-      Scalability & 2.27 & 0.40\\
-      Performance & 2.20 & 0.07\\
+      Scalability     & 2.27 & 0.40\\
+      Performance     & 2.20 & 0.07\\
       \hline
     \end{tabular}
   \end{center}
 \end{table}
-      
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Ways to improve maintainability (Q5 \& Q6)}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Experience vs. prioritization of maintainability}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Experience vs. suggested ways to improve maintainability}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Discussion}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Conclusions}

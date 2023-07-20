@@ -88,9 +88,9 @@ I chose this topic for three reasons:
 \begin{enumerate}
   \item Choices made during the architectural design phase cascade into
         development and maintenance phases.
-        Mistakes and oversights are slower and more expensive to correct later. \todo{<SOURCE?>}
+        Mistakes and oversights are slower and more expensive to correct later. \parencite{Bass1998}
   \item Maintenance phase of the software lifecycle is prevalent.
-        It takes up the majority of total lifetime and costs. \todo{<SOURCE?>}
+        It takes up the majority of total lifetime and costs. \parencite{Bass1998}
   \item Cloud-native approach helps reduce time-to-market and move costs from
         capital expenditure to operational expenditure. \todo{<SOURCE?>}
         Utilizing a public cloud platform allows the company to leverage a
@@ -110,9 +110,9 @@ Finally, I will compare the survey results to approaches suggested in the litera
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Background}
 
-My main database for researching existing literature was the JYKDOK search engine for international articles \parencite{jykdok}.
+My main database for researching existing literature was the JYKDOK search engine for international articles \parencite{JYKDOK}.
 I decided to search keywords in abstracts, instead of full-text or only in title.
-In my opinion the full-text search would have been too lax, and title-only too strict.
+In my opinion the full-text search was too lax, and title-only too strict.
 With these search terms I received between 4 to 473 results per search, which was sufficient:
 \begin{itemize}
   \item (Abstract:"cloud native" AND Abstract:maintainability)
@@ -130,17 +130,58 @@ In case of one specific article I emailed the authors \footnote{\textcite{Bogner
 
 I also employed an ad-hoc lightweight version of snowballing from bibliographies of
 promising sources, e.g. \todo{example here?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cloud-nativity}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Architecture as a software lifecycle phase}
+\section{Architecture as a software licecycle phase}
+
+\subsection{Software architecture}
+\tmp{At least Bass1998, Bass2003, etc }
+
+\parencite{Bass1998}:
+
+\textcite{Bass1998} define software architecture as follows:
+
+\begin{quote}
+The software architecture of a program or computing system is the structure or structures of the system, which comprise software elements, the externally visible properties of those elements, and the relationships among them.
+\end{quote}
+
+asd
+
+
+
+
+\subsection{Software licecycle}
+\tmp{Do I have sources? Bass? Snowball from Kaihlavirta2022?}
+
+\subsection{Advice for designing a good architecture}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Maintainability}
 
+\subsection{Quality Attributes}
+
+\tmp{Functional and nonfunctional (runtime and non-runtime) attributes}
+\tmp{Subattributes for maintainability: modifiability, testability, observability, whatever}
+
+\subsection{How to measure maintainability}
+
+\tmp{And how measuring is difficult}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cloud-nativity}
+
+\tmp{Definitions from AWS, Microsoft, Google, CNAF, research...}
+\subsection{History}
+
+\subsection{Microservices}
+
+\subsection{Serverless}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Maintainability in cloud-native architecture}
+\tmp{Tie all the above topics together here}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Method}

@@ -273,8 +273,124 @@ is sprung. Imagine, for example, the tides created by the first relational
 databases, spreadsheets, windowing systems, or WWW itself. \parencite[10-11]{Bass1998}.
 
 
-\subsection{Software licecycle}
-\tmp{Do I have sources? Bass? Snowball from Kaihlavirta2022?}
+\subsection{Software life cycle}
+Every software system has a life cycle \parencite[17]{IEEE12207}. A life cycle model is a
+framework that contains the processes, activities and tasks used during the life
+of the system, from initial requirements gathering to the termination of its use
+\parencite[3]{IEEE42010}. The specific life cycle stages depend on the chosen life cycle
+model, of which there are many to choose from: incremental, spiral, iterative,
+evolutionary, and so on. Usually there is an initial planning stage, where the
+need for a new software system arises. After the need is verified, requirements
+are gathered. Next there might be a prototyping phase where multiple
+architectures are rapidly mocked and evaluated. Once a rough architectural
+direction is chosen, an initial architectural definition is formed. After it is
+validated, there often follows an iterative cycle where analysis, design,
+implementation, verification, validation and delivery are repeated and
+intertwined. \parencite[18]{IEEE12207}.
+
+\textcite{Koskimies2005} suggest an architecture-oriented software
+development process. It highlights architectural design and evaluation as a
+crucial life cycle stage before moving onto detailed design and implementation.
+Architecture should be devised incrementally and iteratively from the
+requirements most relevant to architecture. Usually it is good to start from
+functional requirements, after which the non-functional qualities must be
+pursued. \parencite{Koskimies2005}.
+
+In this thesis we don't cling to any particular software lifecycle model.
+Instead we rely on the general notion that the initial architecture definition
+and architectural design happens early on in the life cycle of a software
+system. Naturally, the requirements, architecture or detailed design might need
+refinement also later on during operations and maintenance when using an
+iterative life cycle model \parencite{IEEE12207}. We will focus on the early choices and
+design decisions that influence the activities for the rest of the software
+lifecycle. We can call these architectural activities as "architecting", which
+comprises defining, documenting, maintaining, improving and certifying proper
+implementation of an architecture \parencite[3]{IEEE42010}. In addition to these
+architecting activities, \textcite[12]{Bass1998} mention creating a business case
+for the system, and implementing the system based on the architecture.
+
+\textcite{IEEE12207} defines processes related to architecture and design. Next we will
+make a distinction between two related but separate processes: the Architectural
+Definition process, and the Design Definition process. The purpose of the
+Architectural Definition process, as outlined in \textcite[66]{IEEE12207}, is threefold.
+First, the architect should create alternatives for a system's architecture.
+Then, we should choose one or multiple alternatives that properly frame the
+stakeholders' needs and fulfill the requirements placed on the system. Lastly,
+all of this should be described with a set of uniform views.
+
+At a lower abstraction level, the Design Definition process \parencite[71]{IEEE12207} is
+supposed to provide enough detailed data and information about the system and
+its components for implementation to be in line with the architectural entities.
+It involves preparing for software system design definition by e.g. prioritizing
+design principles and characteristic, identifying and planning for necessary
+enabling systems and services, and obtaining access to those enabling systems or
+services. Then we should establish designs related to each software element.
+This goes deep in the technical details, such as database structures, provisions
+for memory and storage, software processes, and external interfaces. \parencite[72]{IEEE12207}.
+In this thesis we consider this realm of "design" or "detailed design" to
+belong to software developers instead of architects.
+
+As we've discussed before, architecture is at a higher level of abstraction than
+design \parencite{IEEE12207}. Architecture focuses on suitability, viability and
+desirability that the architecture is supposed to provide. Meanwhile, design is
+focused on compatibility with technologies and other design elements, and
+feasibility of implementation and integration. An efficient architecture is as
+design-agnostic as possible, to provide most flexibility in planning the said
+design.\parencite[71]{IEEE12207}. Because "design" is such an ambiguous word, in this
+thesis we will use it in accordance to the definition from \textcite{IEEE12207} as an activity
+separate from architecting, unless used in conjunction with with "architectual",
+as in "architectual design".
+
+According to \textcite[71-72]{IEEE12207}, selecting the technologies for implementation
+and considering compatibility with technologies also falls under the Design
+Definition process. In my experience with public cloud providers such as Amazon
+Web Services, Microsoft Azure and Google cloud, implementation technologies are
+at least to some degree decided by architects instead of software developers.
+The architect wants to know which cloud platform is required or preferred by the
+customer, in order to reduce the technology space to a reasonable set of
+alternative services provided by the platform. The architect can then work with
+the available services to compose an architecture that best serves the
+stakeholders' needs. The finer details, such as the choice of programming
+language or code-level design patterns, can be left to software developers, as
+also implied by the ISO/IEC standards.
+
+Maintenance stage is a phase in software life cycle that is often considered
+less glamorous than working on greenfield projects and building the next
+software hit. Despite this, it is generally accepted that a substantial portion
+of the total cost of software is spent on maintenance. \textcite[32]{Bass1998} go as far
+as to say this figure is close to 80\%. Obviously the actual numbers might be
+slightly different these days 25 years after their estimate, but the implication
+holds: considering maintenance efforts as early as possible in the software life
+cycle can pay off. \textcite[1]{Mumtaz2021} echo that architectural issues should be
+tackled in a timely manner, because the cost of fixing those kinds of problems
+later can be exceptionally high.
+
+\textcite{IEEE12207} outlines the Maintenance process, which in general comes later in the
+life cycle after Architectural Definition and Design Definition processes. Its
+purpose is to sustain the capability of the system to provide a service. This
+can be achieved by monitoring the system's capability to deliver services;
+recording incidents for analysis; taking corrective, adaptive, perfective and
+preventive actions; and confirming restored capability. In practice, preparing
+for maintenance should begin already during architecting. It is necessary to
+consider constraints placed on the architecture by maintenance-related
+requirements. This can be done, for example, by emphasizing encapsulation,
+modularity, and scalability. Documenting the architecture and system reduces the
+efforts required to reverse-engineer the system and components when a fix is
+needed. The decisions made during architecting can also affect the need and
+possibilities for e.g. remote diagnostics and maintenance, roll back, backup,
+and recovering data. \parencite[95-96]{IEEE12207}.
+
+Tasks performed during maintenance activities vary between systems and
+organizations. There is a need to review stakeholder requirements, complaints,
+events, incident and problem reports in order to identify the type of
+maintenance effort needed \parencite{IEEE12207}. If the organization has adopted an
+iterative software life cycle model, software requirements might change during
+maintenance. This change in requirements can be a source for adaptive and
+perfective maintenance activities. In that case there will be a need to make
+corrections, improvements or other changes to software that is already deployed
+\parencite[97]{IEEE12207}. As \textcite[32]{Bass1998} points out, having a good grasp of the
+architecture will help manage changes and reason about them.
+
 
 \subsection{Advice for designing a good architecture}
 

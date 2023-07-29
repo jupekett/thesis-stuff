@@ -394,6 +394,48 @@ architecture will help manage changes and reason about them.
 
 \subsection{Advice for designing a good architecture}
 
+Because every system has an architecture, you can create an architecture through
+the simple method of trial and error. Unfortunately, an architecture built this
+way is unlikely to fulfill the requirements and goals placed on it \parencite[24]{Bass1998}.
+He outlines some helpful advice for creating an architecture from the
+correct principles. These rules of thumb are divided into two categories:
+process-related and structure-related advice.
+
+First we will delve into the process-related topics. As a general rule, there
+should be a single architect or a team of architects with a designated leader
+\parencite[15]{Bass1998}. Functional requirements and a prioritized list of quality
+attributes should be listed, so that the architecture can be steered towards
+achieving them. The architecture should be formally evaluated for quality
+attributes, and analyzed for applicable quantitative measures, such as maximum
+throughput. Having an architecture support iterative implementation makes
+integration and testing easier: a "skeleton system" can prove that component
+communication works, even with otherwise minimal functionality. The architect is
+also responsible for defining, distributing, maintaining and enforcing resource
+constraints to the responsible implementation teams. For example, there might be
+limits to network traffic or hardware performance that the teams must heed. A
+good documentation is also a must, with at least one static view and one dynamic
+view, written in a notation that all stakeholders can understand with minimal
+effort. Speaking of stakeholders, they should be actively participating in
+evaluating the architecture, to ensure their needs are being met. \parencite[15]{Bass1998}. 
+
+Next up are the structure-related pieces of wisdom. \textcite[16]{Bass1998} state that
+modules should be well defined, with a clear separation of concerns and
+following the principles of information hiding. Their interfaces should also be
+well defined, and encapsulate any details that might change during
+implementation, such as choice of data structures. To improve modifiability, the
+modules that produce data should be kept separate from those that consume data.
+Between the modules, there should be only a small set of different ways of
+interaction, which is to say, the system should perform similar tasks in a
+similar fashion all around. This helps improve understandability, reliability
+and modifiability, with an added benefit of shorted development time and
+conceptual integrity of the architecture. Each quality attribute should be
+strived towards with well known architectural tactics that suit it. The
+architecture should not depend on any specific version of a commercial product
+or tool, or if it does, changing the product or tool should be both
+straightforward and cheap. If working close to hardware, changing the processor
+allocated for each task or process should be easy even at runtime. In case of
+parallel-processing systems, special care should be given to processes or tasks
+that touch multiple modules. \parencite[16]{Bass1998}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -147,7 +147,7 @@ definition as follows:
   visible properties of those elements, and the relationships among them."
 \end{quote}
 
-A software system is a collection of software components organized to accomplish
+A \textbf{software system} is a collection of software components organized to accomplish
 a specific function or set of functions \parencite[3]{IEEE42010}. These components --- or
 elements --- can be entities of varying size: objects, processes, libraries,
 databases, commercial software, and so on. In its most trivial case, we can
@@ -156,7 +156,7 @@ architecture, but practically useless due to lack of necessary details
 \parencite[24]{Bass1998}. A software architect is a person, team or organization
 responsible for systems architecture \parencite[3]{IEEE42010}.
 
-\textcite[53]{Koskimies2005} define a component as an individual software
+\textcite[53]{Koskimies2005} define a \textbf{component} as an individual software
 unit that offers its services through well-defined interfaces. Implementation
 details of the components are not considered part of architecture, but their
 interactions are. Without describing the interactions we end up with a "bubbles
@@ -164,13 +164,13 @@ and lines" diagram which is not sufficient to describe an architecture
 \parencite[24]{Bass1998}.
 
 A system can comprise more than one structure \parencite[23]{Bass1998}. Because
-"structure" is an abstract concept, it can change depending on perspective. A
-architectural view models some aspect of the system \parencite{Koskimies2005}. It is a
+"structure" is an abstract concept, it can change depending on perspective. An
+\textbf{architectural view} models some aspect of the system \parencite{Koskimies2005}. It is a
 representation of a whole system from the perspective of a related set of
-concerns, such as a specific shareholder's specific concern \parencite[3]{IEEE42010}. A
-shareholder is an individual, team or organization with interests in, or
+concerns, such as a specific stakeholder's specific concern \parencite[3]{IEEE42010}. A
+\textbf{stakeholder} is an individual, team or organization with interests in, or
 concerns relative to, a system. Examples include clients, users, the architect,
-developers, reviewers, and so on.\parencite[3]{IEEE42010}. Examples of architectural
+developers, reviewers, and so on. \parencite[3]{IEEE42010}. Examples of architectural
 views include a scenario view, logical view, process view,
 development view, physical view, and modification view. They are partly
 overlapping: when a specific part of a system is changed, we often need to apply
@@ -209,7 +209,7 @@ implementation \parencite{Koskimies2005}.
 
 When selecting a reference architecture or a fundamental
 architectural style, we are dealing with a generic solution that will be further
-specified later. An architectural style is a general, high-level guideline for
+specified later. An \textbf{architectural style} is a general, high-level guideline for
 structuring the components and their responsibilities \parencite[24]{Bass1998}. For
 example, client-server architecture is an architectural style. It is not an
 architecture in itself: terminology is generic or domain-specific, and the style
@@ -219,7 +219,7 @@ architectural style. \parencite[24]{Bass1998}.
 
 As we've read, architecture is of utmost importance for the implementation and
 future of the system. Because of this, it seems common sense to document
-it somehow. \textcite[24]{Bass1998} define an architectural description (AD) as a
+it somehow. \textcite[24]{Bass1998} define an \textbf{architectural description (AD)} as a
 collection of products to document an architecture \parencite[3]{IEEE42010}. As such, it
 is a concrete artifact. They go on to note that an architecture can live
 independently of its description or specification \parencite[24]{Bass1998}. \textcite[27]{Bass1998}
@@ -236,7 +236,7 @@ consultation. \parencite[7]{IEEE42010}.
 
 An architecture doesn't spawn out of nothing. Software architecture is based on,
 among other things, the requirements placed on it \parencite{Bass1998}. Requirements
-codify the collective wishes and needs that various shareholders want from the
+codify the collective wishes and needs that various stakeholders want from the
 system. If requirements were the only input to software development, then an
 identical set of requirements would result in two pieces of identical
 architectures, even from two entirely unrelated organizations. \parencite[5-9]{Bass1998}.
@@ -274,7 +274,7 @@ databases, spreadsheets, windowing systems, or WWW itself. \parencite[10-11]{Bas
 
 
 \subsection{Software life cycle}
-Every software system has a life cycle \parencite[17]{IEEE12207}. A life cycle model is a
+Every software system has a life cycle \parencite[17]{IEEE12207}. A \textbf{life cycle model} is a
 framework that contains the processes, activities and tasks used during the life
 of the system, from initial requirements gathering to the termination of its use
 \parencite[3]{IEEE42010}. The specific life cycle stages depend on the chosen life cycle
@@ -310,15 +310,15 @@ architecting activities, \textcite[12]{Bass1998} mention creating a business cas
 for the system, and implementing the system based on the architecture.
 
 \textcite{IEEE12207} defines processes related to architecture and design. Next we will
-make a distinction between two related but separate processes: the Architectural
-Definition process, and the Design Definition process. The purpose of the
+make a distinction between two related but separate processes: the \textbf{Architectural
+  Definition process}, and the Design Definition process. The purpose of the
 Architectural Definition process, as outlined in \textcite[66]{IEEE12207}, is threefold.
 First, the architect should create alternatives for a system's architecture.
 Then, we should choose one or multiple alternatives that properly frame the
 stakeholders' needs and fulfill the requirements placed on the system. Lastly,
 all of this should be described with a set of uniform views.
 
-At a lower abstraction level, the Design Definition process \parencite[71]{IEEE12207} is
+At a lower abstraction level, the \textbf{Design Definition process} \parencite[71]{IEEE12207} is
 supposed to provide enough detailed data and information about the system and
 its components for implementation to be in line with the architectural entities.
 It involves preparing for software system design definition by e.g. prioritizing
@@ -354,7 +354,7 @@ stakeholders' needs. The finer details, such as the choice of programming
 language or code-level design patterns, can be left to software developers, as
 also implied by the ISO/IEC standards.
 
-Maintenance stage is a phase in software life cycle that is often considered
+\textbf{Maintenance stage} is a phase in software life cycle that is often considered
 less glamorous than working on greenfield projects and building the next
 software hit. Despite this, it is generally accepted that a substantial portion
 of the total cost of software is spent on maintenance. \textcite[32]{Bass1998} go as far
@@ -365,7 +365,7 @@ cycle can pay off. \textcite[1]{Mumtaz2021} echo that architectural issues shoul
 tackled in a timely manner, because the cost of fixing those kinds of problems
 later can be exceptionally high.
 
-\textcite{IEEE12207} outlines the Maintenance process, which in general comes later in the
+\textcite{IEEE12207} outlines the \textbf{Maintenance process}, which in general comes later in the
 life cycle after Architectural Definition and Design Definition processes. Its
 purpose is to sustain the capability of the system to provide a service. This
 can be achieved by monitoring the system's capability to deliver services;
@@ -392,7 +392,7 @@ corrections, improvements or other changes to software that is already deployed
 architecture will help manage changes and reason about them.
 
 
-\subsection{Advice for designing a good architecture}
+\subsection{General advice for achieving a good architecture}
 
 Because every system has an architecture, you can create an architecture through
 the simple method of trial and error. Unfortunately, an architecture built this
@@ -401,7 +401,7 @@ He outlines some helpful advice for creating an architecture from the
 correct principles. These rules of thumb are divided into two categories:
 process-related and structure-related advice.
 
-First we will delve into the process-related topics. As a general rule, there
+First we will delve into the \textbf{process-related} topics. As a general rule, there
 should be a single architect or a team of architects with a designated leader
 \parencite[15]{Bass1998}. Functional requirements and a prioritized list of quality
 attributes should be listed, so that the architecture can be steered towards
@@ -416,9 +416,9 @@ limits to network traffic or hardware performance that the teams must heed. A
 good documentation is also a must, with at least one static view and one dynamic
 view, written in a notation that all stakeholders can understand with minimal
 effort. Speaking of stakeholders, they should be actively participating in
-evaluating the architecture, to ensure their needs are being met. \parencite[15]{Bass1998}. 
+evaluating the architecture, to ensure their needs are being met. \parencite[15]{Bass1998}.
 
-Next up are the structure-related pieces of wisdom. \textcite[16]{Bass1998} state that
+Next up are the \textbf{structure-related} pieces of wisdom. \textcite[16]{Bass1998} state that
 modules should be well defined, with a clear separation of concerns and
 following the principles of information hiding. Their interfaces should also be
 well defined, and encapsulate any details that might change during

@@ -100,9 +100,9 @@ I chose this topic for three reasons:
 
 \todo{REWRITE! Check thesis template for good suggestions}
 \tmp{First I will ascertain the perceived importance of maintainability.
-Then I will categorize the suggested approaches for addressing maintainability
-and contrast this to the respondents' years of experience in the target domain.
-Finally, I will compare the survey results to approaches suggested in the literature.}
+  Then I will categorize the suggested approaches for addressing maintainability
+  and contrast this to the respondents' years of experience in the target domain.
+  Finally, I will compare the survey results to approaches suggested in the literature.}
 
 \todo{last thing: thesis structure}
 
@@ -135,19 +135,142 @@ promising sources, e.g. \todo{example here?}
 \section{Architecture as a software licecycle phase}
 
 \subsection{Software architecture}
-\tmp{At least Bass1998, Bass2003, etc }
 
-\parencite{Bass1998}:
-
-\textcite{Bass1998} define software architecture as follows:
+What is software architecture? We can begin by stating that every software
+system has one. The architecture exists even if no-one present knows any details
+about it \parencite[24]{Bass1998}. \textcite[23]{Bass1998} provide us a
+definition as follows:
 
 \begin{quote}
-The software architecture of a program or computing system is the structure or structures of the system, which comprise software elements, the externally visible properties of those elements, and the relationships among them.
+  "The software architecture of a program or computing system is the structure or
+  structures of the system, which comprise software elements, the externally
+  visible properties of those elements, and the relationships among them."
 \end{quote}
 
-asd
+A software system is a collection of software components organized to accomplish
+a specific function or set of functions \parencite[3]{IEEE42010}. These components --- or
+elements --- can be entities of varying size: objects, processes, libraries,
+databases, commercial software, and so on. In its most trivial case, we can
+consider the entire system to be a single component. This is indeed an
+architecture, but practically useless due to lack of necessary details
+\parencite[24]{Bass1998}. A software architect is a person, team or organization
+responsible for systems architecture \parencite[3]{IEEE42010}.
 
+\textcite[53]{Koskimies2005} define a component as an individual software
+unit that offers its services through well-defined interfaces. Implementation
+details of the components are not considered part of architecture, but their
+interactions are. Without describing the interactions we end up with a "bubbles
+and lines" diagram which is not sufficient to describe an architecture
+\parencite[24]{Bass1998}.
 
+A system can comprise more than one structure \parencite[23]{Bass1998}. Because
+"structure" is an abstract concept, it can change depending on perspective. A
+architectural view models some aspect of the system \parencite{Koskimies2005}. It is a
+representation of a whole system from the perspective of a related set of
+concerns, such as a specific shareholder's specific concern \parencite[3]{IEEE42010}. A
+shareholder is an individual, team or organization with interests in, or
+concerns relative to, a system. Examples include clients, users, the architect,
+developers, reviewers, and so on.\parencite[3]{IEEE42010}. Examples of architectural
+views include a scenario view, logical view, process view,
+development view, physical view, and modification view. They are partly
+overlapping: when a specific part of a system is changed, we often need to apply
+changes in multiple views. \parencite{Koskimies2005}.
+
+Architecture represents the first design decisions of a system \parencite{Bass1998}. It is
+difficult to get it right the first time, and can be laborious to alter down the
+road. In worst case, there is a need for an architectural change, which might
+result in changes across the entire system and changes to interaction between
+components. If we instead can limit the change to a group of components or only
+a single one, the change will be easier to carry out. \parencite[31]{Bass1998}
+
+Out of most design artifacts, architecture has most far-reaching consequences
+\parencite[31]{Bass1998}. It will place constraints on implementation and
+maintenance: will the system support the required functions;
+how easy is it to test, maintain, change and extend; how large data masses can
+it process, and so on \parencite{Koskimies2005}.
+
+The architecture might even have effect on the development organization by
+nudging towards a specific way to divide tasks to teams by structure of its
+components \parencite[31]{Bass1998}. This is somewhat contrary to Conway's law
+\footnote{https://en.wikipedia.org/wiki/Conway\%27s\_law} which states that the
+technical structure of a system will reflect the social boundaries across the
+organizations that produced it. I suppose that in an agile organization the
+social structure is malleable enough to be impacted by a new system, when new
+teams need to be formed to facilitate the development.
+
+According to \textcite{Koskimies2005}, architecture lies on a higher
+abstraction level than implementation. The lower abstraction level of a system
+manifests as source code \parencite[24]{Bass1998}. This might be named as "the
+implementation", or "design" as named in \textcite{IEEE12207}. Also \textcite[4]{IEEE42010} states
+that architecture is conceptual instead of concrete. This goes hand in hand with
+the used vocabulary. With architecture, we are using the vocabulary of the
+solution, and are further away from the problem domain than during
+implementation \parencite{Koskimies2005}.
+
+When selecting a reference architecture or a fundamental
+architectural style, we are dealing with a generic solution that will be further
+specified later. An architectural style is a general, high-level guideline for
+structuring the components and their responsibilities \parencite[24]{Bass1998}. For
+example, client-server architecture is an architectural style. It is not an
+architecture in itself: terminology is generic or domain-specific, and the style
+is not specific enough to address the requirements set for your new system.
+Countless different kinds of architectures can be implemented with the same
+architectural style. \parencite[24]{Bass1998}.
+
+As we've read, architecture is of utmost importance for the implementation and
+future of the system. Because of this, it seems common sense to document
+it somehow. \textcite[24]{Bass1998} define an architectural description (AD) as a
+collection of products to document an architecture \parencite[3]{IEEE42010}. As such, it
+is a concrete artifact. They go on to note that an architecture can live
+independently of its description or specification \parencite[24]{Bass1998}. \textcite[27]{Bass1998}
+outscope the documentation of guiding processes from actual architecture.  In
+contrast, \textcite[3]{IEEE42010} mentions "... and principles guiding its design and
+evolution". The standard states that chosen architectural concepts, as well as
+considered alternatives, must be justified in the description. According to
+\textcite[67]{IEEE12207}, the description can be utilized at multiple different levels of
+abstraction, at each level emphasizing the details necessary for that level. If
+an AD is not available, it can be reverse-engineered from an existing system.
+This might be needed if, for example, it was originally developed without a
+description, or if the original architect is no longer available for
+consultation. \parencite[7]{IEEE42010}.
+
+An architecture doesn't spawn out of nothing. Software architecture is based on,
+among other things, the requirements placed on it \parencite{Bass1998}. Requirements
+codify the collective wishes and needs that various shareholders want from the
+system. If requirements were the only input to software development, then an
+identical set of requirements would result in two pieces of identical
+architectures, even from two entirely unrelated organizations. \parencite[5-9]{Bass1998}.
+
+As we can see, the organization, architect or architects, and the technical
+environment greatly influence how software systems are built \parencite{Bass1998}. The
+organization might have other existing products, architectures or assets that
+can be utilized. The organization has some individual structure, goals and
+long-term investments, and personnel with specific skills and availability.
+Especially the architects' background and experience is pivotal in deciding the
+course for the architecture. The architect might lean on a familiar
+architectural style that they have had success with in the past, and vice versa
+with an unhappy experience. Their professional community can infuse into the new
+system a set of standard industry practices and software engineering techniques.
+\parencite[5-9]{Bass1998}.
+
+The architecture cause feedback to its background factors, such as the
+organization, customers, architects and the software engineering culture in
+general \parencite{Bass1998}. Because an architecture dictates the structure of a software
+system, it influences the structure of the development project with respect to
+team formation, schedules and budgets. If the architecture is seen as
+successful, it might be used in future projects, and then the team structure
+might become a permanent part of the organization. The software might also offer
+a foothold in a certain market area, and this way the organization could update
+its goals to take advantage of this new possibility. Customers will likely grow
+fond of a good software product, which lowers the threshold for reusing a
+battle-tested architecture, because this is more economical than building a new
+one from scratch. The architects themselves gain more experience from this
+specific system, which means that the system's success or failure will affect
+architectural choices made in future projects. When looking through a wider
+lens, an especially novel and successful architecture might influence the
+software engineering culture as a whole, outside of the organization from which
+is sprung. Imagine, for example, the tides created by the first relational
+databases, spreadsheets, windowing systems, or WWW itself. \parencite[10-11]{Bass1998}.
 
 
 \subsection{Software licecycle}

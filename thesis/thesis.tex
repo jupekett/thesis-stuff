@@ -115,14 +115,14 @@ I decided to search keywords in abstracts, instead of full-text or only in title
 In my opinion the full-text search was too lax, and title-only too strict.
 With these search terms I received between 4 to 473 results per search, which was sufficient:
 \begin{itemize}
-  \item (Abstract:"cloud native" AND Abstract:maintainability)
-  \item (Abstract:"cloud native" AND Abstract:architecture)
-  \item (Abstract:"cloud native" AND Abstract:maintenance)
+  \item (Abstract:''cloud native'' AND Abstract:maintainability)
+  \item (Abstract:''cloud native'' AND Abstract:architecture)
+  \item (Abstract:''cloud native'' AND Abstract:maintenance)
   \item (Abstract:architecture AND Abstract:maintainability AND Abstract:cloud)
   \item (Abstract:serverless AND Abstract:maintainability)
   \item (Abstract:serverless AND Abstract:operations)
-  \item (Abstract:"cloud-native" AND Abstract:quality AND Abstract:attribute)
-  \item (Abstract:software AND Abstract:"quality attribute" AND Abstract:maintainability)
+  \item (Abstract:''cloud-native'' AND Abstract:quality AND Abstract:attribute)
+  \item (Abstract:software AND Abstract:''quality attribute'' AND Abstract:maintainability)
 \end{itemize}
 
 To my chagrin, I was unable to find full-text of some articles with promising abstracts.
@@ -142,9 +142,9 @@ about it \parencite[24]{Bass1998}. \textcite[23]{Bass1998} provide us a
 definition as follows:
 
 \begin{quote}
-  "The software architecture of a program or computing system is the structure or
+  The software architecture of a program or computing system is the structure or
   structures of the system, which comprise software elements, the externally
-  visible properties of those elements, and the relationships among them."
+  visible properties of those elements, and the relationships among them.
 \end{quote}
 
 A \textbf{software system} is a collection of software components organized to accomplish
@@ -159,12 +159,12 @@ responsible for systems architecture \parencite[3]{IEEE42010}.
 \textcite[53]{Koskimies2005} define a \textbf{component} as an individual software
 unit that offers its services through well-defined interfaces. Implementation
 details of the components are not considered part of architecture, but their
-interactions are. Without describing the interactions we end up with a "bubbles
-and lines" diagram which is not sufficient to describe an architecture
+interactions are. Without describing the interactions we end up with a ''bubbles
+and lines'' diagram which is not sufficient to describe an architecture
 \parencite[24]{Bass1998}.
 
 A system can comprise more than one structure \parencite[23]{Bass1998}. Because
-"structure" is an abstract concept, it can change depending on perspective. An
+''structure'' is an abstract concept, it can change depending on perspective. A
 \textbf{architectural view} models some aspect of the system \parencite{Koskimies2005}. It is a
 representation of a whole system from the perspective of a related set of
 concerns, such as a specific stakeholder's specific concern \parencite[3]{IEEE42010}. A
@@ -200,8 +200,8 @@ teams need to be formed to facilitate the development.
 
 According to \textcite{Koskimies2005}, architecture lies on a higher
 abstraction level than implementation. The lower abstraction level of a system
-manifests as source code \parencite[24]{Bass1998}. This might be named as "the
-implementation", or "design" as named in \textcite{IEEE12207}. Also \textcite[4]{IEEE42010} states
+manifests as source code \parencite[24]{Bass1998}. This might be named as ''the
+implementation'', or ''design'' as named in \textcite{IEEE12207}. Also \textcite[4]{IEEE42010} states
 that architecture is conceptual instead of concrete. This goes hand in hand with
 the used vocabulary. With architecture, we are using the vocabulary of the
 solution, and are further away from the problem domain than during
@@ -224,8 +224,8 @@ collection of products to document an architecture \parencite[3]{IEEE42010}. As 
 is a concrete artifact. They go on to note that an architecture can live
 independently of its description or specification \parencite[24]{Bass1998}. \textcite[27]{Bass1998}
 outscope the documentation of guiding processes from actual architecture.  In
-contrast, \textcite[3]{IEEE42010} mentions "... and principles guiding its design and
-evolution". The standard states that chosen architectural concepts, as well as
+contrast, \textcite[3]{IEEE42010} mentions ''... and principles guiding its design and
+evolution''. The standard states that chosen architectural concepts, as well as
 considered alternatives, must be justified in the description. According to
 \textcite[67]{IEEE12207}, the description can be utilized at multiple different levels of
 abstraction, at each level emphasizing the details necessary for that level. If
@@ -303,7 +303,7 @@ system. Naturally, the requirements, architecture or detailed design might need
 refinement also later on during operations and maintenance when using an
 iterative life cycle model \parencite{IEEE12207}. We will focus on the early choices and
 design decisions that influence the activities for the rest of the software
-lifecycle. We can call these architectural activities as "architecting", which
+lifecycle. We can call these architectural activities as ''architecting'', which
 comprises defining, documenting, maintaining, improving and certifying proper
 implementation of an architecture \parencite[3]{IEEE42010}. In addition to these
 architecting activities, \textcite[12]{Bass1998} mention creating a business case
@@ -327,7 +327,7 @@ enabling systems and services, and obtaining access to those enabling systems or
 services. Then we should establish designs related to each software element.
 This goes deep in the technical details, such as database structures, provisions
 for memory and storage, software processes, and external interfaces. \parencite[72]{IEEE12207}.
-In this thesis we consider this realm of "design" or "detailed design" to
+In this thesis we consider this realm of ''design'' or ''detailed design'' to
 belong to software developers instead of architects.
 
 As we've discussed before, architecture is at a higher level of abstraction than
@@ -336,10 +336,10 @@ desirability that the architecture is supposed to provide. Meanwhile, design is
 focused on compatibility with technologies and other design elements, and
 feasibility of implementation and integration. An efficient architecture is as
 design-agnostic as possible, to provide most flexibility in planning the said
-design.\parencite[71]{IEEE12207}. Because "design" is such an ambiguous word, in this
+design.\parencite[71]{IEEE12207}. Because ''design'' is such an ambiguous word, in this
 thesis we will use it in accordance to the definition from \textcite{IEEE12207} as an activity
-separate from architecting, unless used in conjunction with with "architectual",
-as in "architectual design".
+separate from architecting, unless used in conjunction with with ''architectual'',
+as in ''architectual design''.
 
 According to \textcite[71-72]{IEEE12207}, selecting the technologies for implementation
 and considering compatibility with technologies also falls under the Design
@@ -408,7 +408,7 @@ attributes should be listed, so that the architecture can be steered towards
 achieving them. The architecture should be formally evaluated for quality
 attributes, and analyzed for applicable quantitative measures, such as maximum
 throughput. Having an architecture support iterative implementation makes
-integration and testing easier: a "skeleton system" can prove that component
+integration and testing easier: a ''skeleton system'' can prove that component
 communication works, even with otherwise minimal functionality. The architect is
 also responsible for defining, distributing, maintaining and enforcing resource
 constraints to the responsible implementation teams. For example, there might be

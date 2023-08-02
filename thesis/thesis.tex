@@ -586,15 +586,185 @@ at the start of the new millennium. Even outside such one-off
 situations, software can touch the underlying operating system and network
 infrastructure in many places: library versions, directory paths, IP addresses
 and hostnames, and so on \parencite{Heroku2011}. The above Jargon File \footnote{The Jargon
-File is a ''comprehensive compendium of hacker slang illuminating many aspects
-of hackish tradition, folklore, and humor.''
-\url{http://www.catb.org/jargon/html/online-preface.html}} entry about software
+  File is a ''comprehensive compendium of hacker slang illuminating many aspects
+  of hackish tradition, folklore, and humor.''
+  \url{http://www.catb.org/jargon/html/online-preface.html}} entry about software
 rot advises to employ robust design to deflect such problems. Based on what
 we've discussed in this chapter, I consider taking care of maintainability part
 of robust design.
 
 
 \subsection{How to measure maintainability}
+
+As discussed before, problems discovered early in the software development life
+cycle are easier to address \parencite{Bass1998}. At that point you still have a chance to
+adjust requirements, specification or design with relatively low cost. Software
+quality cannot be ''appended'' to the project afterwards, but must instead be baked in
+deliberately. Qualities of a system can be anticipated by evaluating the
+architecture. This means we should evaluate the architecture as soon as
+feasible. To evaluate a certain quality attribute, we must make sure we have the
+necessary architectural descriptions at hand. For example when evaluating
+modifiability --- a subcategory of maintainability --- we need at least a
+decomposition that shows us the different modules and how tasks are distributed
+between them. \parencite[32, 190-191]{Bass1998}.
+
+It is necessary to decouple quality attributes from effort estimations in our
+daily work. \textcite{Moses2009} points out that maintainability of a software
+module is intended to signify possible challenges posed by code for maintenance
+tasks. Maintainability cannot give you an estimate of how difficult a certain
+maintenance change will be or how long it will take. Unless the same change has
+been performed in exactly the same circumstances before, duration and
+possibility of success of a code change are only subjective estimates.
+Moses suggests two methods for estimating practical maintenance tasks. It can be
+given on an ordinal scale of e.g. 1-5 instead of an absolute time estimate. If a
+concrete estimate is necessary, two experts should voice their opinions, from
+which we can calculate an expected duration with confidence limits.
+\parencite[204]{Moses2009}.
+
+Vice versa, a prediction system for maintenance effort is not a prediction
+system for the quality attribute maintainability \parencite[206]{Moses2009}. Each
+maintenance effort includes factors that influence the duration of the activity.
+These factors include availability of documentation, amount of testing after the
+change, and skills of the maintenance team. Because it is obviously impossible
+to carry out and measure all possible maintenance activities for a system, the
+effort can only be measured from a subset of all possible maintenance
+activities. This means that, even in the best scenario, a system's
+maintainability can be estimated only for activities that are similar to ones
+that have already been performed before to this system. In the worst case, the
+measured effort can be misleading, if measured activities do not represent the
+actions that are carried out in practice. \parencite[206]{Moses2009}.
+
+\textcite{Broy2006} state that an evaluation criteria must be well-founded and
+checkable. Evaluating a whole software system is quite involved, and requires
+multiple kinds of evaluation methods. Source code can be automatically checked
+for syntactical properties. Other methods are semi-automatic, requiring some
+human actions. The rest are thoroughly manual, such as reviewing documentation,
+or evaluating whether the system employs correct data structures \parencite[22]{Broy2006}.
+Our focal point of interest, maintainability, is a high-level quality
+attribute, because it cannot be directly calculated from metrics \parencite[60]{Arvanitou2017}.
+
+There are ways to measure maintainability indirectly. In their study about
+designing microservice systems using patterns, \textcite[9]{Vale2022} found that
+the participating industry experts do not measure quality attributes directly.
+Instead, they measure quality attributes as a sum of lower-level attributes or
+processes related to the quality attributes in question. These lower-level
+attributes include measuring code coverage, time taken to resolve issues, and
+analysis of architectural debt, which all are indirect metrics for
+maintainability. Vale et al. reason that this might be because lower level
+attributes are easier to measure and check directly than maintainability. They
+also postulate that subjective understanding of quality attributes is very much
+personal and often vague. This makes it difficult to mutually agree on a
+definition inside your organization. Instead, participants rather liked to think directly
+of techniques and tools to tackle the related problems. \parencite[7-10]{Vale2022}.
+
+Automatic methods for assessing maintainability of a system usually limit
+themselves to the source code level. Such methods cannot be used to to evaluate
+an architecture before implementation has taken place. They are, however, useful
+after the fact, for example when following an iterative life cycle model.
+\textcite[1]{ISO5055} points out that faults in architectural or design practice can
+also be detected by statically analysing design specifications. This requires
+that the specification is written in a design language with a formal syntax and
+semantics. \textcite[2]{ISO5055} presents a long list of \textbf{Automated Source Code Quality
+  Measures (ASCQM)}, that provide strong indicators for the quality of a software
+system in each area. In my opinion, these are the architecture-related
+maintainability \textbf{weaknesses} \parencite[38-47]{ISO5055}:
+\begin{itemize}
+  \item invocation of a control element at an unnecessarily deep horizontal layer (layer-skipping call)
+  \item invokable control element with excessive file or data access operations
+  \item invokable control element with large number of outward calls (excessive coupling
+        or fan-out)
+  \item modules with circular dependencies
+\end{itemize}
+
+The standard also provides multiple \textbf{detection patterns}
+\parencite[2]{ISO5055}. They help detect structural weaknesses from code. One
+pattern can be used to detect multiple weaknesses. I would list the following
+maintainability detection patterns as related to architecture \parencite[48-54]{ISO5055}:
+\begin{itemize}
+  \item limit number of data access
+  \item limit number of outward calls
+  \item ban circular dependencies between modules
+\end{itemize}
+
+\textcite[63]{Arvanitou2017} note that there are two categories of metrics for
+quantifying quality attributes: those that can be evaluated through a single
+metric, and those evaluated with multiple. \textcite[66]{Arvanitou2017} list the
+following metrics relating to the architectural stage:
+\begin{itemize}
+  \item cyclomatic complexity
+  \item coupling factor
+  \item coupling between objects
+  \item number of modules
+  \item information flow (fan-out)
+  \item non-functional coverage
+  \item absolute adaptability of a service
+  \item relative adaptability of a service
+  \item mean of absolute adaptability of a service
+  \item mean of relative adaptability of a service
+  \item level of system adaptability
+\end{itemize}
+
+Most of the tools to calculate these metrics are unnamed, likely created in
+academia by research teams, and not available for public use \parencite{Arvanitou2017}. Maintainability is often connected to metrics, but is not always quantified
+as their function. Evaluating a quality attribute with a single function is
+non-trivial, which is why few research have suggested such a function for
+high-level attributes like maintainability. \parencite[67]{Arvanitou2017}.
+
+In regards to software, a ''\textbf{smell}'' is considered synonymous to antipattern,
+flaw or anomaly \parencite[1]{Mumtaz2021}. In their paper about architectural
+smells detection, \textcite[20]{Mumtaz2021} found that research tends to focus on
+dependency smells. Dependency smells are usually connected with coupling issues
+in the architecture, which relates to maintainability. Most detection tools can
+detect common dependency smells. They describe the different approaches to detect
+architectural smells in a software system \parencite[8-14]{Mumtaz2021}:
+\begin{itemize}
+  \item  graph-based
+  \item design structure matrix
+  \item model-driven
+  \item code smells analysis
+  \item reverse engineering and history-based
+  \item search-based
+  \item visualization
+  \item rules-based
+\end{itemize}
+
+\textbf{Graph-based} approach depicts system's components as nodes, and their
+relationships as edges \parencite{Mumtaz2021}. This makes it easy to notice
+problematic relationships between them. A \textbf{design structure matrix} is a
+two-dimensional matrix to represent the structural relationships of the
+software. This can be used to represent complex architectural components and
+their relationships. \textbf{Model-driven} approach represents structure and behavior of
+a system using abstractions and modeling. \textbf{Search-based} methods such as genetic
+programming are suitable for especially large datasets, and a \textbf{visualization}
+approach can help us understand large software systems with multivariate and
+multidimensional data. \parencite[9-14]{Mumtaz2021}.
+
+\textbf{Rules-based} approach takes advantage of metrics their thresholds and predefined
+frameworks, heuristics or guidelines \parencite[8]{Mumtaz2021}. It is related to
+code smells analysis, which combs through source code to identify code smells in
+order to detect architectural smells from them. This approach can find a
+correlation between subjective experiences and economical facts of the system
+\parencite[22]{Broy2006}. Downsides to a rules-based approach is that it
+concentrates on features that can be calculated automatically from source code,
+which restricts it to syntactical factors. Automatic checking is difficult to
+employ when scrutinizing suitability of data structures, or quality of
+documentation. Standards and guidelines might be too generic to be evaluated.
+This is a problem if there is no way to concretely check the impact or value of
+an attribute, such as modifiability. Some guidelines might also lack reasoning for
+the presented advice. Consider the proposition to keep method length to under 30
+lines of source code. Why 30? Who not 25 or 37? Without a solid argument, the
+advice will likely stay unheeded.  The approach also requires the user to
+additionally consider the organizational context for the automatically
+calculated result, or else it is useless in evaluating maintainability of the
+system as a whole. \parencite[22]{Broy2006}.
+
+\todo{Loppukaneetti? Miten voi/kannattaa mitata? Vai onko edes tarve päättää
+  mitään tiettyä minun tutkimukseeni, vai riittikö että kuvailin olemassaolevia
+  yllä?}
+
+\subsection{How to improve maintainability}
+
+\todo{copy notes and fix}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

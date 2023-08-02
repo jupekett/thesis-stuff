@@ -764,7 +764,101 @@ system as a whole. \parencite[22]{Broy2006}.
 
 \subsection{How to improve maintainability}
 
-\todo{copy notes and fix}
+Formalizing documenting the system as an explicit requirement lessens the need
+to reverse-engineer systems and elements during maintenance work
+\parencite[96]{IEEE12207}. Utilizing the available standards and system
+development methodologies help create systems that are easily understandable.
+This results in systems that require less effort to maintain.
+\parencite[608]{Gorla2010}.
+
+\textcite{Broy2006} remind us to separate ''facts'' from ''acts''. An activity,
+or \textbf{act}, is something that we try to do. Example acts include concept location,
+impact analysis, coding and modification. A \textbf{fact} is some circumstance
+surrounding the system, such as readability of documentation, processes used in
+the organization, or availability of debugging tools. Maintainability depends
+from things outside of the product itself. Especially organizational facts are
+often overlooked when assessing maintainability of a system. Skill of the
+maintainers plays a key role in maintainability. A high turnover rate can make a
+system more difficult to maintain, if the company loses a large share of its
+developers to a competitor. Well-defined processes, such as a configuration
+management process, can help create a quality product. Trustworthy tools like
+debuggers, and visualization and refactoring tools are critical for performing
+effective maintenance. \parencite[25-26]{Broy2006}.
+
+\textcite{Bass1998} collate that the most important thing in improving
+non-runtime attributes like modifiability and testability is to enable and
+facilitate making changes to the system. The system likely suffers from poor
+modifiability if it relies on a shared memory solution with global variables
+accessible to all components, where a change to data format could require
+changes to all components \parencite[89]{Bass1998}. A change should only affect a small number of
+components. \textcite[96]{IEEE12207} concurs that systems which highlight
+encapsulation, modularity and scalability can be simpler to maintain. Achieving
+this requires foresight into what kinds of modifications will be necessary in
+the future. The foresight can be achieved by an experienced architect with
+available change histories for this and related systems. \parencite[118]{Bass1998}.
+
+To improve maintainability, \textcite[7]{Vale2022} suggest tracking bug reports
+with \textit{Slack} and \textit{Jira}. Static code analysis tools such as SonarQube and Codacy
+help on the source code level. Code reviews, automated pipelines, and
+domain-driven design are also beneficial. According to their research, there are
+design patterns one can use to gain an edge with maintainability. Strangler,
+Ambassador, External Configuration Store, Gateway Offloading, Backends for
+Frontends, Pipes and Filters and Static Content Hosting patterns were reported
+by at least one interviewee to have improved maintainability of a system they
+have worked with. \parencite[4-6]{Vale2022}. Design patterns create a common
+language between designers, to share an understanding of solutions that have
+been found to work well.
+
+Related to design patterns, \textcite{Bass1998} bring forward \textbf{Unit Operations},
+which are general design operations or techniques that allow the architect to
+achieve quality attributes. Unit operations have their roots in the engineering
+world, and are at a higher level of abstraction than design patterns. Examples
+of unit operations are Separation, Uniform Decomposition, Replication,
+Abstraction, Compression, and Resources Sharing. The operations Separation and
+Resource Sharing can have a positive effect on maintainability through improving
+modifiability. In \textbf{Separation}, functionality is detached as its own component
+with a well-defined interface to its surroundings. This has numerous advantages: it
+enables distribution, which in turn enables parallelism; it's easier to divide
+development work to development teams; and it improves modifiability and
+portability. It springs to my mind that Separation unit operation could also be
+used to create layers in a layered architecture. \textbf{Resource Sharing} means that
+data or services are encapsulated and then shared between multiple independent
+consumers. Examples of this are databases, blackboards, and servers in a
+client-server-architecture. This unit operation decreases coupling between
+components, which leads to improved integrability, portability and
+modifiability. \parencite[123-126]{Bass1998}.
+
+The \textit{Heroku} cloud application platform \parencite{Heroku2011} utilized
+\textbf{Explicit Contracts} to maintain a strong separation between the platform
+and the applications running on it. This results in what they call
+''erosion-resistance'', which is synologous to improved maintainability. An
+example of an explicit contract is that in a \textit{Ruby} application, the
+developer must use a \textit{Gem Bundler} and a \textit{Gemfile} to declare
+dependencies of ther application. In a \textit{Node.js} application this is
+achieved via \textit{package.json} file instead. Other contracts dictate how
+environment variables should be used, how to implement logging, and how to tell
+the platform how you want your application to be launched. Adhering to these
+explicit contracts allows Heroku to change the infrastructure and platform
+without breaking applications running on it. \parencite{Heroku2011}.
+
+Different quality control activities should be performed at different intervals
+\parencite[25]{Broy2006}. To avoid redundancy, copy-pasted sections of new code
+should be checked up to daily. Then again, it is enough to review documentation
+at certain points of the development process, and not even weekly. This is
+mainly because manual quality checks are laborious, and thus costly. Whenever
+feasible, manual review should be supported or replaced with automated tools to
+as high a degree as possible. This makes good quality check tooling valuable,
+because we can receive high-quality assessments more often.
+\parencite[25]{Broy2006}.
+
+A system might be labeled as a \textbf{legacy system} due to factors that do not
+negatively affect usage or functioning of the software \parencite[22]{Broy2006}.
+Such factors can be the coding style, or the implementation language. A label of
+''legacy'' hints at unmaintainability, and the will to replace the system with
+something else. \textcite[22]{Broy2006} argue that a legacy system should not be
+replaced unless the new system increases business value or maintainability.
+\textcite[18]{Li2021} concurs: a new architecture could mitigate some problems
+of the legacy system, but implementing it properly will cost time and effort.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -857,7 +951,7 @@ I interpret the answers to find common categories from the suggestions.
 \subsection{Target audience}
 The survey is targeted at cloud architects of \textit{Nordcloud, an IBM company}, where I work.
 I posted the survey link along with an introductory message to Nordcloud's
-internal Slack channels to reach most of our cloud architects.
+internal \textit{Slack} channels to reach most of our cloud architects.
 These channels were used:
 \begin{itemize}
   \item \#tech-infra
@@ -874,7 +968,7 @@ This goal was met within a week with 13 answers, with a final tally of \todo{<NU
 
 \subsection{Timeline}
 Survey was sent out on Monday 20.03.2023.
-I was prepared to repost the survey in Slack once a week up to four times until I
+I was prepared to repost the survey in \textit{Slack} once a week up to four times until I
 decide I have enough answers to proceed.
 In the end there was no need to repost, as a sufficient number of architects
 responded after the initial posting.

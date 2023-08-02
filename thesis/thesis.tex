@@ -296,7 +296,7 @@ requirements most relevant to architecture. Usually it is good to start from
 functional requirements, after which the non-functional qualities must be
 pursued. \parencite{Koskimies2005}.
 
-In this thesis we don't cling to any particular software lifecycle model.
+In this thesis I don't cling to any particular software lifecycle model.
 Instead we rely on the general notion that the initial architecture definition
 and architectural design happens early on in the life cycle of a software
 system. Naturally, the requirements, architecture or detailed design might need
@@ -327,7 +327,7 @@ enabling systems and services, and obtaining access to those enabling systems or
 services. Then we should establish designs related to each software element.
 This goes deep in the technical details, such as database structures, provisions
 for memory and storage, software processes, and external interfaces. \parencite[72]{IEEE12207}.
-In this thesis we consider this realm of ''design'' or ''detailed design'' to
+In this thesis I consider this realm of ''design'' or ''detailed design'' to
 belong to software developers instead of architects.
 
 As we've discussed before, architecture is at a higher level of abstraction than
@@ -337,7 +337,7 @@ focused on compatibility with technologies and other design elements, and
 feasibility of implementation and integration. An efficient architecture is as
 design-agnostic as possible, to provide most flexibility in planning the said
 design.\parencite[71]{IEEE12207}. Because ''design'' is such an ambiguous word, in this
-thesis we will use it in accordance to the definition from \textcite{IEEE12207} as an activity
+thesis I will use it in accordance to the definition from \textcite{IEEE12207} as an activity
 separate from architecting, unless used in conjunction with with ''architectual'',
 as in ''architectual design''.
 
@@ -443,8 +443,91 @@ that touch multiple modules. \parencite[16]{Bass1998}.
 
 \subsection{Quality Attributes}
 
-\tmp{Functional and nonfunctional (runtime and non-runtime) attributes}
-\tmp{Subattributes for maintainability: modifiability, testability, observability, whatever}
+The main goal of software development is software of high quality. We of course
+expect that the system fulfills all its requirements, gives us correct and
+accurate results, and that it interacts with other systems in an expected manner
+\parencite[76]{Bass1998}. According to \textcite[602]{Gorla2010}, this quality
+can be influenced by factors that are \textbf{organizational}, \textbf{technological},
+or \textbf{end user-related}. Organizational factors can include the IT budget, number of people
+in system development in that organization, and quality of documentation. Level of
+user involvement and user training the systems are end user-related factors. In
+contrast, technological factors include experience and skill level of the
+development staff, and type and suitability of development method, programming
+language or database model. \parencite[602]{Gorla2010}. Few factors outside the
+technological category are relevant in this thesis, which is why I mostly --
+although not exclusively -- focus on factors that can be influenced by the
+software architect.
+
+\textbf{Quality attributes} are used to describe specific aspects of quality as it
+relates to software. From management perspective, we are likely interested in
+business-related attributes and metrics such as cost and effort of development
+work, productivity estimation, and time-to-market
+\parencites[60]{Arvanitou2017}[76]{Bass1998}.
+In this thesis I only deal with these topics at a superficial level, as
+they cannot be directly quantified based on architecture alone. \textcite[76]{Bass1998}
+suggest that there are two categories of quality attributes that instead can be
+measured on architectural level: attributes that \textbf{can be observed by running the
+system}, and those that cannot. The first category tells us how well the system
+fills its behavioral requirements during runtime. Quality attributes that
+indicate this include \parencites[79-81]{Bass1998}[13]{Li2021}[60]{Arvanitou2017}:
+\begin{itemize}
+  \item performance
+  \item security
+  \item availability
+  \item functionality
+  \item usability
+  \item monitorability
+  \item reliability
+  \item safety
+  \item fault prediction
+  \item defect proneness
+\end{itemize}
+
+The second category of quality attributes --- those that \textbf{cannot be observed by
+running the system} --- tell us how easy the system is to test, integrate and
+modify \parencite[81]{Bass1998}. It contains, among others, these attributes:
+\begin{itemize}
+  \item modifiability
+  \item portability
+  \item reusability
+  \item integrability
+  \item testability
+\end{itemize}
+
+Other authors use related terms ''functional'' and ''non-functional
+requirements''. \textcite[76]{Bass1998} consider this dichotomy useless. It
+suggests that all attributes can be divided strictly into those that model the
+system's ability to perform the actions it is expected to, and ''everything
+else''. The latter non-functional category acts as a bucket. This too easily
+leads to a situation where some qualities are given less consideration, leading
+to a diminished quality of the system as a whole. In fact, many quality
+attributes are intertwined to behavior of the system. For example, it might be
+impossible to reach lightning fast performance with a feature that processes
+very large images. On a higher level, though, Bass et al consider functionality
+to be orthogonal to quality attributes. If this wasn't the case, implementing a
+certain functionality would always dictate the system's security, usability, or
+other attributes. The program might function perfectly, but it might
+also be difficult to modify or costly to build. \parencite[77]{Bass1998}.
+
+Instead, architectural choices made by the architect decide the level of quality
+possible for the system \parencite[72]{Bass2003}. Quality must be considered at every
+stage of design, implementation and deployment \parencite{Bass1998}. Different quality
+attributes represent themself differently at different stages. For example, some
+usability decisions, such as details of a UI, are not architectural at all.
+Modifiability, on the other hand, is primarily architectural. Modifiability
+relates to how a system is split into components, and a system is modifiable if
+changes do not require touching multiple components. Performance depends on both
+architectural and non-architectural considerations. Architect can influence how
+functionality is divided between each component, and how they communicate. But
+the finer details are left to developers, who are usually responsible or
+detailed design. An example of this is the choice of an algorithm and turning it
+into source code. Another thing to consider is that quality attributes do not
+exists in a vacuum, but instead influence each other in good or bad \parencite[78]{Bass1998}.
+For example, improved monitorability likely enables improved testability,
+which in turn leads to an increase in security \parencite[18]{Li2021}. Architect must
+prioritize the quality attributes and decide which ones to emphasize
+\parencite[129]{Bass1998}.
+
 
 \subsection{How to measure maintainability}
 

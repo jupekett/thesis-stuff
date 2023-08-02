@@ -467,7 +467,7 @@ In this thesis I only deal with these topics at a superficial level, as
 they cannot be directly quantified based on architecture alone. \textcite[76]{Bass1998}
 suggest that there are two categories of quality attributes that instead can be
 measured on architectural level: attributes that \textbf{can be observed by running the
-system}, and those that cannot. The first category tells us how well the system
+  system}, and those that cannot. The first category tells us how well the system
 fills its behavioral requirements during runtime. Quality attributes that
 indicate this include \parencites[79-81]{Bass1998}[13]{Li2021}[60]{Arvanitou2017}:
 \begin{itemize}
@@ -484,7 +484,7 @@ indicate this include \parencites[79-81]{Bass1998}[13]{Li2021}[60]{Arvanitou2017
 \end{itemize}
 
 The second category of quality attributes --- those that \textbf{cannot be observed by
-running the system} --- tell us how easy the system is to test, integrate and
+  running the system} --- tell us how easy the system is to test, integrate and
 modify \parencite[81]{Bass1998}. It contains, among others, these attributes:
 \begin{itemize}
   \item modifiability
@@ -494,8 +494,8 @@ modify \parencite[81]{Bass1998}. It contains, among others, these attributes:
   \item testability
 \end{itemize}
 
-Other authors use related terms ''functional'' and ''non-functional
-requirements''. \textcite[76]{Bass1998} consider this dichotomy useless. It
+Other authors use related terms ''functional'' and ''non-functional requirements''.
+\textcite[76]{Bass1998} consider this dichotomy useless. It
 suggests that all attributes can be divided strictly into those that model the
 system's ability to perform the actions it is expected to, and ''everything
 else''. The latter non-functional category acts as a bucket. This too easily
@@ -529,9 +529,73 @@ prioritize the quality attributes and decide which ones to emphasize
 \parencite[129]{Bass1998}.
 
 
+\subsection{What is maintainability, and why is it important}
+
+The quality attribute \textbf{maintainability} describes the efforts needed to fix errors
+or to make enhancements to the system \parencite[603]{Gorla2010}. Based on their mapping
+study on design-time quality attributes and metrics, \textcite{Arvanitou2017}
+found that maintainability is the most often researched quality attribute in
+most stages of the software development life cycle. It receives interest in
+design, architecture, implementation and maintenance stages. Maintainability is
+especially relevant in other stages such as project management, requirements or
+testing stages. \parencite[61-62]{Arvanitou2017}.
+
+Like many other quality attributes, maintainability can be further subdivided
+into more specific quality attributes. \textcite[233]{ISO5055} lists \textbf{modularity},
+\textbf{reusability}, \textbf{analyzability}, \textbf{changeability},
+\textbf{modification stability}, \textbf{testability} and \textbf{compliance} as
+components of maintainability. Many of these are also echoed
+by \textcite[61]{Arvanitou2017}. Some other categories, such as \textbf{understandability}, are
+sometimes related to maintainability. \textcite{Arvanitou2017} consider it a
+separate quality attribute for two reasons. First, some other quality models
+make a distinction between maintainability and understandability. Second, a
+unique research community has already gathered around understandability as a
+standalone concept. \parencite[61]{Arvanitou2017}.
+
+There is no single metric ''maintainability of the software system'', because
+its components likely have different purposes and implementations
+\parencites[26]{Broy2006}[192]{Bass1998}. As such, a phrase like ''the system
+is highly maintainable'' doesn't tell anything practical about the system,
+because quality attributes receive their meaning from surrounding context. For
+example, the software might be highly modifiable in relation to specific classes
+of changes. \parencite[192]{Bass1998}.
+
+Focusing on maintainability can pay back the cost invested into it. It
+influences how much money and time needs to be spent on maintenance tasks
+\parencite[21]{Broy2006}. If it is not considered, cost of change can be
+unnecessarily inflated \parencite[2]{Vale2022}. Personnel requirements have to
+also be considered, because someone needs to perform necessary updates and
+fixes. \textcite{Heroku2011} warns that if maintenance work is left to the one single
+team of software developers, the time is often deducted from development of new features.
+
+If a system is not maintainable, it will be more difficult to address other
+problems, such as performance or reliability \parencite[46]{Bouwers2010}. If different
+services are coupled, one of them cannot be altered without changing others that
+are depending on it \parencite[2]{Vale2022}. At the business level, maintainability of an
+important system defines the organization's ability to adapt their business
+processes to changing market circumstances, and to implement innovative products
+and services \parencite[21]{Broy2006}.
+
+Even if the software itself stays unchanged for years, it can break if and when
+its environment changes. This phenomenon is called \textbf{software rot}
+\footnote{\url{http://www.catb.org/jargon/html/S/software-rot.html}.}.
+In other words, software rot happens when a system's assumptions
+go out of date. A good example of this is the infamous ''Y2K'' event which
+resulted in uncountable bugs when two-digit year counters underwent wrap-around
+at the start of the new millennium. Even outside such one-off
+situations, software can touch the underlying operating system and network
+infrastructure in many places: library versions, directory paths, IP addresses
+and hostnames, and so on \parencite{Heroku2011}. The above Jargon File \footnote{The Jargon
+File is a ''comprehensive compendium of hacker slang illuminating many aspects
+of hackish tradition, folklore, and humor.''
+\url{http://www.catb.org/jargon/html/online-preface.html}} entry about software
+rot advises to employ robust design to deflect such problems. Based on what
+we've discussed in this chapter, I consider taking care of maintainability part
+of robust design.
+
+
 \subsection{How to measure maintainability}
 
-\tmp{And how measuring is difficult}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cloud-nativity}

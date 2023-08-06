@@ -891,8 +891,122 @@ of the legacy system, but implementing it properly will cost time and effort.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cloud-nativity}
 
-\tmp{Definitions from AWS, Microsoft, Google, CNAF, research...}
-\subsection{History}
+\subsection{What is cloud-nativity}
+
+\textbf{Cloud-native} is a term often used, but rarely elaborated beyond ''we
+used the cloud instead of our own data center'' \parencite[17]{Gannon2017}.
+Terminology and related technology have gone through many steps to get where we
+are now, touching \textbf{Service Oriented Architecture (SOA)}, \textbf{virtual
+  machines}, \textbf{cloud computing}, \textbf{containers}, and
+\textbf{microservices} \parencite[3]{Kratzke2017}. Cloud-nativity is an approach
+that only makes sense on top of cloud infrastructure, which means that the
+physical environments have been virtualized, and infrastructure is disposable.
+When using disposable infrastructure, units of infrastructure are created,
+scaled, and destroyed quickly with help of automation. There is a fitting
+metaphor of ''cattle vs.  pets'', and disposable infrastructure is the cattle.
+All instances are identical, and if one of them requires an update or repairs,
+it will be replaced instead of fixed. \parencite{Microsoft2022}.
+
+Birth of the public cloud can be dated back to 2006, when \textit{Amazon Web Services}
+launched their \textit{Simple Storage Service} (S3) and \textit{Elastic Compute Cloud} (EC2)
+\parencite[1]{Kratzke2017}. The so-called first wave of cloud computation meant
+that companies replaced their own data centers with virtual machines running on
+data centers owned by cloud platform providers \parencite[17]{Gannon2017}. While
+revolutionary, it was still difficult to support both scalability and security
+at the same time, and there was no cloud-based tooling for data, event or error
+correction to be used in debugging. \parencite[18]{Gannon2017}.
+
+\textcite[8]{Kratzke2017} searched ''cloud-native'' from \textit{Google Trends} for an overview
+of its usage. The term was widely used around 2007, around the first wave of
+cloud computation. Usage tapered after that, but around 2015 the term enjoyed
+newfound interest. The researchers admit that Google Trends is not the most
+reliable of metrics due to its sensitivity to industry buzzwords. These results,
+however, correspond to the results of their research. \textcite[8]{Kratzke2017}.
+''Cloud-native'' was first mentioned in academic literature in 2012
+\footnote{Andrikopoulos, Fehling \& Leymann, 2012. Designing for CAP - The Effect
+  of Design Decisions on the CAP Properties of Cloud-native Applications}
+\footnote{Garca-Gmez, et al., 2012. 4CaaSt: Comprehensive Management of Cloud
+  Services through a PaaS} .
+
+\textcite{Microsoft2022} offer a definition for ''cloud-native'':
+
+\begin{quote} Cloud-native architecture and technologies are an approach to
+  designing, constructing, and operating workloads that are built in the cloud and
+  take full advantage of the cloud computing model.
+\end{quote}
+
+In my opinion this definition is vague, with the main conceptual burden carried
+by ''cloud'' and ''cloud computing model''. \textcite{Patrizio2018} offer
+additional details to the definition: cloud-native is a modern way to build and
+run software systems, and leverages the elasticity, scalability and resilience
+offered by cloud computation \textcite{Patrizio2018}. A still more specific
+definition comes from \textcite{Kratzke2017}, whose systematic mapping study
+aimed to collate the research trends around cloud-native software development
+practices. They also wanted to define the \textbf{Cloud-Native Application}
+(\textbf{CNA}), for which the result is as follows \parencite[13]{Kratzke2017}:
+
+\begin{quote}
+  A cloud-native application (CNA) is a distributed, elastic and
+  horizontal scalable system composed of (micro)services which isolates state in a
+  minimum of stateful components. The application and each self-contained
+  deployment unit of that application is designed according to cloud-focused
+  design patterns and operated on a self-service elastic platform.
+\end{quote}
+
+From this we can conclude that a CNA is not merely a distributed system, but
+especially distributed, horizontally scaling, resilient, and load-adaptive
+\parencite[13]{Kratzke2017}. Scalability is at the heart of cloud-native
+software \parencite{CNAF2018}. A CNA must be more more than ''available via the
+internet'': it must achieve global scale by serving thousands of concurrent
+users \parencite[17]{Gannon2017}. If you think of global, culture-penetrating
+companies, you might come up with \textit{Netflix}, \textit{Spotify},
+\textit{Uber}, \textit{Airbnb}, \textit{Facebook}, or \textit{Twitter}
+\parencites{Gannon2017}{Patrizio2018}.
+
+Companies such as \textit{Microsoft}, \textit{Google}, \textit{Amazon}, 
+\textit{Oracle}, \textit{IBM}, \textit{Alibaba}, \textit{Heroku}, and
+\textit{Redhat} provide public cloud platforms for other companies to build cloud
+software on. They are called \textbf{Cloud Service Providers (CSP)}. CSPs' own software
+products might utilize the CSP's own infrastructure, which makes sense for
+simplicity of logistics. Some services such as \textit{AWS Kinesis},
+\textit{DynamoDB}, \textit{SQS}, and
+\textit{Amazon Redshift}; \textit{Microsoft Azure CosmosDB} and \textit{Data Lake};
+and \textit{Google BigQuery} are themselves cloud-native under the hood, and used to build CNAs.
+\parencite[17]{Gannon2017}.
+
+CNAs share some common features. They are expected to be always running. At the
+same time, a CNA must expect the physical infrastructure to vary, which leads to
+related intermittent errors \parencite[17]{Gannon2017}. This is different from
+single-machine applications, where we can usually assume that the platform —
+which consists of hardware and an operating system --- stays the same during
+application runtime and always works. For CNAs, the reality is that once the
+application starts receiving a sufficient number of requests, something is
+always either breaking or broken. It is necessary to architect the software in
+such a way that updates and testing are possible without disruptions to the
+production instance of the software. Security should also be an integral part of
+the architecture, due to multiple small components, and a need to manage access
+on multiple levels of the software. A simple firewall is not enough.
+\parencite[17]{Gannon2017}.
+
+CNAs utilize technology and techniques suitable for dynamic cloud environments.
+These cloud environments can be either public, private or hybrid
+\parencite{CNAF2018}. The techniques include microservices, containers, service
+meshes, immutable infrastructure, declarative APIs, continuous delivery
+technology, backing services and automation \parencite{CNAF2018, Patrizio2018,
+  Microsoft2022}. Methodologies such as DevOps and agile are often adopted when
+building CNAs \parencite{Patrizio2018}. Other CNA development methodologies are
+often based on design patterns \parencite{Kratzke2017}.
+
+The three most common ways to build CNAs are microservice architecture, fully
+managed high-abstraction services, and serverless computing
+\parencite[17]{Gannon2017}. In fully managed services, the service handles
+everything outside of business logic: infrastructure, management, scaling, and
+so on. Microservice architecture is the most common approach. Serverless
+computing means utilizing CSP-provided services to build software without
+virtual machines and sometimes even without containers.
+\parencite[17]{Gannon2017}. I will discuss microservices and serverless in the
+following chapters.
+
 
 \subsection{Microservices}
 

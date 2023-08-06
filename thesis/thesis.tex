@@ -69,7 +69,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{thetermlist}
-  \item [Test] Term explanation
+  \item [AD] Architectural Definition
+  \item [CNA] Cloud-Native Application
+  \item [MSA] Microservices Architecture
+  \item [MVP] Minimum Viable Product
 \end{thetermlist}
 
 
@@ -81,17 +84,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
 
-Goal of the thesis is to investigate how maintainability should be addressed during the
-architectural design of a cloud-native application.
-Maintainability is a quality attribute, which describes how easy it is to
-maintain and modify a given system.
-Software architecture, created by the software architect, formalizes the
-structural and behavioral foundation upon which the rest of the software will be built.
-Software development life cycle can be described with different life cycle models that
-prescribe a way to arrange and order the different activites of software development.
-Cloud-nativity means using the technologies and methods best suited for the cloud
-computing paradigm. I will expand upon the relevant terminology in
-\autoref{chapter:background}.
+Goal of the thesis is to investigate how maintainability should be addressed
+during the architectural design of a cloud-native application.  Maintainability
+is a quality attribute, which describes how easy it is to maintain and modify a
+given system. Software architecture, created by the software architect,
+formalizes the structural and behavioral foundation upon which the rest of the
+software will be built. Software development life cycle can be described with
+different life cycle models that prescribe a way to arrange and order the
+different activites of software development. Cloud-nativity means using the
+technologies and methods best suited for the cloud computing paradigm. I will
+expand upon the relevant terminology in \autoref{chapter:background}.
 
 I aim to answer three research questions:
 \begin{itemize}
@@ -103,18 +105,18 @@ I aim to answer three research questions:
         working in the field?
 \end{itemize}
 
-The main contribution of this thesis are the results of a survey I conducted in order
-to answer the two first research question. The survey was directed at cloud architects
-working at my company \textit{Nordcloud}.
-When analysing results of the survey, I will first ascertain the perceived
-importance of maintainability. Then I will categorize the suggested approaches
-for addressing maintainability and contrast this to the respondents' years of
-experience in the target domain. Finally, I will compare the survey results to
-approaches suggested in literature.
+The main contribution of this thesis are the results of a survey I conducted in
+order to answer the two first research question. The survey was directed at
+cloud architects working at my company \textit{Nordcloud}. When analysing
+results of the survey, I will first ascertain the perceived importance of
+maintainability. Then I will categorize the suggested approaches for addressing
+maintainability and contrast this to the respondents' years of experience in the
+target domain. Finally, I will compare the survey results to approaches
+suggested in literature.
 
 I chose this topic for three reasons. First, the maintenance phase of software
 development life cycle is prevalent. It takes up the majority of total lifetime
-and costs.  \parencite{Bass1998}. Second, choices made during the architectural
+and costs. \parencite{Bass1998}. Second, choices made during the architectural
 design phase cascade into development and maintenance phases. Mistakes and
 oversights are slower and more expensive to correct later.
 \parencites{Bass1998}{Mumtaz2021}. Lastly, the cloud-native approach is highly
@@ -139,7 +141,10 @@ discussed in \autoref{chapter:discussion}. I will close with conclusions in
 \chapter{Background}
 \label{chapter:background}
 
-My main database for researching existing literature was the JYKDOK search engine for international articles \parencite{JYKDOK}.
+\todo{TODO: Review and finalize}
+
+My main database for researching existing literature was the JYKDOK search
+engine for international articles \parencite{JYKDOK}.
 I decided to search keywords in abstracts, instead of full-text or only in title.
 In my opinion the full-text search was too lax, and title-only too strict.
 With these search terms I received between 4 to 473 results per search, which was sufficient:
@@ -161,7 +166,7 @@ I also employed an ad-hoc lightweight version of snowballing from bibliographies
 promising sources, e.g. \todo{example here?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Architecture as a software licecycle phase}
+\section{Architecture in software development}
 
 \subsection{Software architecture}
 
@@ -194,29 +199,31 @@ and lines'' diagram which is not sufficient to describe an architecture
 
 A system can comprise more than one structure \parencite[23]{Bass1998}. Because
 ''structure'' is an abstract concept, it can change depending on perspective. A
-\textbf{architectural view} models some aspect of the system \parencite{Koskimies2005}. It is a
-representation of a whole system from the perspective of a related set of
-concerns, such as a specific stakeholder's specific concern \parencite[3]{IEEE42010}. A
-\textbf{stakeholder} is an individual, team or organization with interests in, or
-concerns relative to, a system. Examples include clients, users, the architect,
-developers, reviewers, and so on. \parencite[3]{IEEE42010}. Examples of architectural
-views include a scenario view, logical view, process view,
-development view, physical view, and modification view. They are partly
-overlapping: when a specific part of a system is changed, we often need to apply
-changes in multiple views. \parencite{Koskimies2005}.
+\textbf{architectural view} models some aspect of the system
+\parencite{Koskimies2005}. It is a representation of a whole system from the
+perspective of a related set of concerns, such as a specific stakeholder's
+specific concern \parencite[3]{IEEE42010}. A \textbf{stakeholder} is an
+individual, team or organization with interests in, or concerns relative to, a
+system. Examples include clients, users, the architect, developers, reviewers,
+and so on. \parencite[3]{IEEE42010}. Examples of architectural views include a
+scenario view, logical view, process view, development view, physical view, and
+modification view. They are partly overlapping: when a specific part of a system
+is changed, we often need to apply changes in multiple views.
+\parencite{Koskimies2005}.
 
-Architecture represents the first design decisions of a system \parencite{Bass1998}. It is
-difficult to get it right the first time, and can be laborious to alter down the
-road. In worst case, there is a need for an architectural change, which might
-result in changes across the entire system and changes to interaction between
-components. If we instead can limit the change to a group of components or only
-a single one, the change will be easier to carry out. \parencite[31]{Bass1998}
+Architecture represents the first design decisions of a system
+\parencite{Bass1998}. It is difficult to get it right the first time, and can be
+laborious to alter down the road. In worst case, there is a need for an
+architectural change, which might result in changes across the entire system and
+changes to interaction between components. If we instead can limit the change to
+a group of components or only a single one, the change will be easier to carry
+out. \parencite[31]{Bass1998}
 
 Out of most design artifacts, architecture has most far-reaching consequences
 \parencite[31]{Bass1998}. It will place constraints on implementation and
-maintenance: will the system support the required functions;
-how easy is it to test, maintain, change and extend; how large data masses can
-it process, and so on \parencite{Koskimies2005}.
+maintenance: will the system support the required functions; how easy is it to
+test, maintain, change and extend; how large data masses can it process, and so
+on \parencite{Koskimies2005}.
 
 The architecture might even have effect on the development organization by
 nudging towards a specific way to divide tasks to teams by structure of its
@@ -227,66 +234,68 @@ organizations that produced it. I suppose that in an agile organization the
 social structure is malleable enough to be impacted by a new system, when new
 teams need to be formed to facilitate the development.
 
-According to \textcite{Koskimies2005}, architecture lies on a higher
-abstraction level than implementation. The lower abstraction level of a system
-manifests as source code \parencite[24]{Bass1998}. This might be named as ''the
-implementation'', or ''design'' as named in \textcite{IEEE12207}. Also \textcite[4]{IEEE42010} states
-that architecture is conceptual instead of concrete. This goes hand in hand with
-the used vocabulary. With architecture, we are using the vocabulary of the
-solution, and are further away from the problem domain than during
-implementation \parencite{Koskimies2005}.
+According to \textcite{Koskimies2005}, architecture lies on a higher abstraction
+level than implementation. The lower abstraction level of a system manifests as
+source code \parencite[24]{Bass1998}. This might be named as ''the
+implementation'', or ''design'' as named in \textcite{IEEE12207}. Also
+\textcite[4]{IEEE42010} states that architecture is conceptual instead of
+concrete. This goes hand in hand with the used vocabulary. With architecture, we
+are using the vocabulary of the solution, and are further away from the problem
+domain than during implementation \parencite{Koskimies2005}.
 
-When selecting a reference architecture or a fundamental
-architectural style, we are dealing with a generic solution that will be further
-specified later. An \textbf{architectural style} is a general, high-level guideline for
-structuring the components and their responsibilities \parencite[24]{Bass1998}. For
-example, client-server architecture is an architectural style. It is not an
-architecture in itself: terminology is generic or domain-specific, and the style
-is not specific enough to address the requirements set for your new system.
-Countless different kinds of architectures can be implemented with the same
-architectural style. \parencite[24]{Bass1998}.
+When selecting a reference architecture or a fundamental architectural style, we
+are dealing with a generic solution that will be further specified later. An
+\textbf{architectural style} is a general, high-level guideline for structuring
+the components and their responsibilities \parencite[24]{Bass1998}. For example,
+client-server architecture is an architectural style. It is not an architecture
+in itself: terminology is generic or domain-specific, and the style is not
+specific enough to address the requirements set for your new system. Countless
+different kinds of architectures can be implemented with the same architectural
+style. \parencite[24]{Bass1998}.
 
 As we've read, architecture is of utmost importance for the implementation and
-future of the system. Because of this, it seems common sense to document
-it somehow. \textcite[24]{Bass1998} define an \textbf{architectural description (AD)} as a
-collection of products to document an architecture \parencite[3]{IEEE42010}. As such, it
-is a concrete artifact. They go on to note that an architecture can live
-independently of its description or specification \parencite[24]{Bass1998}. \textcite[27]{Bass1998}
-outscope the documentation of guiding processes from actual architecture.  In
-contrast, \textcite[3]{IEEE42010} mentions ''... and principles guiding its design and
+future of the system. Because of this, it seems common sense to document it
+somehow. \textcite[24]{Bass1998} define an \textbf{architectural description
+  (AD)} as a collection of products to document an architecture
+\parencite[3]{IEEE42010}. As such, it is a concrete artifact. They go on to note
+that an architecture can live independently of its description or specification
+\parencite[24]{Bass1998}. \textcite[27]{Bass1998} outscope the documentation of
+guiding processes from actual architecture. In contrast,
+\textcite[3]{IEEE42010} mentions ''... and principles guiding its design and
 evolution''. The standard states that chosen architectural concepts, as well as
 considered alternatives, must be justified in the description. According to
-\textcite[67]{IEEE12207}, the description can be utilized at multiple different levels of
-abstraction, at each level emphasizing the details necessary for that level. If
-an AD is not available, it can be reverse-engineered from an existing system.
-This might be needed if, for example, it was originally developed without a
-description, or if the original architect is no longer available for
+\textcite[67]{IEEE12207}, the description can be utilized at multiple different
+levels of abstraction, at each level emphasizing the details necessary for that
+level. If an AD is not available, it can be reverse-engineered from an existing
+system. This might be needed if, for example, it was originally developed
+without a description, or if the original architect is no longer available for
 consultation. \parencite[7]{IEEE42010}.
 
 An architecture doesn't spawn out of nothing. Software architecture is based on,
-among other things, the requirements placed on it \parencite{Bass1998}. Requirements
-codify the collective wishes and needs that various stakeholders want from the
-system. If requirements were the only input to software development, then an
-identical set of requirements would result in two pieces of identical
-architectures, even from two entirely unrelated organizations. \parencite[5-9]{Bass1998}.
+among other things, the requirements placed on it \parencite{Bass1998}.
+Requirements codify the collective wishes and needs that various stakeholders
+want from the system. If requirements were the only input to software
+development, then an identical set of requirements would result in two pieces of
+identical architectures, even from two entirely unrelated organizations.
+\parencite[5-9]{Bass1998}.
 
 As we can see, the organization, architect or architects, and the technical
-environment greatly influence how software systems are built \parencite{Bass1998}. The
-organization might have other existing products, architectures or assets that
-can be utilized. The organization has some individual structure, goals and
-long-term investments, and personnel with specific skills and availability.
-Especially the architects' background and experience is pivotal in deciding the
-course for the architecture. The architect might lean on a familiar
-architectural style that they have had success with in the past, and vice versa
-with an unhappy experience. Their professional community can infuse into the new
-system a set of standard industry practices and software engineering techniques.
-\parencite[5-9]{Bass1998}.
+environment greatly influence how software systems are built
+\parencite{Bass1998}. The organization might have other existing products,
+architectures or assets that can be utilized. The organization has some
+individual structure, goals and long-term investments, and personnel with
+specific skills and availability. Especially the architects' background and
+experience is pivotal in deciding the course for the architecture. The architect
+might lean on a familiar architectural style that they have had success with in
+the past, and vice versa with an unhappy experience. Their professional
+community can infuse into the new system a set of standard industry practices
+and software engineering techniques. \parencite[5-9]{Bass1998}.
 
 The architecture cause feedback to its background factors, such as the
 organization, customers, architects and the software engineering culture in
-general \parencite{Bass1998}. Because an architecture dictates the structure of a software
-system, it influences the structure of the development project with respect to
-team formation, schedules and budgets. If the architecture is seen as
+general \parencite{Bass1998}. Because an architecture dictates the structure of
+a software system, it influences the structure of the development project with
+respect to team formation, schedules and budgets. If the architecture is seen as
 successful, it might be used in future projects, and then the team structure
 might become a permanent part of the organization. The software might also offer
 a foothold in a certain market area, and this way the organization could update
@@ -299,65 +308,70 @@ architectural choices made in future projects. When looking through a wider
 lens, an especially novel and successful architecture might influence the
 software engineering culture as a whole, outside of the organization from which
 is sprung. Imagine, for example, the tides created by the first relational
-databases, spreadsheets, windowing systems, or WWW itself. \parencite[10-11]{Bass1998}.
+databases, spreadsheets, windowing systems, or WWW itself.
+\parencite[10-11]{Bass1998}.
 
 
 \subsection{Software development life cycle}
-Every software system has a life cycle \parencite[17]{IEEE12207}. A \textbf{life cycle model} is a
-framework that contains the processes, activities and tasks used during the life
-of the system, from initial requirements gathering to the termination of its use
-\parencite[3]{IEEE42010}. The specific life cycle stages depend on the chosen life cycle
-model, of which there are many to choose from: incremental, spiral, iterative,
-evolutionary, and so on. Usually there is an initial planning stage, where the
-need for a new software system arises. After the need is verified, requirements
-are gathered. Next there might be a prototyping phase where multiple
-architectures are rapidly mocked and evaluated. Once a rough architectural
-direction is chosen, an initial architectural definition is formed. After it is
-validated, there often follows an iterative cycle where analysis, design,
-implementation, verification, validation and delivery are repeated and
-intertwined. \parencite[18]{IEEE12207}.
 
-\textcite{Koskimies2005} suggest an architecture-oriented software
-development process. It highlights architectural design and evaluation as a
-crucial life cycle stage before moving onto detailed design and implementation.
-Architecture should be devised incrementally and iteratively from the
-requirements most relevant to architecture. Usually it is good to start from
-functional requirements, after which the non-functional qualities must be
-pursued. \parencite{Koskimies2005}.
+Every software system has a life cycle \parencite[17]{IEEE12207}. A \textbf{life
+  cycle model} is a framework that contains the processes, activities and tasks
+used during the life of the system, from initial requirements gathering to the
+termination of its use \parencite[3]{IEEE42010}. The specific life cycle stages
+depend on the chosen life cycle model, of which there are many to choose from:
+incremental, spiral, iterative, evolutionary, and so on. Usually there is an
+initial planning stage, where the need for a new software system arises. After
+the need is verified, requirements are gathered. Next there might be a
+prototyping phase where multiple architectures are rapidly mocked and evaluated.
+Once a rough architectural direction is chosen, an initial architectural
+definition is formed. After it is validated, there often follows an iterative
+cycle where analysis, design, implementation, verification, validation and
+delivery are repeated and intertwined. \parencite[18]{IEEE12207}.
+
+\textcite{Koskimies2005} suggest an architecture-oriented software development
+process. It highlights architectural design and evaluation as a crucial life
+cycle stage before moving onto detailed design and implementation. Architecture
+should be devised incrementally and iteratively from the requirements most
+relevant to architecture. Usually it is good to start from functional
+requirements, after which the non-functional qualities must be pursued.
+\parencite{Koskimies2005}.
 
 In this thesis I don't cling to any particular software lifecycle model.
 Instead we rely on the general notion that the initial architecture definition
 and architectural design happens early on in the life cycle of a software
 system. Naturally, the requirements, architecture or detailed design might need
 refinement also later on during operations and maintenance when using an
-iterative life cycle model \parencite{IEEE12207}. We will focus on the early choices and
-design decisions that influence the activities for the rest of the software
-lifecycle. We can call these architectural activities as ''architecting'', which
-comprises defining, documenting, maintaining, improving and certifying proper
-implementation of an architecture \parencite[3]{IEEE42010}. In addition to these
-architecting activities, \textcite[12]{Bass1998} mention creating a business case
-for the system, and implementing the system based on the architecture.
+iterative life cycle model \parencite{IEEE12207}. We will focus on the early
+choices and design decisions that influence the activities for the rest of the
+software lifecycle. We can call these architectural activities as
+''architecting'', which comprises defining, documenting, maintaining, improving
+and certifying proper implementation of an architecture
+\parencite[3]{IEEE42010}. In addition to these architecting activities,
+\textcite[12]{Bass1998} mention creating a business case for the system, and
+implementing the system based on the architecture.
 
-\textcite{IEEE12207} defines processes related to architecture and design. Next we will
-make a distinction between two related but separate processes: the \textbf{Architectural
-  Definition process}, and the Design Definition process. The purpose of the
-Architectural Definition process, as outlined in \textcite[66]{IEEE12207}, is threefold.
-First, the architect should create alternatives for a system's architecture.
-Then, we should choose one or multiple alternatives that properly frame the
-stakeholders' needs and fulfill the requirements placed on the system. Lastly,
-all of this should be described with a set of uniform views.
+\textcite{IEEE12207} defines processes related to architecture and design. Next
+we will make a distinction between two related but separate processes: the
+\textbf{Architectural Definition process}, and the Design Definition process.
+The purpose of the Architectural Definition process, as outlined in
+\textcite[66]{IEEE12207}, is threefold. First, the architect should create
+alternatives for a system's architecture. Then, we should choose one or
+multiple alternatives that properly frame the stakeholders' needs and fulfill
+the requirements placed on the system. Lastly, all of this should be described
+with a set of uniform views.
 
-At a lower abstraction level, the \textbf{Design Definition process} \parencite[71]{IEEE12207} is
-supposed to provide enough detailed data and information about the system and
-its components for implementation to be in line with the architectural entities.
-It involves preparing for software system design definition by e.g. prioritizing
-design principles and characteristic, identifying and planning for necessary
-enabling systems and services, and obtaining access to those enabling systems or
-services. Then we should establish designs related to each software element.
-This goes deep in the technical details, such as database structures, provisions
-for memory and storage, software processes, and external interfaces. \parencite[72]{IEEE12207}.
-In this thesis I consider this realm of ''design'' or ''detailed design'' to
-belong to software developers instead of architects.
+At a lower abstraction level, the \textbf{Design Definition process}
+\parencite[71]{IEEE12207} is supposed to provide enough detailed data and
+information about the system and its components for implementation to be in line
+with the architectural entities. It involves preparing for software system
+design definition by e.g. prioritizing design principles and characteristic,
+identifying and planning for necessary enabling systems and services, and
+obtaining access to those enabling systems or services. Then we should establish
+designs related to each software element. This goes deep in the technical
+details, such as database structures, provisions for memory and storage,
+software processes, and external interfaces. \parencite[72]{IEEE12207}. In this
+thesis I consider this realm of ''design'' or ''detailed design'' to belong to
+software developers instead of architects.
 
 As we've discussed before, architecture is at a higher level of abstraction than
 design \parencite{IEEE12207}. Architecture focuses on suitability, viability and
@@ -365,106 +379,108 @@ desirability that the architecture is supposed to provide. Meanwhile, design is
 focused on compatibility with technologies and other design elements, and
 feasibility of implementation and integration. An efficient architecture is as
 design-agnostic as possible, to provide most flexibility in planning the said
-design.\parencite[71]{IEEE12207}. Because ''design'' is such an ambiguous word, in this
-thesis I will use it in accordance to the definition from \textcite{IEEE12207} as an activity
-separate from architecting, unless used in conjunction with with ''architectual'',
-as in ''architectual design''.
+design. \parencite[71]{IEEE12207}. Because ''design'' is such an ambiguous word,
+in this thesis I will use it in accordance to the definition from
+\textcite{IEEE12207} as an activity separate from architecting, unless used in
+conjunction with with ''architectual'', as in ''architectual design''.
 
-According to \textcite[71-72]{IEEE12207}, selecting the technologies for implementation
-and considering compatibility with technologies also falls under the Design
-Definition process. In my experience with public cloud providers such as Amazon
-Web Services, Microsoft Azure and Google cloud, implementation technologies are
-at least to some degree decided by architects instead of software developers.
-The architect wants to know which cloud platform is required or preferred by the
-customer, in order to reduce the technology space to a reasonable set of
-alternative services provided by the platform. The architect can then work with
-the available services to compose an architecture that best serves the
-stakeholders' needs. The finer details, such as the choice of programming
-language or code-level design patterns, can be left to software developers, as
-also implied by the ISO/IEC standards.
+According to \textcite[71-72]{IEEE12207}, selecting the technologies for
+implementation and considering compatibility with technologies also falls under
+the Design Definition process. In my experience with public cloud providers such
+as Amazon Web Services, Microsoft Azure and Google cloud, implementation
+technologies are at least to some degree decided by architects instead of
+software developers. The architect wants to know which cloud platform is
+required or preferred by the customer, in order to reduce the technology space
+to a reasonable set of alternative services provided by the platform. The
+architect can then work with the available services to compose an architecture
+that best serves the stakeholders' needs. The finer details, such as the choice
+of programming language or code-level design patterns, can be left to software
+developers, as also implied by the ISO/IEC standards.
 
-\textbf{Maintenance stage} is a phase in software life cycle that is often considered
-less glamorous than working on greenfield projects and building the next
-software hit. Despite this, it is generally accepted that a substantial portion
-of the total cost of software is spent on maintenance. \textcite[32]{Bass1998} go as far
-as to say this figure is close to 80\%. Obviously the actual numbers might be
-slightly different these days 25 years after their estimate, but the implication
-holds: considering maintenance efforts as early as possible in the software life
-cycle can pay off. \textcite[1]{Mumtaz2021} echo that architectural issues should be
-tackled in a timely manner, because the cost of fixing those kinds of problems
-later can be exceptionally high.
+\textbf{Maintenance stage} is a phase in software life cycle that is often
+considered less glamorous than working on greenfield projects and building the
+next software hit. Despite this, it is generally accepted that a substantial
+portion of the total cost of software is spent on maintenance.
+\textcite[32]{Bass1998} go as far as to say this figure is close to 80\%.
+Obviously the actual numbers might be slightly different these days 25 years
+after their estimate, but the implication holds: considering maintenance efforts
+as early as possible in the software life cycle can pay off.
+\textcite[1]{Mumtaz2021} echo that architectural issues should be tackled in a
+timely manner, because the cost of fixing those kinds of problems later can be
+exceptionally high.
 
-\textcite{IEEE12207} outlines the \textbf{Maintenance process}, which in general comes later in the
-life cycle after Architectural Definition and Design Definition processes. Its
-purpose is to sustain the capability of the system to provide a service. This
-can be achieved by monitoring the system's capability to deliver services;
-recording incidents for analysis; taking corrective, adaptive, perfective and
-preventive actions; and confirming restored capability. In practice, preparing
-for maintenance should begin already during architecting. It is necessary to
-consider constraints placed on the architecture by maintenance-related
-requirements. This can be done, for example, by emphasizing encapsulation,
-modularity, and scalability. Documenting the architecture and system reduces the
-efforts required to reverse-engineer the system and components when a fix is
-needed. The decisions made during architecting can also affect the need and
-possibilities for e.g. remote diagnostics and maintenance, roll back, backup,
-and recovering data. \parencite[95-96]{IEEE12207}.
+\textcite{IEEE12207} outlines the \textbf{Maintenance process}, which in general
+comes later in the life cycle after Architectural Definition and Design
+Definition processes. Its purpose is to sustain the capability of the system to
+provide a service. This can be achieved by monitoring the system's capability to
+deliver services; recording incidents for analysis; taking corrective, adaptive,
+perfective and preventive actions; and confirming restored capability. In
+practice, preparing for maintenance should begin already during architecting. It
+is necessary to consider constraints placed on the architecture by
+maintenance-related requirements. This can be done, for example, by emphasizing
+encapsulation, modularity, and scalability. Documenting the architecture and
+system reduces the efforts required to reverse-engineer the system and
+components when a fix is needed. The decisions made during architecting can also
+affect the need and possibilities for e.g. remote diagnostics and maintenance,
+roll back, backup, and recovering data. \parencite[95-96]{IEEE12207}.
 
 Tasks performed during maintenance activities vary between systems and
 organizations. There is a need to review stakeholder requirements, complaints,
 events, incident and problem reports in order to identify the type of
-maintenance effort needed \parencite{IEEE12207}. If the organization has adopted an
-iterative software life cycle model, software requirements might change during
-maintenance. This change in requirements can be a source for adaptive and
+maintenance effort needed \parencite{IEEE12207}. If the organization has adopted
+an iterative software life cycle model, software requirements might change
+during maintenance. This change in requirements can be a source for adaptive and
 perfective maintenance activities. In that case there will be a need to make
 corrections, improvements or other changes to software that is already deployed
-\parencite[97]{IEEE12207}. As \textcite[32]{Bass1998} points out, having a good grasp of the
-architecture will help manage changes and reason about them.
+\parencite[97]{IEEE12207}. As \textcite[32]{Bass1998} points out, having a good
+grasp of the architecture will help manage changes and reason about them.
 
 
 \subsection{General advice for achieving a good architecture}
 
 Because every system has an architecture, you can create an architecture through
 the simple method of trial and error. Unfortunately, an architecture built this
-way is unlikely to fulfill the requirements and goals placed on it \parencite[24]{Bass1998}.
-He outlines some helpful advice for creating an architecture from the
-correct principles. These rules of thumb are divided into two categories:
-process-related and structure-related advice.
+way is unlikely to fulfill the requirements and goals placed on it
+\parencite[24]{Bass1998}. He outlines some helpful advice for creating an
+architecture from the correct principles. These rules of thumb are divided into
+two categories: process-related and structure-related advice.
 
-First we will delve into the \textbf{process-related} topics. As a general rule, there
-should be a single architect or a team of architects with a designated leader
-\parencite[15]{Bass1998}. Functional requirements and a prioritized list of quality
-attributes should be listed, so that the architecture can be steered towards
-achieving them. The architecture should be formally evaluated for quality
-attributes, and analyzed for applicable quantitative measures, such as maximum
-throughput. Having an architecture support iterative implementation makes
-integration and testing easier: a ''skeleton system'' can prove that component
-communication works, even with otherwise minimal functionality. The architect is
-also responsible for defining, distributing, maintaining and enforcing resource
-constraints to the responsible implementation teams. For example, there might be
-limits to network traffic or hardware performance that the teams must heed. A
-good documentation is also a must, with at least one static view and one dynamic
-view, written in a notation that all stakeholders can understand with minimal
-effort. Speaking of stakeholders, they should be actively participating in
-evaluating the architecture, to ensure their needs are being met. \parencite[15]{Bass1998}.
+First we will delve into the \textbf{process-related} topics. As a general rule,
+there should be a single architect or a team of architects with a designated
+leader \parencite[15]{Bass1998}. Functional requirements and a prioritized list
+of quality attributes should be listed, so that the architecture can be steered
+towards achieving them. The architecture should be formally evaluated for
+quality attributes, and analyzed for applicable quantitative measures, such as
+maximum throughput. Having an architecture support iterative implementation
+makes integration and testing easier: a ''skeleton system'' can prove that
+component communication works, even with otherwise minimal functionality. The
+architect is also responsible for defining, distributing, maintaining and
+enforcing resource constraints to the responsible implementation teams. For
+example, there might be limits to network traffic or hardware performance that
+the teams must heed. A good documentation is also a must, with at least one
+static view and one dynamic view, written in a notation that all stakeholders
+can understand with minimal effort. Speaking of stakeholders, they should be
+actively participating in evaluating the architecture, to ensure their needs are
+being met. \parencite[15]{Bass1998}.
 
-Next up are the \textbf{structure-related} pieces of wisdom. \textcite[16]{Bass1998} state that
-modules should be well defined, with a clear separation of concerns and
-following the principles of information hiding. Their interfaces should also be
-well defined, and encapsulate any details that might change during
-implementation, such as choice of data structures. To improve modifiability, the
-modules that produce data should be kept separate from those that consume data.
-Between the modules, there should be only a small set of different ways of
-interaction, which is to say, the system should perform similar tasks in a
-similar fashion all around. This helps improve understandability, reliability
-and modifiability, with an added benefit of shorted development time and
-conceptual integrity of the architecture. Each quality attribute should be
-strived towards with well known architectural tactics that suit it. The
-architecture should not depend on any specific version of a commercial product
-or tool, or if it does, changing the product or tool should be both
-straightforward and cheap. If working close to hardware, changing the processor
-allocated for each task or process should be easy even at runtime. In case of
-parallel-processing systems, special care should be given to processes or tasks
-that touch multiple modules. \parencite[16]{Bass1998}.
+Next up are the \textbf{structure-related} pieces of wisdom.
+\textcite[16]{Bass1998} state that modules should be well defined, with a clear
+separation of concerns and following the principles of information hiding. Their
+interfaces should also be well defined, and encapsulate any details that might
+change during implementation, such as choice of data structures. To improve
+modifiability, the modules that produce data should be kept separate from those
+that consume data. Between the modules, there should be only a small set of
+different ways of interaction, which is to say, the system should perform
+similar tasks in a similar fashion all around. This helps improve
+understandability, reliability and modifiability, with an added benefit of
+shorted development time and conceptual integrity of the architecture. Each
+quality attribute should be strived towards with well known architectural
+tactics that suit it. The architecture should not depend on any specific version
+of a commercial product or tool, or if it does, changing the product or tool
+should be both straightforward and cheap. If working close to hardware, changing
+the processor allocated for each task or process should be easy even at runtime.
+In case of parallel-processing systems, special care should be given to
+processes or tasks that touch multiple modules. \parencite[16]{Bass1998}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -476,29 +492,29 @@ The main goal of software development is software of high quality. We of course
 expect that the system fulfills all its requirements, gives us correct and
 accurate results, and that it interacts with other systems in an expected manner
 \parencite[76]{Bass1998}. According to \textcite[602]{Gorla2010}, this quality
-can be influenced by factors that are \textbf{organizational}, \textbf{technological},
-or \textbf{end user-related}. Organizational factors can include the IT budget, number of people
-in system development in that organization, and quality of documentation. Level of
-user involvement and user training the systems are end user-related factors. In
-contrast, technological factors include experience and skill level of the
-development staff, and type and suitability of development method, programming
-language or database model. \parencite[602]{Gorla2010}. Few factors outside the
-technological category are relevant in this thesis, which is why I mostly --
-although not exclusively -- focus on factors that can be influenced by the
-software architect.
+can be influenced by factors that are \textbf{organizational},
+\textbf{technological}, or \textbf{end user-related}. Organizational factors can
+include the IT budget, number of people in system development in that
+organization, and quality of documentation. Level of user involvement and user
+training the systems are end user-related factors. In contrast, technological
+factors include experience and skill level of the development staff, and type
+and suitability of development method, programming language or database model.
+\parencite[602]{Gorla2010}. Few factors outside the technological category are
+relevant in this thesis, which is why I mostly -- although not exclusively --
+focus on factors that can be influenced by the software architect.
 
-\textbf{Quality attributes} are used to describe specific aspects of quality as it
-relates to software. From management perspective, we are likely interested in
+\textbf{Quality attributes} are used to describe specific aspects of quality as
+it relates to software. From management perspective, we are likely interested in
 business-related attributes and metrics such as cost and effort of development
 work, productivity estimation, and time-to-market
-\parencites[60]{Arvanitou2017}[76]{Bass1998}.
-In this thesis I only deal with these topics at a superficial level, as
-they cannot be directly quantified based on architecture alone. \textcite[76]{Bass1998}
-suggest that there are two categories of quality attributes that instead can be
-measured on architectural level: attributes that \textbf{can be observed by running the
-  system}, and those that cannot. The first category tells us how well the system
-fills its behavioral requirements during runtime. Quality attributes that
-indicate this include \parencites[79-81]{Bass1998}[13]{Li2021}[60]{Arvanitou2017}:
+\parencites[60]{Arvanitou2017}[76]{Bass1998}. In this thesis I only deal with
+these topics at a superficial level, as they cannot be directly quantified based
+on architecture alone. \textcite[76]{Bass1998} suggest that there are two
+categories of quality attributes that instead can be measured on architectural
+level: attributes that \textbf{can be observed by running the system}, and those
+that cannot. The first category tells us how well the system fills its
+behavioral requirements during runtime. Quality attributes that indicate this
+include \parencites[79-81]{Bass1998}[13]{Li2021}[60]{Arvanitou2017}:
 \begin{itemize}
   \item performance
   \item security
@@ -512,9 +528,10 @@ indicate this include \parencites[79-81]{Bass1998}[13]{Li2021}[60]{Arvanitou2017
   \item defect proneness
 \end{itemize}
 
-The second category of quality attributes --- those that \textbf{cannot be observed by
-  running the system} --- tell us how easy the system is to test, integrate and
-modify \parencite[81]{Bass1998}. It contains, among others, these attributes:
+The second category of quality attributes --- those that \textbf{cannot be
+  observed by running the system} --- tell us how easy the system is to test,
+integrate and modify \parencite[81]{Bass1998}. It contains, among others, these
+attributes:
 \begin{itemize}
   \item modifiability
   \item portability
@@ -523,8 +540,8 @@ modify \parencite[81]{Bass1998}. It contains, among others, these attributes:
   \item testability
 \end{itemize}
 
-Other authors use related terms ''functional'' and ''non-functional requirements''.
-\textcite[76]{Bass1998} consider this dichotomy useless. It
+Other authors use related terms ''functional'' and ''non-functional
+requirements''. \textcite[76]{Bass1998} consider this dichotomy useless. It
 suggests that all attributes can be divided strictly into those that model the
 system's ability to perform the actions it is expected to, and ''everything
 else''. The latter non-functional category acts as a bucket. This too easily
@@ -532,91 +549,93 @@ leads to a situation where some qualities are given less consideration, leading
 to a diminished quality of the system as a whole. In fact, many quality
 attributes are intertwined to behavior of the system. For example, it might be
 impossible to reach lightning fast performance with a feature that processes
-very large images. On a higher level, though, Bass and others consider functionality
-to be orthogonal to quality attributes. If this wasn't the case, implementing a
-certain functionality would always dictate the system's security, usability, or
-other attributes. The program might function perfectly, but it might
-also be difficult to modify or costly to build. \parencite[77]{Bass1998}.
+very large images. On a higher level, though, Bass and others consider
+functionality to be orthogonal to quality attributes. If this wasn't the case,
+implementing a certain functionality would always dictate the system's security,
+usability, or other attributes. The program might function perfectly, but it
+might also be difficult to modify or costly to build. \parencite[77]{Bass1998}.
 
 Instead, architectural choices made by the architect decide the level of quality
-possible for the system \parencite[72]{Bass2003}. Quality must be considered at every
-stage of design, implementation and deployment \parencite{Bass1998}. Different quality
-attributes represent themself differently at different stages. For example, some
-usability decisions, such as details of a UI, are not architectural at all.
-Modifiability, on the other hand, is primarily architectural. Modifiability
-relates to how a system is split into components, and a system is modifiable if
-changes do not require touching multiple components. Performance depends on both
-architectural and non-architectural considerations. Architect can influence how
-functionality is divided between each component, and how they communicate. But
-the finer details are left to developers, who are usually responsible or
-detailed design. An example of this is the choice of an algorithm and turning it
-into source code. Another thing to consider is that quality attributes do not
-exists in a vacuum, but instead influence each other in good or bad \parencite[78]{Bass1998}.
-For example, improved monitorability likely enables improved testability,
-which in turn leads to an increase in security \parencite[18]{Li2021}. Architect must
-prioritize the quality attributes and decide which ones to emphasize
-\parencite[129]{Bass1998}.
+possible for the system \parencite[72]{Bass2003}. Quality must be considered at
+every stage of design, implementation and deployment \parencite{Bass1998}.
+Different quality attributes represent themself differently at different stages.
+For example, some usability decisions, such as details of a UI, are not
+architectural at all. Modifiability, on the other hand, is primarily
+architectural. Modifiability relates to how a system is split into components,
+and a system is modifiable if changes do not require touching multiple
+components. Performance depends on both architectural and non-architectural
+considerations. Architect can influence how functionality is divided between
+each component, and how they communicate. But the finer details are left to
+developers, who are usually responsible or detailed design. An example of this
+is the choice of an algorithm and turning it into source code. Another thing to
+consider is that quality attributes do not exists in a vacuum, but instead
+influence each other in good or bad \parencite[78]{Bass1998}. For example,
+improved monitorability likely enables improved testability, which in turn leads
+to an increase in security \parencite[18]{Li2021}. Architect must prioritize the
+quality attributes and decide which ones to emphasize \parencite[129]{Bass1998}.
 
 
 \subsection{What is maintainability, and why is it important}
 
-The quality attribute \textbf{maintainability} describes the efforts needed to fix errors
-or to make enhancements to the system \parencite[603]{Gorla2010}. Based on their mapping
-study on design-time quality attributes and metrics, \textcite{Arvanitou2017}
-found that maintainability is the most often researched quality attribute in
-most stages of the software development life cycle. It receives interest in
-design, architecture, implementation and maintenance stages. Maintainability is
-especially relevant in other stages such as project management, requirements or
-testing stages. \parencite[61-62]{Arvanitou2017}.
+The quality attribute \textbf{maintainability} describes the efforts needed to
+fix errors or to make enhancements to the system \parencite[603]{Gorla2010}.
+Based on their mapping study on design-time quality attributes and metrics,
+\textcite{Arvanitou2017} found that maintainability is the most often researched
+quality attribute in most stages of the software development life cycle. It
+receives interest in design, architecture, implementation and maintenance
+stages. Maintainability is especially relevant in other stages such as project
+management, requirements or testing stages. \parencite[61-62]{Arvanitou2017}.
 
 Like many other quality attributes, maintainability can be further subdivided
-into more specific quality attributes. \textcite[233]{ISO5055} lists \textbf{modularity},
-\textbf{reusability}, \textbf{analyzability}, \textbf{changeability},
-\textbf{modification stability}, \textbf{testability} and \textbf{compliance} as
-components of maintainability. Many of these are also echoed
-by \textcite[61]{Arvanitou2017}. Some other categories, such as \textbf{understandability}, are
-sometimes related to maintainability. \textcite{Arvanitou2017} consider it a
-separate quality attribute for two reasons. First, some other quality models
-make a distinction between maintainability and understandability. Second, a
-unique research community has already gathered around understandability as a
-standalone concept. \parencite[61]{Arvanitou2017}.
+into more specific quality attributes. \textcite[233]{ISO5055} lists
+\textbf{modularity}, \textbf{reusability}, \textbf{analyzability},
+\textbf{changeability}, \textbf{modification stability}, \textbf{testability}
+and \textbf{compliance} as components of maintainability. Many of these are also
+echoed by \textcite[61]{Arvanitou2017}. Some other categories, such as
+\textbf{understandability}, are sometimes related to maintainability.
+\textcite{Arvanitou2017} consider it a separate quality attribute for two
+reasons. First, some other quality models make a distinction between
+maintainability and understandability. Second, a unique research community has
+already gathered around understandability as a standalone concept.
+\parencite[61]{Arvanitou2017}.
 
 There is no single metric ''maintainability of the software system'', because
 its components likely have different purposes and implementations
-\parencites[26]{Broy2006}[192]{Bass1998}. As such, a phrase like ''the system
-is highly maintainable'' doesn't tell anything practical about the system,
-because quality attributes receive their meaning from surrounding context. For
-example, the software might be highly modifiable in relation to specific classes
-of changes. \parencite[192]{Bass1998}.
+\parencites[26]{Broy2006}[192]{Bass1998}. As such, a phrase like ''the system is
+highly maintainable'' doesn't tell anything practical about the system, because
+quality attributes receive their meaning from surrounding context. For example,
+the software might be highly modifiable in relation to specific classes of
+changes. \parencite[192]{Bass1998}.
 
 Focusing on maintainability can pay back the cost invested into it. It
 influences how much money and time needs to be spent on maintenance tasks
 \parencite[21]{Broy2006}. If it is not considered, cost of change can be
 unnecessarily inflated \parencite[2]{Vale2022}. Personnel requirements have to
 also be considered, because someone needs to perform necessary updates and
-fixes. \textcite{Heroku2011} warns that if maintenance work is left to the one single
-team of software developers, the time is often deducted from development of new features.
+fixes. \textcite{Heroku2011} warns that if maintenance work is left to the one
+single team of software developers, the time is often deducted from development
+of new features.
 
 If a system is not maintainable, it will be more difficult to address other
-problems, such as performance or reliability \parencite[46]{Bouwers2010}. If different
-services are coupled, one of them cannot be altered without changing others that
-are depending on it \parencite[2]{Vale2022}. At the business level, maintainability of an
-important system defines the organization's ability to adapt their business
-processes to changing market circumstances, and to implement innovative products
-and services \parencite[21]{Broy2006}.
+problems, such as performance or reliability \parencite[46]{Bouwers2010}. If
+different services are coupled, one of them cannot be altered without changing
+others that are depending on it \parencite[2]{Vale2022}. At the business level,
+maintainability of an important system defines the organization's ability to
+adapt their business processes to changing market circumstances, and to
+implement innovative products and services \parencite[21]{Broy2006}.
 
 Even if the software itself stays unchanged for years, it can break if and when
 its environment changes. This phenomenon is called \textbf{software rot}
-\footnote{\url{http://www.catb.org/jargon/html/S/software-rot.html}.}.
-In other words, software rot happens when a system's assumptions
-go out of date. A good example of this is the infamous ''Y2K'' event which
-resulted in uncountable bugs when two-digit year counters underwent wrap-around
-at the start of the new millennium. Even outside such one-off
-situations, software can touch the underlying operating system and network
-infrastructure in many places: library versions, directory paths, IP addresses
-and hostnames, and so on \parencite{Heroku2011}. The above Jargon File \footnote{The Jargon
-  File is a ''comprehensive compendium of hacker slang illuminating many aspects
-  of hackish tradition, folklore, and humor.''
+\footnote{\url{http://www.catb.org/jargon/html/S/software-rot.html}.}. In other
+words, software rot happens when a system's assumptions go out of date. A good
+example of this is the infamous ''Y2K'' event which resulted in uncountable bugs
+when two-digit year counters underwent wrap-around at the start of the new
+millennium. Even outside such one-off situations, software can touch the
+underlying operating system and network infrastructure in many places: library
+versions, directory paths, IP addresses and hostnames, and so on
+\parencite{Heroku2011}. The above Jargon File \footnote{The Jargon File is a
+  ''comprehensive compendium of hacker slang illuminating many aspects of hackish
+  tradition, folklore, and humor.''
   \url{http://www.catb.org/jargon/html/online-preface.html}} entry about software
 rot advises to employ robust design to deflect such problems. Based on what
 we've discussed in this chapter, I consider taking care of maintainability part
@@ -626,16 +645,16 @@ of robust design.
 \subsection{How to measure maintainability}
 
 As discussed before, problems discovered early in the software development life
-cycle are easier to address \parencite{Bass1998}. At that point you still have a chance to
-adjust requirements, specification or design with relatively low cost. Software
-quality cannot be ''appended'' to the project afterwards, but must instead be baked in
-deliberately. Qualities of a system can be anticipated by evaluating the
-architecture. This means we should evaluate the architecture as soon as
-feasible. To evaluate a certain quality attribute, we must make sure we have the
-necessary architectural descriptions at hand. For example when evaluating
-modifiability --- a subcategory of maintainability --- we need at least a
-decomposition that shows us the different modules and how tasks are distributed
-between them. \parencite[32, 190-191]{Bass1998}.
+cycle are easier to address \parencite{Bass1998}. At that point you still have a
+chance to adjust requirements, specification or design with relatively low cost.
+Software quality cannot be ''appended'' to the project afterwards, but must
+instead be baked in deliberately. Qualities of a system can be anticipated by
+evaluating the architecture. This means we should evaluate the architecture as
+soon as feasible. To evaluate a certain quality attribute, we must make sure we
+have the necessary architectural descriptions at hand. For example when
+evaluating modifiability --- a subcategory of maintainability --- we need at
+least a decomposition that shows us the different modules and how tasks are
+distributed between them. \parencite[32, 190-191]{Bass1998}.
 
 It is necessary to decouple quality attributes from effort estimations in our
 daily work. \textcite{Moses2009} points out that maintainability of a software
@@ -643,34 +662,35 @@ module is intended to signify possible challenges posed by code for maintenance
 tasks. Maintainability cannot give you an estimate of how difficult a certain
 maintenance change will be or how long it will take. Unless the same change has
 been performed in exactly the same circumstances before, duration and
-possibility of success of a code change are only subjective estimates.
-Moses suggests two methods for estimating practical maintenance tasks. It can be
-given on an ordinal scale of e.g. 1-5 instead of an absolute time estimate. If a
+possibility of success of a code change are only subjective estimates. Moses
+suggests two methods for estimating practical maintenance tasks. It can be given
+on an ordinal scale of e.g. 1-5 instead of an absolute time estimate. If a
 concrete estimate is necessary, two experts should voice their opinions, from
 which we can calculate an expected duration with confidence limits.
 \parencite[204]{Moses2009}.
 
 Vice versa, a prediction system for maintenance effort is not a prediction
-system for the quality attribute maintainability \parencite[206]{Moses2009}. Each
-maintenance effort includes factors that influence the duration of the activity.
-These factors include availability of documentation, amount of testing after the
-change, and skills of the maintenance team. Because it is obviously impossible
-to carry out and measure all possible maintenance activities for a system, the
-effort can only be measured from a subset of all possible maintenance
-activities. This means that, even in the best scenario, a system's
-maintainability can be estimated only for activities that are similar to ones
-that have already been performed before to this system. In the worst case, the
-measured effort can be misleading, if measured activities do not represent
-actions that are carried out in practice. \parencite[206]{Moses2009}.
+system for the quality attribute maintainability \parencite[206]{Moses2009}.
+Each maintenance effort includes factors that influence the duration of the
+activity. These factors include availability of documentation, amount of
+testing after the change, and skills of the maintenance team. Because it is
+obviously impossible to carry out and measure all possible maintenance
+activities for a system, the effort can only be measured from a subset of all
+possible maintenance activities. This means that, even in the best scenario, a
+system's maintainability can be estimated only for activities that are similar
+to ones that have already been performed before to this system. In the worst
+case, the measured effort can be misleading, if measured activities do not
+represent actions that are carried out in practice. \parencite[206]{Moses2009}.
 
 \textcite{Broy2006} state that an evaluation criteria must be well-founded and
 checkable. Evaluating a whole software system is quite involved, and requires
 multiple kinds of evaluation methods. Source code can be automatically checked
 for syntactical properties. Other methods are semi-automatic, requiring some
 human actions. The rest are thoroughly manual, such as reviewing documentation,
-or evaluating whether the system employs correct data structures \parencite[22]{Broy2006}.
-Our focal point of interest, maintainability, is a high-level quality
-attribute, because it cannot be directly calculated from metrics \parencite[60]{Arvanitou2017}.
+or evaluating whether the system employs correct data structures
+\parencite[22]{Broy2006}. Our focal point of interest, maintainability, is a
+high-level quality attribute, because it cannot be directly calculated from
+metrics \parencite[60]{Arvanitou2017}.
 
 There are ways to measure maintainability indirectly. In their study about
 designing microservice systems using patterns, \textcite[9]{Vale2022} found that
@@ -683,20 +703,22 @@ maintainability. Vale and others reason that this might be because lower level
 attributes are easier to measure and check directly than maintainability. They
 also postulate that subjective understanding of quality attributes is very much
 personal and often vague. This makes it difficult to mutually agree on a
-definition inside your organization. Instead, participants rather liked to think directly
-of techniques and tools to tackle the related problems. \parencite[7-10]{Vale2022}.
+definition inside your organization. Instead, participants rather liked to think
+directly of techniques and tools to tackle the related problems.
+\parencite[7-10]{Vale2022}.
 
 Automatic methods for assessing maintainability of a system usually limit
 themselves to the source code level. Such methods cannot be used to to evaluate
 an architecture before implementation has taken place. They are, however, useful
 after the fact, for example when following an iterative life cycle model.
-\textcite[1]{ISO5055} points out that faults in architectural or design practice can
-also be detected by statically analysing design specifications. This requires
-that the specification is written in a design language with a formal syntax and
-semantics. \textcite[2]{ISO5055} presents a long list of \textbf{Automated Source Code Quality
-  Measures (ASCQM)}, that provide strong indicators for the quality of a software
-system in each area. In my opinion, these are the architecture-related
-maintainability \textbf{weaknesses} \parencite[38-47]{ISO5055}:
+\textcite[1]{ISO5055} points out that faults in architectural or design practice
+can also be detected by statically analysing design specifications. This
+requires that the specification is written in a design language with a formal
+syntax and semantics. \textcite[2]{ISO5055} presents a long list of
+\textbf{Automated Source Code Quality Measures (ASCQM)}, that provide strong
+indicators for the quality of a software system in each area. In my opinion,
+these are the architecture-related maintainability \textbf{weaknesses}
+\parencite[38-47]{ISO5055}:
 \begin{itemize}
   \item invocation of a control element at an unnecessarily deep horizontal layer (layer-skipping call)
   \item invokable control element with excessive file or data access operations
@@ -708,7 +730,8 @@ maintainability \textbf{weaknesses} \parencite[38-47]{ISO5055}:
 The standard also provides multiple \textbf{detection patterns}
 \parencite[2]{ISO5055}. They help detect structural weaknesses from code. One
 pattern can be used to detect multiple weaknesses. I would list the following
-maintainability detection patterns as related to architecture \parencite[48-54]{ISO5055}:
+maintainability detection patterns as related to architecture
+\parencite[48-54]{ISO5055}:
 \begin{itemize}
   \item limit number of data access
   \item limit number of outward calls
@@ -734,18 +757,21 @@ following metrics relating to the architectural stage:
 \end{itemize}
 
 Most of the tools to calculate these metrics are unnamed, likely created in
-academia by research teams, and not available for public use \parencite{Arvanitou2017}. Maintainability is often connected to metrics, but is not always quantified
-as their function. Evaluating a quality attribute with a single function is
-non-trivial, which is why few research have suggested such a function for
-high-level attributes like maintainability. \parencite[67]{Arvanitou2017}.
+academia by research teams, and not available for public use
+\parencite{Arvanitou2017}. Maintainability is often connected to metrics, but is
+not always quantified as their function. Evaluating a quality attribute with a
+single function is non-trivial, which is why few research have suggested such a
+function for high-level attributes like maintainability.
+\parencite[67]{Arvanitou2017}.
 
-In regards to software, a ''\textbf{smell}'' is considered synonymous to antipattern,
-flaw or anomaly \parencite[1]{Mumtaz2021}. In their paper about architectural
-smells detection, \textcite[20]{Mumtaz2021} found that research tends to focus on
-dependency smells. Dependency smells are usually connected with coupling issues
-in the architecture, which relates to maintainability. Most detection tools can
-detect common dependency smells. They describe the different approaches to detect
-architectural smells in a software system \parencite[8-14]{Mumtaz2021}:
+In regards to software, a ''\textbf{smell}'' is considered synonymous to
+antipattern, flaw or anomaly \parencite[1]{Mumtaz2021}. In their paper about
+architectural smells detection, \textcite[20]{Mumtaz2021} found that research
+tends to focus on dependency smells. Dependency smells are usually connected
+with coupling issues in the architecture, which relates to maintainability. Most
+detection tools can detect common dependency smells. They describe the different
+approaches to detect architectural smells in a software system
+\parencite[8-14]{Mumtaz2021}:
 \begin{itemize}
   \item  graph-based
   \item design structure matrix
@@ -762,28 +788,29 @@ relationships as edges \parencite{Mumtaz2021}. This makes it easy to notice
 problematic relationships between them. A \textbf{design structure matrix} is a
 two-dimensional matrix to represent the structural relationships of the
 software. This can be used to represent complex architectural components and
-their relationships. \textbf{Model-driven} approach represents structure and behavior of
-a system using abstractions and modeling. \textbf{Search-based} methods such as genetic
-programming are suitable for especially large datasets, and a \textbf{visualization}
-approach can help us understand large software systems with multivariate and
-multidimensional data. \parencite[9-14]{Mumtaz2021}.
+their relationships. \textbf{Model-driven} approach represents structure and
+behavior of a system using abstractions and modeling. \textbf{Search-based}
+methods such as genetic programming are suitable for especially large datasets,
+and a \textbf{visualization} approach can help us understand large software
+systems with multivariate and multidimensional data.
+\parencite[9-14]{Mumtaz2021}.
 
-\textbf{Rules-based} approach takes advantage of metrics their thresholds and predefined
-frameworks, heuristics or guidelines \parencite[8]{Mumtaz2021}. It is related to
-code smells analysis, which combs through source code to identify code smells in
-order to detect architectural smells from them. This approach can find a
-correlation between subjective experiences and economical facts of the system
-\parencite[22]{Broy2006}. Downsides to a rules-based approach is that it
+\textbf{Rules-based} approach takes advantage of metrics their thresholds and
+predefined frameworks, heuristics or guidelines \parencite[8]{Mumtaz2021}. It is
+related to code smells analysis, which combs through source code to identify
+code smells in order to detect architectural smells from them. This approach can
+find a correlation between subjective experiences and economical facts of the
+system \parencite[22]{Broy2006}. Downsides to a rules-based approach is that it
 concentrates on features that can be calculated automatically from source code,
 which restricts it to syntactical factors. Automatic checking is difficult to
 employ when scrutinizing suitability of data structures, or quality of
 documentation. Standards and guidelines might be too generic to be evaluated.
 This is a problem if there is no way to concretely check the impact or value of
-an attribute, such as modifiability. Some guidelines might also lack reasoning for
-the presented advice. Consider the proposition to keep method length to under 30
-lines of source code. Why 30? Who not 25 or 37? Without a solid argument, the
-advice will likely stay unheeded.  The approach also requires the user to
-additionally consider the organizational context for the automatically
+an attribute, such as modifiability. Some guidelines might also lack reasoning
+for the presented advice. Consider the proposition to keep method length to
+under 30 lines of source code. Why 30? Who not 25 or 37? Without a solid
+argument, the advice will likely stay unheeded. The approach also requires the
+user to additionally consider the organizational context for the automatically
 calculated result, or else it is useless in evaluating maintainability of the
 system as a whole. \parencite[22]{Broy2006}.
 
@@ -799,61 +826,62 @@ This results in systems that require less effort to maintain.
 \parencite[608]{Gorla2010}.
 
 \textcite{Broy2006} remind us to separate ''facts'' from ''acts''. An activity,
-or \textbf{act}, is something that we try to do. Example acts include concept location,
-impact analysis, coding and modification. A \textbf{fact} is some circumstance
-surrounding the system, such as readability of documentation, processes used in
-the organization, or availability of debugging tools. Maintainability depends
-from things outside of the product itself. Especially organizational facts are
-often overlooked when assessing maintainability of a system. Skill of the
-maintainers plays a key role in maintainability. A high turnover rate can make a
-system more difficult to maintain, if the company loses a large share of its
-developers to a competitor. Well-defined processes, such as a configuration
-management process, can help create a quality product. Trustworthy tools like
-debuggers, and visualization and refactoring tools are critical for performing
-effective maintenance. \parencite[25-26]{Broy2006}.
+or \textbf{act}, is something that we try to do. Example acts include concept
+location, impact analysis, coding, and modification. A \textbf{fact} is some
+circumstance surrounding the system, such as readability of documentation,
+processes used in the organization, or availability of debugging tools.
+Maintainability depends from things outside of the product itself. Especially
+organizational facts are often overlooked when assessing maintainability of a
+system. Skill of the maintainers plays a key role in maintainability. A high
+turnover rate can make a system more difficult to maintain, if the company loses
+a large share of its developers to a competitor. Well-defined processes, such as
+a configuration management process, can help create a quality product.
+Trustworthy tools like debuggers, and visualization and refactoring tools are
+critical for performing effective maintenance. \parencite[25-26]{Broy2006}.
 
 \textcite{Bass1998} collate that the most important thing in improving
 non-runtime attributes like modifiability and testability is to enable and
 facilitate making changes to the system. The system likely suffers from poor
 modifiability if it relies on a shared memory solution with global variables
 accessible to all components, where a change to data format could require
-changes to all components \parencite[89]{Bass1998}. A change should only affect a small number of
-components. \textcite[96]{IEEE12207} concurs that systems which highlight
-encapsulation, modularity and scalability can be simpler to maintain. Achieving
-this requires foresight into what kinds of modifications will be necessary in
-the future. The foresight can be achieved by an experienced architect with
-available change histories for this and related systems. \parencite[118]{Bass1998}.
+changes to all components \parencite[89]{Bass1998}. A change should only affect
+a small number of components. \textcite[96]{IEEE12207} concurs that systems
+which highlight encapsulation, modularity and scalability can be simpler to
+maintain. Achieving this requires foresight into what kinds of modifications
+will be necessary in the future. The foresight can be achieved by an experienced
+architect with available change histories for this and related systems.
+\parencite[118]{Bass1998}.
 
 To improve maintainability, \textcite[7]{Vale2022} suggest tracking bug reports
-with \textit{Slack} and \textit{Jira}. Static code analysis tools such as SonarQube and Codacy
-help on the source code level. Code reviews, automated pipelines, and
-domain-driven design are also beneficial. According to their research, there are
-design patterns one can use to gain an edge with maintainability. Strangler,
-Ambassador, External Configuration Store, Gateway Offloading, Backends for
-Frontends, Pipes and Filters and Static Content Hosting patterns were reported
-by at least one interviewee to have improved maintainability of a system they
-have worked with. \parencite[4-6]{Vale2022}. Design patterns create a common
-language between designers, to share an understanding of solutions that have
-been found to work well.
+with \textit{Slack} and \textit{Jira}. Static code analysis tools such as
+\textit{SonarQube} and \textit{Codacy} help on the source code level. Code
+reviews, automated pipelines, and domain-driven design are also beneficial.
+According to their research, there are design patterns one can use to gain an
+edge with maintainability. Strangler, Ambassador, External Configuration Store,
+Gateway Offloading, Backends for Frontends, Pipes and Filters and Static Content
+Hosting patterns were reported by at least one interviewee to have improved
+maintainability of a system they have worked with. \parencite[4-6]{Vale2022}.
+Design patterns create a common language between designers, to share an
+understanding of solutions that have been found to work well.
 
-Related to design patterns, \textcite{Bass1998} bring forward \textbf{Unit Operations},
-which are general design operations or techniques that allow the architect to
-achieve quality attributes. Unit operations have their roots in the engineering
-world, and are at a higher level of abstraction than design patterns. Examples
-of unit operations are Separation, Uniform Decomposition, Replication,
-Abstraction, Compression, and Resources Sharing. The operations Separation and
-Resource Sharing can have a positive effect on maintainability through improving
-modifiability. In \textbf{Separation}, functionality is detached as its own component
-with a well-defined interface to its surroundings. This has numerous advantages: it
-enables distribution, which in turn enables parallelism; it's easier to divide
-development work to development teams; and it improves modifiability and
-portability. It springs to my mind that Separation unit operation could also be
-used to create layers in a layered architecture. \textbf{Resource Sharing} means that
-data or services are encapsulated and then shared between multiple independent
-consumers. Examples of this are databases, blackboards, and servers in a
-client-server-architecture. This unit operation decreases coupling between
-components, which leads to improved integrability, portability and
-modifiability. \parencite[123-126]{Bass1998}.
+Related to design patterns, \textcite{Bass1998} bring forward \textbf{Unit
+  Operations}, which are general design operations or techniques that allow the
+architect to achieve quality attributes. Unit operations have their roots in the
+engineering world, and are at a higher level of abstraction than design
+patterns. Examples of unit operations are Separation, Uniform Decomposition,
+Replication, Abstraction, Compression, and Resources Sharing. The operations
+Separation and Resource Sharing can have a positive effect on maintainability
+through improving modifiability. In \textbf{Separation}, functionality is
+detached as its own component with a well-defined interface to its surroundings.
+This has numerous advantages: it enables distribution, which in turn enables
+parallelism; it's easier to divide development work to development teams; and it
+improves modifiability and portability. It springs to my mind that Separation
+unit operation could also be used to create layers in a layered architecture.
+\textbf{Resource Sharing} means that data or services are encapsulated and then
+shared between multiple independent consumers. Examples of this are databases,
+blackboards, and servers in a client-server-architecture. This unit operation
+decreases coupling between components, which leads to improved integrability,
+portability and modifiability. \parencite[123-126]{Bass1998}.
 
 The \textit{Heroku} cloud application platform \parencite{Heroku2011} utilized
 \textbf{Explicit Contracts} to maintain a strong separation between the platform
@@ -903,30 +931,31 @@ that only makes sense on top of cloud infrastructure, which means that the
 physical environments have been virtualized, and infrastructure is disposable.
 When using disposable infrastructure, units of infrastructure are created,
 scaled, and destroyed quickly with help of automation. There is a fitting
-metaphor of ''cattle vs.  pets'', and disposable infrastructure is the cattle.
+metaphor of ''cattle vs. pets'', and disposable infrastructure is the cattle.
 All instances are identical, and if one of them requires an update or repairs,
 it will be replaced instead of fixed. \parencite{Microsoft2022}.
 
-Birth of the public cloud can be dated back to 2006, when \textit{Amazon Web Services}
-launched their \textit{Simple Storage Service} (S3) and \textit{Elastic Compute Cloud} (EC2)
-\parencite[1]{Kratzke2017}. The so-called first wave of cloud computation meant
-that companies replaced their own data centers with virtual machines running on
-data centers owned by cloud platform providers \parencite[17]{Gannon2017}. While
-revolutionary, it was still difficult to support both scalability and security
-at the same time, and there was no cloud-based tooling for data, event or error
-correction to be used in debugging. \parencite[18]{Gannon2017}.
+Birth of the public cloud can be dated back to 2006, when \textit{Amazon Web
+  Services} launched their \textit{Simple Storage Service} (S3) and
+\textit{Elastic Compute Cloud} (EC2) \parencite[1]{Kratzke2017}. The so-called
+first wave of cloud computation meant that companies replaced their own data
+centers with virtual machines running on data centers owned by cloud platform
+providers \parencite[17]{Gannon2017}. While revolutionary, it was still
+difficult to support both scalability and security at the same time, and there
+was no cloud-based tooling for data, event or error correction to be used in
+debugging. \parencite[18]{Gannon2017}.
 
-\textcite[8]{Kratzke2017} searched ''cloud-native'' from \textit{Google Trends} for an overview
-of its usage. The term was widely used around 2007, around the first wave of
-cloud computation. Usage tapered after that, but around 2015 the term enjoyed
-newfound interest. The researchers admit that Google Trends is not the most
-reliable of metrics due to its sensitivity to industry buzzwords. These results,
-however, correspond to the results of their research. \textcite[8]{Kratzke2017}.
-''Cloud-native'' was first mentioned in academic literature in 2012
-\footnote{Andrikopoulos, Fehling \& Leymann, 2012. Designing for CAP - The Effect
-  of Design Decisions on the CAP Properties of Cloud-native Applications}
-\footnote{Garca-Gmez, et al., 2012. 4CaaSt: Comprehensive Management of Cloud
-  Services through a PaaS} .
+\textcite[8]{Kratzke2017} searched ''cloud-native'' from \textit{Google Trends}
+for an overview of its usage. The term was widely used around 2007, around the
+first wave of cloud computation. Usage tapered after that, but around 2015 the
+term enjoyed newfound interest. The researchers admit that Google Trends is not
+the most reliable of metrics due to its sensitivity to industry buzzwords. These
+results, however, correspond to the results of their research.
+\textcite[8]{Kratzke2017}. ''Cloud-native'' was first mentioned in academic
+literature in 2012 \footnote{Andrikopoulos, Fehling \& Leymann, 2012. Designing
+  for CAP - The Effect of Design Decisions on the CAP Properties of Cloud-native
+  Applications} \footnote{Garca-Gmez, et al., 2012. 4CaaSt: Comprehensive
+  Management of Cloud Services through a PaaS} .
 
 \textcite{Microsoft2022} offer a definition for ''cloud-native'':
 
@@ -942,15 +971,15 @@ run software systems, and leverages the elasticity, scalability and resilience
 offered by cloud computation \textcite{Patrizio2018}. A still more specific
 definition comes from \textcite{Kratzke2017}, whose systematic mapping study
 aimed to collate the research trends around cloud-native software development
-practices. They also wanted to define the \textbf{Cloud-Native Application}
-(\textbf{CNA}), for which the result is as follows \parencite[13]{Kratzke2017}:
+practices. They also wanted to define the \textbf{Cloud-Native Application
+  (CNA)}, for which the result is as follows \parencite[13]{Kratzke2017}:
 
 \begin{quote}
-  A cloud-native application (CNA) is a distributed, elastic and
-  horizontal scalable system composed of (micro)services which isolates state in a
-  minimum of stateful components. The application and each self-contained
-  deployment unit of that application is designed according to cloud-focused
-  design patterns and operated on a self-service elastic platform.
+  A cloud-native application (CNA) is a distributed, elastic and horizontal
+  scalable system composed of (micro)services which isolates state in a minimum
+  of stateful components. The application and each self-contained deployment
+  unit of that application is designed according to cloud-focused design
+  patterns and operated on a self-service elastic platform.
 \end{quote}
 
 From this we can conclude that a CNA is not merely a distributed system, but
@@ -963,15 +992,15 @@ companies, you might come up with \textit{Netflix}, \textit{Spotify},
 \textit{Uber}, \textit{Airbnb}, \textit{Facebook}, or \textit{Twitter}
 \parencites{Gannon2017}{Patrizio2018}.
 
-Companies such as \textit{Microsoft}, \textit{Google}, \textit{Amazon}, 
+Companies such as \textit{Microsoft}, \textit{Google}, \textit{Amazon},
 \textit{Oracle}, \textit{IBM}, \textit{Alibaba}, \textit{Heroku}, and
-\textit{Redhat} provide public cloud platforms for other companies to build cloud
-software on. They are called \textbf{Cloud Service Providers (CSP)}. CSPs' own software
-products might utilize the CSP's own infrastructure, which makes sense for
-simplicity of logistics. Some services such as \textit{AWS Kinesis},
-\textit{DynamoDB}, \textit{SQS}, and
-\textit{Amazon Redshift}; \textit{Microsoft Azure CosmosDB} and \textit{Data Lake};
-and \textit{Google BigQuery} are themselves cloud-native under the hood, and used to build CNAs.
+\textit{Redhat} provide public cloud platforms for other companies to build
+cloud software on. They are called \textbf{Cloud Service Providers (CSP)}. CSPs'
+own software products might utilize the CSP's own infrastructure, which makes
+sense for simplicity of logistics. Some services such as \textit{AWS Kinesis},
+\textit{DynamoDB}, \textit{SQS}, and \textit{Amazon Redshift}; \textit{Microsoft
+  Azure CosmosDB} and \textit{Data Lake}; and \textit{Google BigQuery} are
+themselves cloud-native under the hood, and used to build CNAs.
 \parencite[17]{Gannon2017}.
 
 CNAs share some common features. They are expected to be always running. At the
@@ -1010,23 +1039,22 @@ following chapters.
 
 \subsection{Microservices}
 
-\textbf{Microservices architecture (MSA)} is an increasingly accepted and adopted
-architectural style, and is much used in modern softwares
+\textbf{Microservices architecture (MSA)} is an increasingly accepted and
+adopted architectural style, and is much used in modern softwares
 \parencite[10]{Vale2022}. It was the first major style for cloud-native
 applications, dating back to 2013 \parencite[18]{Gannon2017}. Scalability is
 important when moving to a cloud-first paradigm. MSA can help overcame the
 limitations of traditional monolithic systems related to scalability
 \parencite[10]{Vale2022}. Monolithic software is often built using layered
 architecture, relational databases shared across all services, and is run as a
-single process \parencite{Microsoft2022}. MSA on the other hand encourages you to
-implement small-scale, independently distributed services instead of tying up
+single process \parencite{Microsoft2022}. MSA on the other hand encourages you
+to implement small-scale, independently distributed services instead of tying up
 all functionality into a single monolith \parencite[1]{Li2021}. When using MSA,
-you will disassemble the application into its basic building blocks by
-encasing a single functionality into a single service
-\parencite[18]{Gannon2017}. This also allows for technological heterogeneity,
-when different services can use the technologies that best allow it to reach its
-goal \parencite[18]{Li2021}. Together these services form the complete
-application \parencite{Microsoft2022}.
+you will disassemble the application into its basic building blocks by encasing
+a single functionality into a single service \parencite[18]{Gannon2017}. This
+also allows for technological heterogeneity, when different services can use the
+technologies that best allow it to reach its goal \parencite[18]{Li2021}.
+Together these services form the complete application \parencite{Microsoft2022}.
 
 A single microservice implements a specific business functionality as part of a
 larger domain context \parencite{Microsoft2022}. This context should be limited,
@@ -1035,11 +1063,12 @@ dependencies on other services \parencite[18]{Gannon2017}. According to
 \textcite{Microsoft2022}, the service should contain the necessary logic, state,
 data, external dependencies and programming platform \parencite{Microsoft2022}.
 Meanwhile, \textcite[18]{Gannon2017} recommend that each service should pursue
-\textbf{statelessness}, where the state is not saved into the microservice itself, but in
-another service, such as a database, cache or directory. In my opinion these
-differing views on handling state are not conflicting. Absolutes are harmful,
-and as prescribed in the CNA definition by \textcite[13]{Kratzke2017}, the main
-idea is to isolate state in a \textit{minimum} of stateful components.
+\textbf{statelessness}, where the state is not saved into the microservice
+itself, but in another service, such as a database, cache or directory. In my
+opinion these differing views on handling state are not conflicting. Absolutes
+are harmful, and as prescribed in the CNA definition by
+\textcite[13]{Kratzke2017}, the main idea is to isolate state in a
+\textit{minimum} of stateful components.
 
 The microservice should run its own process independently of other active
 services, and communicate with them using standard messaging protocols, such as
@@ -1047,16 +1076,16 @@ services, and communicate with them using standard messaging protocols, such as
 microservice should be able to be separately managed, replicated, scaled,
 updated and deployed \parencite[18]{Gannon2017}. \textcite{Microsoft2022}
 elaborate that independent scaling enables a more accurate control over the
-system. At the same time this lowers the total costs involved, because there is no
-need to scale services with lower usage alongside those that need it. Autonomous
-development and deployment removes the need to wait for e.g. quarterly release
-schedule to roll out an anticipated feature or fix. Independent deployment also
-reduces the risk of total system malfunction, as the changes are isolated to
-smaller context. \parencite{Microsoft2022}. Security must also be considered.
-One microservice should only have access to select few other microservices, and
-the target service must verify access rights of the requester service. Using
-role-based access control such as \textit{OAuth}, \textit{AWS IAM}, or
-\textit{Azure RBAC} can be instrumental in achieving this.
+system. At the same time this lowers the total costs involved, because there is
+no need to scale services with lower usage alongside those that need it.
+Autonomous development and deployment removes the need to wait for e.g.
+quarterly release schedule to roll out an anticipated feature or fix.
+Independent deployment also reduces the risk of total system malfunction, as the
+changes are isolated to smaller context. \parencite{Microsoft2022}. Security
+must also be considered. One microservice should only have access to select few
+other microservices, and the target service must verify access rights of the
+requester service. Using role-based access control such as \textit{OAuth},
+\textit{AWS IAM}, or \textit{Azure RBAC} can be instrumental in achieving this.
 \parencite[18]{Gannon2017}.
 
 \textcite[18]{Gannon2017} recount a time when a need arose to pack microservices
@@ -1067,27 +1096,28 @@ in a \textbf{container registry}, where they can be fetched when deploying a
 service that uses them. It is possible to run multiple containers in the cloud
 on a single VM, and achieve startup times even lower than one second
 \parencite[18]{Gannon2017}. Other reasons to select containers as a basis for
-your application include portability, and lack of a need to configure every environment
-separately with the required frameworks, libraries and runtime engines. This
-helps to achieve uniform environments with greater accuracy and speed.
-\parencite{Microsoft2022}. Companies such as \textit{Docker} popularized the
-container technology for use in MSAs \parencite[18]{Gannon2017}. According to
-\textcite{Microsoft2022}, Docker is the most popular container vendor, and it
+your application include portability, and lack of a need to configure every
+environment separately with the required frameworks, libraries and runtime
+engines. This helps to achieve uniform environments with greater accuracy and
+speed. \parencite{Microsoft2022}. Companies such as \textit{Docker} popularized
+the container technology for use in MSAs \parencite[18]{Gannon2017}. According
+to \textcite{Microsoft2022}, Docker is the most popular container vendor, and it
 has become industry standard for packaging, deploying and running cloud-native
 software.
 
-Containers are often arranged in a \textbf{service mesh}, using a \textbf{container orchestration}
-solution like \textit{Kubernetes}, \textit{Apache Mesos}, \textit{Docker Swarm},
-\textit{Azure Service Fabric} or \textit{IBM Blue Container Service}
-\parencite[18]{Gannon2017}. The orchestrator takes care of things like
-scheduling, affinity, health monitoring, failover, scaling, networking, service
-discovery, and rolling upgrades \parencite{Microsoft2022}. \textbf{Scheduling}
-means automatic provisioning of the container instances. \textbf{Affinity} and
-anti-affinity describe how far away the containers are from each other, measured
-in respect to hardware topology. \textbf{Health monitoring} allows for automatic
-detection and recovery from failures. If a failure happens, a \textbf{failover}
-process will automatically provision the failed instance to a healthy host. As
-we can extrapolate from previous definitions of the word, \textbf{scaling} means
+Containers are often arranged in a \textbf{service mesh}, using a
+\textbf{container orchestration} solution like \textit{Kubernetes},
+\textit{Apache Mesos}, \textit{Docker Swarm}, \textit{Azure Service Fabric} or
+\textit{IBM Blue Container Service} \parencite[18]{Gannon2017}. The orchestrator
+takes care of things like scheduling, affinity, health monitoring, failover,
+scaling, networking, service discovery, and rolling upgrades
+\parencite{Microsoft2022}. \textbf{Scheduling} means automatic provisioning of
+the container instances. \textbf{Affinity} and anti-affinity describe how far
+away the containers are from each other, measured in respect to hardware
+topology. \textbf{Health monitoring} allows for automatic detection and recovery
+from failures. If a failure happens, a \textbf{failover} process will
+automatically provision the failed instance to a healthy host. As we can
+extrapolate from previous definitions of the word, \textbf{scaling} means
 automatically adding or removing container instances depending on the demand.
 The orchestrator handles the \textbf{networking} overlay for container
 communication. \textbf{Service discovery} makes it possible for containers to
@@ -1195,14 +1225,14 @@ Available priority options are:
 \end{itemize}
 
 Questions Q5 and Q6 are open questions, where the respondent can describe their
-thoughts through text in any structure they like.
-I interpret the answers to find common categories from the suggestions.
+thoughts through text in any structure they like. I interpret the answers to
+find common categories from the suggestions.
 
 \subsection{Target audience}
-The survey is targeted at cloud architects of \textit{Nordcloud, an IBM company}, where I work.
-I posted the survey link along with an introductory message to Nordcloud's
-internal \textit{Slack} channels to reach most of our cloud architects.
-These channels were used:
+The survey is targeted at cloud architects of \textit{Nordcloud, an IBM
+  company}, where I work. I posted the survey link along with an introductory
+message to Nordcloud's internal \textit{Slack} channels to reach most of our
+cloud architects. These channels were used:
 \begin{itemize}
   \item \#tech-infra
   \item \#aws
@@ -1210,32 +1240,30 @@ These channels were used:
   \item \#google-cloud
 \end{itemize}
 
-Some of these communities have overlapping audience, but the total reach is over a thousand people.
-I assume our company to employ a few dozen cloud architects.
-My goal was to get 10-20 answers in order to conduct any meaningful statistical analysis on
-the data.
-This goal was met within a week with 13 answers, with a final tally of \todo{<NUMBER>}.
+Some of these communities have overlapping audience, but the total reach is over
+a thousand people. I assume our company to employ a few dozen cloud architects.
+My goal was to get 10-20 answers in order to conduct any meaningful statistical
+analysis on the data. This goal was met within a week with 13 answers, with a
+final tally of \todo{<NUMBER>}.
 
 \subsection{Timeline}
-Survey was sent out on Monday 20.03.2023.
-I was prepared to repost the survey in \textit{Slack} once a week up to four times until I
-decide I have enough answers to proceed.
-In the end there was no need to repost, as a sufficient number of architects
-responded after the initial posting.
-In early April I was able to convince one additional architect in-person at our
-Jyväskylä office to respond.
-Some stray responses were still recorded up to 21.4.2023.
+Survey was sent out on Monday 20.03.2023. I was prepared to repost the survey
+in \textit{Slack} once a week up to four times until I decide I have enough
+answers to proceed. In the end there was no need to repost, as a sufficient
+number of architects responded after the initial posting. In early April I was
+able to convince one additional architect in-person at our Jyväskylä office to
+respond. Some stray responses were still recorded up to 21.4.2023.
 
 \subsection{Data privacy concerns}
-I use my JYU Google account for all Google-related functions.
-Individual answers and their aggregated analysis will be stored in Google Forms and
-Google Sheets in my student account until the end of my study rights and
-subsequent removal of the account.
+I use my JYU Google account for all Google-related functions. Individual
+answers and their aggregated analysis will be stored in Google Forms and Google
+Sheets in my student account until the end of my study rights and subsequent
+removal of the account.
 
-All answers are collected and analyzed anonymously.
-Email addresses or other pieces of personal information are not collected.
-Even though the form requires logging in with a Google account, it is enforced
-only to avoid accidental re-submissions.
+All answers are collected and analyzed anonymously. Email addresses or other
+pieces of personal information are not collected. Even though the form requires
+logging in with a Google account, it is enforced only to avoid accidental
+re-submissions.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1272,11 +1300,13 @@ In this section I present the results I gathered from the survey. \todo{more}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Prioritization of maintainability (Q4)}
 
-To calculate a priority score for each quality attribute, I gave the options an incremental integer value from 1 to 5.
-The value 1 corresponds to option \textit{Least Important}, while value 5 corresponds to \textit{Most important}.
-The absolute values chosen here are not of importance as long as the difference between each consecutive option is equal,
-in order not to introduce additional bias.
-This makes our scale analogous to the Likert scale \todo{ref?}, which is often used for questionnaires in research.
+To calculate a priority score for each quality attribute, I gave the options an
+incremental integer value from 1 to 5. The value 1 corresponds to option
+\textit{Least Important}, while value 5 corresponds to \textit{Most important}.
+The absolute values chosen here are not of importance as long as the difference
+between each consecutive option is equal, in order not to introduce additional
+bias. This makes our scale analogous to the Likert scale \todo{ref?}, which is
+often used for questionnaires in research.
 
 
 \begin{table}[!h]
@@ -1297,7 +1327,8 @@ This makes our scale analogous to the Likert scale \todo{ref?}, which is often u
   \end{center}
 \end{table}
 
-Table \ref{table:priorities2} shows the average priorities and other relevant metrics for the quality attributes.
+Table \ref{table:priorities2} shows the average priorities and other relevant
+metrics for the quality attributes.
 
 \begin{table}[!h]
   \begin{center}
@@ -1348,17 +1379,21 @@ Table \ref{table:priorities2} shows the average priorities and other relevant me
 \label{chapter:discussion}
 
 In this section I further discuss the results presented in previous chapter.
-\tmp{I also consider the existing literature and contrast my results against findings of those who have researched the topic before me.}
+\tmp{I also consider the existing literature and contrast my results against
+  findings of those who have researched the topic before me.}
 
 
-In table \ref{table:priorities3} are listed the distances between the average priorities.
-Distances are calculated from results shown in table \ref{table:priorities2}.
-From these distances we can draw multiple conclusions.
-The top two quality attributes, Security and Reliability, are unequivocally the most highly prioritized attributes in the minds of our cloud architects.
-The distance between second and third most prioritized attributes is by far the largest individual jump in values.
-Maintainability is sitting quite comfortable in the middle of the range.
-This likely means it is considered important, but not a priority if sacrifices need to be made to software quality.
-Performance and scalability are considered least important items to an almost identical degree.
+In table \ref{table:priorities3} are listed the distances between the average
+priorities. Distances are calculated from results shown in table
+\ref{table:priorities2}. From these values we can draw multiple conclusions.
+The top two quality attributes, Security and Reliability, are unequivocally the
+most highly prioritized attributes in the minds of our cloud architects. The
+distance between second and third most prioritized attributes is by far the
+largest individual jump in values. Maintainability is sitting quite comfortable
+in the middle of the range. This likely means it is considered important, but
+not a priority if sacrifices need to be made to software quality. Performance
+and scalability are considered least important items to an almost identical
+degree.
 
 \begin{table}[!h]
   \begin{center}

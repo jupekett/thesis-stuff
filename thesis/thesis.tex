@@ -1010,7 +1010,115 @@ following chapters.
 
 \subsection{Microservices}
 
+\textbf{Microservices architecture (MSA)} is an increasingly accepted and adopted
+architectural style, and is much used in modern softwares
+\parencite[10]{Vale2022}. It was the first major style for cloud-native
+applications, dating back to 2013 \parencite[18]{Gannon2017}. Scalability is
+important when moving to a cloud-first paradigm. MSA can help overcame the
+limitations of traditional monolithic systems related to scalability
+\parencite[10]{Vale2022}. Monolithic software is often built using layered
+architecture, relational databases shared across all services, and is run as a
+single process \parencite{Microsoft2022}. MSA on the other hand encourages you to
+implement small-scale, independently distributed services instead of tying up
+all functionality into a single monolith \parencite[1]{Li2021}. When using MSA,
+you will disassemble the application into its basic building blocks by
+encasing a single functionality into a single service
+\parencite[18]{Gannon2017}. This also allows for technological heterogeneity,
+when different services can use the technologies that best allow it to reach its
+goal \parencite[18]{Li2021}. Together these services form the complete
+application \parencite{Microsoft2022}.
+
+A single microservice implements a specific business functionality as part of a
+larger domain context \parencite{Microsoft2022}. This context should be limited,
+giving the service limited responsibility, with only a small number of
+dependencies on other services \parencite[18]{Gannon2017}. According to
+\textcite{Microsoft2022}, the service should contain the necessary logic, state,
+data, external dependencies and programming platform \parencite{Microsoft2022}.
+Meanwhile, \textcite[18]{Gannon2017} recommend that each service should pursue
+\textbf{statelessness}, where the state is not saved into the microservice itself, but in
+another service, such as a database, cache or directory. In my opinion these
+differing views on handling state are not conflicting. Absolutes are harmful,
+and as prescribed in the CNA definition by \textcite[13]{Kratzke2017}, the main
+idea is to isolate state in a \textit{minimum} of stateful components.
+
+The microservice should run its own process independently of other active
+services, and communicate with them using standard messaging protocols, such as
+\textit{HTTP/HTTPS}, \textit{gRPC}, \textit{WebSockets} or \textit{AMQP}. Every
+microservice should be able to be separately managed, replicated, scaled,
+updated and deployed \parencite[18]{Gannon2017}. \textcite{Microsoft2022}
+elaborate that independent scaling enables a more accurate control over the
+system. At the same time this lowers the total costs involved, because there is no
+need to scale services with lower usage alongside those that need it. Autonomous
+development and deployment removes the need to wait for e.g. quarterly release
+schedule to roll out an anticipated feature or fix. Independent deployment also
+reduces the risk of total system malfunction, as the changes are isolated to
+smaller context. \parencite{Microsoft2022}. Security must also be considered.
+One microservice should only have access to select few other microservices, and
+the target service must verify access rights of the requester service. Using
+role-based access control such as \textit{OAuth}, \textit{AWS IAM}, or
+\textit{Azure RBAC} can be instrumental in achieving this.
+\parencite[18]{Gannon2017}.
+
+\textcite[18]{Gannon2017} recount a time when a need arose to pack microservices
+into spaces smaller than an entire virtual machine image. When using
+\textbf{containers} the code, dependencies, and runtime are packed into a
+\textbf{container image} \parencite{Microsoft2022}. The images are then stored
+in a \textbf{container registry}, where they can be fetched when deploying a
+service that uses them. It is possible to run multiple containers in the cloud
+on a single VM, and achieve startup times even lower than one second
+\parencite[18]{Gannon2017}. Other reasons to select containers as a basis for
+your application include portability, and lack of a need to configure every environment
+separately with the required frameworks, libraries and runtime engines. This
+helps to achieve uniform environments with greater accuracy and speed.
+\parencite{Microsoft2022}. Companies such as \textit{Docker} popularized the
+container technology for use in MSAs \parencite[18]{Gannon2017}. According to
+\textcite{Microsoft2022}, Docker is the most popular container vendor, and it
+has become industry standard for packaging, deploying and running cloud-native
+software.
+
+Containers are often arranged in a \textbf{service mesh}, using a \textbf{container orchestration}
+solution like \textit{Kubernetes}, \textit{Apache Mesos}, \textit{Docker Swarm},
+\textit{Azure Service Fabric} or \textit{IBM Blue Container Service}
+\parencite[18]{Gannon2017}. The orchestrator takes care of things like
+scheduling, affinity, health monitoring, failover, scaling, networking, service
+discovery, and rolling upgrades \parencite{Microsoft2022}. \textbf{Scheduling}
+means automatic provisioning of the container instances. \textbf{Affinity} and
+anti-affinity describe how far away the containers are from each other, measured
+in respect to hardware topology. \textbf{Health monitoring} allows for automatic
+detection and recovery from failures. If a failure happens, a \textbf{failover}
+process will automatically provision the failed instance to a healthy host. As
+we can extrapolate from previous definitions of the word, \textbf{scaling} means
+automatically adding or removing container instances depending on the demand.
+The orchestrator handles the \textbf{networking} overlay for container
+communication. \textbf{Service discovery} makes it possible for containers to
+find each other. Lastly, the orchestrator coordinates incremental updates and
+rollback of problematic changes to achieve \textbf{rolling upgrades}.
+\parencite{Microsoft2022}.
+
+Jumping aboard the MSA bandwagon is not all sunshine and roses.
+\textcite[18]{Li2021} point out that if the monolith is complex to begin with,
+componentizing it will bring this inner chaos on display. The end result might
+still be complex, albeit of different kind. \textcite[20]{Gannon2017} remind
+that we need to allocate efforts to manage computation resource clusters in
+order to run our services. As I see it, while the container orchestrator service
+take care of automatic operations day-to-day, the initial setup is non-trivial,
+and monitoring is still required.
+
+The distributed nature of applications based on MSA brings many challenges with
+inter-service communication. In a monolith communication is simpler: modules are
+executed together, memory space is shared, and the application might run on a
+single process \parencite{Microsoft2022}. This also comes with performance
+benefits. With MSA on the other hand, the services need to communicate through
+APIs and network protocols. Every service must authenticate and authorize
+incoming requests, and every request must be serialized and deserialized, which
+requires computation time. You need to expect network congestion, latency, and
+intermittent errors, and mitigate problems caused by them by emphasizing
+resilience and recovery from errors. \parencite{Microsoft2022}.
+
+
 \subsection{Serverless}
+
+\subsection{Advantages and challenges of cloud-nativity}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Maintainability in cloud-native architecture}

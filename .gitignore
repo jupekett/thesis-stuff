@@ -1,7 +1,6 @@
 # Transient files
 *.dvi
 *.aux
-*.pdf
 *.log
 *.toc
 *.lot
@@ -19,6 +18,9 @@
 *.ist
 *.gls
 *.xdy
+
+# PDF
+*.pdf
 
 # Supporting material
 thesis template

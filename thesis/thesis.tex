@@ -81,34 +81,63 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
 
+Goal of the thesis is to investigate how maintainability should be addressed during the
+architectural design of a cloud-native application.
+Maintainability is a quality attribute, which describes how easy it is to
+maintain and modify a given system.
+Software architecture, created by the software architect, formalizes the
+structural and behavioral foundation upon which the rest of the software will be built.
+Software development life cycle can be described with different life cycle models that
+prescribe a way to arrange and order the different activites of software development.
+Cloud-nativity means using the technologies and methods best suited for the cloud
+computing paradigm. I will expand upon the relevant terminology in
+\autoref{chapter:background}.
 
-Goal of the thesis is to investigate how maintainability is addressed during
-the architectural design phase of cloud-native software development lifecycle.
-I chose this topic for three reasons:
-\begin{enumerate}
-  \item Choices made during the architectural design phase cascade into
-        development and maintenance phases.
-        Mistakes and oversights are slower and more expensive to correct later. \parencite{Bass1998}
-  \item Maintenance phase of the software lifecycle is prevalent.
-        It takes up the majority of total lifetime and costs. \parencite{Bass1998}
-  \item Cloud-native approach helps reduce time-to-market and move costs from
-        capital expenditure to operational expenditure. \todo{<SOURCE?>}
-        Utilizing a public cloud platform allows the company to leverage a
-        highly scalable, reliable and secure infrastructure and a wide variety
-        of easily integratable services. \todo{<SOURCE?>}
-\end{enumerate}
+I aim to answer three research questions:
+\begin{itemize}
+  \item [\textbf{RQ1}] How much importance do cloud architects place on maintainability during
+        the architectural design phase?
+  \item [\textbf{RQ2}] How to address maintainability concerns when architecting cloud-native
+        applications?
+  \item [\textbf{RQ3}] Do the recommendations from literature match the views of architects
+        working in the field?
+\end{itemize}
 
-\todo{REWRITE! Check thesis template for good suggestions}
-\tmp{First I will ascertain the perceived importance of maintainability.
-  Then I will categorize the suggested approaches for addressing maintainability
-  and contrast this to the respondents' years of experience in the target domain.
-  Finally, I will compare the survey results to approaches suggested in the literature.}
+The main contribution of this thesis are the results of a survey I conducted in order
+to answer the two first research question. The survey was directed at cloud architects
+working at my company \textit{Nordcloud}.
+When analysing results of the survey, I will first ascertain the perceived
+importance of maintainability. Then I will categorize the suggested approaches
+for addressing maintainability and contrast this to the respondents' years of
+experience in the target domain. Finally, I will compare the survey results to
+approaches suggested in literature.
 
-\todo{last thing: thesis structure}
+I chose this topic for three reasons. First, the maintenance phase of software
+development life cycle is prevalent. It takes up the majority of total lifetime
+and costs.  \parencite{Bass1998}. Second, choices made during the architectural
+design phase cascade into development and maintenance phases. Mistakes and
+oversights are slower and more expensive to correct later.
+\parencites{Bass1998}{Mumtaz2021}. Lastly, the cloud-native approach is highly
+relevant in today's technology landscape. It helps reduce time-to-market and move
+costs from capital expenditure to operational expenditure. Utilizing a public
+cloud platform also allows the company to leverage a highly scalable, reliable and
+secure infrastructure and a wide variety of easily integratable services.
+\parencite{Microsoft2022}.
+
+The thesis is structured as follows. In \autoref{chapter:background} I dive
+into related research literature and other contemporary sources to define the
+necessary terminology. At the same time, I keep an eye out for best practices
+and other suggestions how to most effectively leverage the information in practice.
+Then in \autoref{chapter:method} I describe how my own research is
+conducted in regards to the survey and analysis thereof.
+The results will be presented in \autoref{chapter:results}, and further
+discussed in \autoref{chapter:discussion}. I will close with conclusions in
+\autoref{chapter:conclusions}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Background}
+\label{chapter:background}
 
 My main database for researching existing literature was the JYKDOK search engine for international articles \parencite{JYKDOK}.
 I decided to search keywords in abstracts, instead of full-text or only in title.
@@ -273,7 +302,7 @@ is sprung. Imagine, for example, the tides created by the first relational
 databases, spreadsheets, windowing systems, or WWW itself. \parencite[10-11]{Bass1998}.
 
 
-\subsection{Software life cycle}
+\subsection{Software development life cycle}
 Every software system has a life cycle \parencite[17]{IEEE12207}. A \textbf{life cycle model} is a
 framework that contains the processes, activities and tasks used during the life
 of the system, from initial requirements gathering to the termination of its use
@@ -503,7 +532,7 @@ leads to a situation where some qualities are given less consideration, leading
 to a diminished quality of the system as a whole. In fact, many quality
 attributes are intertwined to behavior of the system. For example, it might be
 impossible to reach lightning fast performance with a feature that processes
-very large images. On a higher level, though, Bass et al consider functionality
+very large images. On a higher level, though, Bass and others consider functionality
 to be orthogonal to quality attributes. If this wasn't the case, implementing a
 certain functionality would always dictate the system's security, usability, or
 other attributes. The program might function perfectly, but it might
@@ -631,7 +660,7 @@ effort can only be measured from a subset of all possible maintenance
 activities. This means that, even in the best scenario, a system's
 maintainability can be estimated only for activities that are similar to ones
 that have already been performed before to this system. In the worst case, the
-measured effort can be misleading, if measured activities do not represent the
+measured effort can be misleading, if measured activities do not represent
 actions that are carried out in practice. \parencite[206]{Moses2009}.
 
 \textcite{Broy2006} state that an evaluation criteria must be well-founded and
@@ -650,7 +679,7 @@ Instead, they measure quality attributes as a sum of lower-level attributes or
 processes related to the quality attributes in question. These lower-level
 attributes include measuring code coverage, time taken to resolve issues, and
 analysis of architectural debt, which all are indirect metrics for
-maintainability. Vale et al. reason that this might be because lower level
+maintainability. Vale and others reason that this might be because lower level
 attributes are easier to measure and check directly than maintainability. They
 also postulate that subjective understanding of quality attributes is very much
 personal and often vague. This makes it difficult to mutually agree on a
@@ -758,9 +787,7 @@ additionally consider the organizational context for the automatically
 calculated result, or else it is useless in evaluating maintainability of the
 system as a whole. \parencite[22]{Broy2006}.
 
-\todo{Loppukaneetti? Miten voi/kannattaa mitata? Vai onko edes tarve päättää
-  mitään tiettyä minun tutkimukseeni, vai riittikö että kuvailin olemassaolevia
-  yllä?}
+\todo{summary? how to best measure? is it even relevant to the research questions?}
 
 \subsection{How to improve maintainability}
 
@@ -877,6 +904,7 @@ of the legacy system, but implementing it properly will cost time and effort.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Method}
+\label{chapter:method}
 
 In this chapter I present the research method and goals. \todo{more}
 
@@ -1008,6 +1036,7 @@ only to avoid accidental re-submissions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Results}
+\label{chapter:results}
 
 In this section I present the results I gathered from the survey. \todo{more}
 
@@ -1094,6 +1123,7 @@ Table \ref{table:priorities2} shows the average priorities and other relevant me
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Discussion}
+\label{chapter:discussion}
 
 In this section I further discuss the results presented in previous chapter.
 \tmp{I also consider the existing literature and contrast my results against findings of those who have researched the topic before me.}
@@ -1128,12 +1158,14 @@ Performance and scalability are considered least important items to an almost id
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Conclusions}
+\label{chapter:conclusions}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \printbibliography
 
 \nocite{*}
+\todo{remove the nocite command from end of thesis.tex before submitting!}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix

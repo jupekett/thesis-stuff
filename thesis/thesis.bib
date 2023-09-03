@@ -170,6 +170,20 @@
     doi = {10.1145/3194164.3194166}
 }
 
+@InProceedings{Lichtenthaler2022,
+    author="Lichtenthäler, Robin and Wirtz, Guido",
+    editor="Montesi, Fabrizio and Papadopoulos, George Angelos and Zimmermann, Wolf",
+    title="Towards a Quality Model for Cloud-native Applications",
+    booktitle="Service-Oriented and Cloud Computing",
+    year="2022",
+    publisher="Springer International Publishing",
+    address="Cham",
+    pages="109--117",
+    abstract="Cloud-native is a recent paradigm for web-based service-oriented applications. Because it covers a wide range of concepts and lacks a commonly accepted definition, evaluating software architectures according to it is difficult. Therefore, a quality model is presented, aligned with the Quamoco meta model and based on both practitioner books and scientific literature. It focuses on the design time and considers multiple quality attributes in relation. This initial quality model together with an evaluation of already existing measures is intended as a basis for approaches aiming to evaluate cloud-native application architectures.",
+    % isbn="978-3-031-04718-3"
+}
+
+
 
 %%%%%%%%%%%%%%% Cloud-native %%%%%%%%%%%%%%%
 
@@ -194,7 +208,7 @@
 
 @Online{Microsoft2022,
     author = {Vettor, Rob and Pine, David and Jain, Tarun and Peter, Szanto and Majid, Omair and Warren, Genevieve and Sharkey, Kent and Özeloğlu, Gökhan and Brisebois, Alexandre and Coulter, David and Victor, Youssef and Singh, Shailendra and Schonning, Nick and Nava, Andy and Smith, Steve and Wenzel, Maira and Anil, Nish},
-    title = {What is Cloud Native? --- learn.microsoft.com},
+    title = {What is Cloud Native?},
     howpublished = {\url{https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/definition}},
     year = {2022},
     % month = {7},
@@ -204,7 +218,7 @@
 
 @Online{Spiceworks2021,
     author = {Rudisail, Brad},
-    title = {Cloud Scalability vs Cloud Elasticity: Here's How They Differ - Spiceworks --- spiceworks.com},
+    title = {Cloud Scalability vs Cloud Elasticity: Here's How They Differ - Spiceworks},
     howpublished = {\url{https://www.spiceworks.com/tech/cloud/articles/cloud-elasticity-and-scalability-difference/}},
     year = {2021},
     % month = {11},
@@ -228,7 +242,7 @@
 
 @Online{CNAF2018,
     author = {Noval, Ahmad and Aniszczyk, Chris and Rabah, Vincent and Vasilev, Orlin and Jakobczyk, Michal and Cisterna, Mario and Liebler, Dominik and Miasnikov, Egor and Kohn, Dan and Warachet S., Di and Saadoune, Chamseddine and Zandberge, Peter and Jacquot, Matthieu and Yi, June and Lord, Joel and Kokoska, Christian and Yalon, Erez and Candino, Enrico and Oh, Daniel and Koç, Canberk and Áron, Kiss and de Moraes Pereira, Arnaldo and Babenia, Anatoli and Perrin, Amye Scavarda and Gomes, Joao Duarte and Sharma, Sachin and Steckenborn, Tobias and Phanama, Yudi A and javalc6 and c-nyan and AndresTha},
-    title = {CNCF Cloud Native Definition v1.0 · cncf/toc --- github.com},
+    title = {CNCF Cloud Native Definition v1.0 · cncf/toc},
     howpublished = {\url{https://github.com/cncf/toc/blob/main/DEFINITION.md}},
     year = {2022},
     % month = {8},
@@ -251,11 +265,29 @@
     % month={9},
 }
 
+@Online{Roberts2018,
+	author = {Roberts, Mike},
+	title = {Serverless Architectures},
+	url = {https://martinfowler.com/articles/serverless.html},
+	year = {2018},
+    % month = {5},
+    % day = {22},
+	urldate = {2023-09-02},
+}
+
+@Online{AWS,
+	author = {Amazon Web Services},
+	title = {Serverless Computing},
+	url = {https://aws.amazon.com/serverless/},
+	year = {2023},
+	urldate = {2023-09-02},
+}
+
 %%%%%%%%%%%%%%%% Architecture %%%%%%%%%%%%%%%%%
 
 @Online{Heroku2011,
     author = {Wiggins, Adam},
-    title = {The New Heroku (Part 4 of 4): Erosion-resistance \& Explicit Contracts --- blog.heroku.com},
+    title = {The New Heroku (Part 4 of 4): Erosion-resistance \& Explicit Contracts},
     url = {https://blog.heroku.com/the_new_heroku_4_erosion_resistance_explicit_contracts},
     year = {2011},
     % month = {6},
@@ -334,4 +366,23 @@
     pages={1-157},
     institution = {International Organization for Standardization},
     doi={10.1109/IEEESTD.2017.8100771}
+}
+
+@article{Pahl2018,
+    author = {Pahl, Claus and Jamshidi, Pooyan and Zimmermann, Olaf},
+    title = {Architectural Principles for Cloud Software},
+    year = {2018},
+    issue_date = {May 2018},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {18},
+    number = {2},
+    issn = {1533-5399},
+    % url = {https://doi.org/10.1145/3104028},
+    % doi = {10.1145/3104028},
+    abstract = {A cloud is a distributed Internet-based software system providing resources as tiered services. Through service-orientation and virtualization for resource provisioning, cloud applications can be deployed and managed dynamically. We discuss the building blocks of an architectural style for cloud-based software systems. We capture style-defining architectural principles and patterns for control-theoretic, model-based architectures for cloud software. While service orientation is agreed on in the form of service-oriented architecture and microservices, challenges resulting from multi-tiered, distributed and heterogeneous cloud architectures cause uncertainty that has not been sufficiently addressed. We define principles and patterns needed for effective development and operation of adaptive cloud-native systems.},
+    journal = {ACM Trans. Internet Technol.},
+    articleno = {17},
+    numpages = {23},
+    keywords = {model-based controller, devops, cloud-native, adaptive system, architectural style, software architecture, Cloud computing, uncertainty, microservice, control theory}
 }

@@ -97,12 +97,12 @@ expand upon the relevant terminology in \autoref{chapter:background}.
 
 I aim to answer three research questions:
 \begin{itemize}
-  \item [\textbf{RQ1}] How much importance do cloud architects place on maintainability during
-        the architectural design phase?
-  \item [\textbf{RQ2}] How to address maintainability concerns when architecting cloud-native
-        applications?
-  \item [\textbf{RQ3}] Do the recommendations from literature match the views of architects
-        working in the field?
+  \item [\textbf{RQ1}] How much importance do cloud architects place on
+        maintainability during the architectural design phase?
+  \item [\textbf{RQ2}] How to address maintainability concerns when architecting
+        cloud-native applications?
+  \item [\textbf{RQ3}] Do the recommendations from literature match the views of
+        architects working in the field?
 \end{itemize}
 
 The main contribution of this thesis are the results of a survey I conducted in
@@ -120,20 +120,20 @@ and costs. \parencite{Bass1998}. Second, choices made during the architectural
 design phase cascade into development and maintenance phases. Mistakes and
 oversights are slower and more expensive to correct later.
 \parencites{Bass1998}{Mumtaz2021}. Lastly, the cloud-native approach is highly
-relevant in today's technology landscape. It helps reduce time-to-market and move
-costs from capital expenditure to operational expenditure. Utilizing a public
-cloud platform also allows the company to leverage a highly scalable, reliable and
-secure infrastructure and a wide variety of easily integratable services.
-\parencite{Microsoft2022}.
+relevant in today's technology landscape. It helps reduce time-to-market and
+move costs from capital expenditure to operational expenditure. Utilizing a
+public cloud platform also allows the company to leverage a highly scalable,
+reliable and secure infrastructure and a wide variety of easily integratable
+services. \parencite{Microsoft2022-CNA}.
 
-The thesis is structured as follows. In \autoref{chapter:background} I dive
-into related research literature and other contemporary sources to define the
+The thesis is structured as follows. In \autoref{chapter:background} I dive into
+related research literature and other contemporary sources to define the
 necessary terminology. At the same time, I keep an eye out for best practices
-and other suggestions how to most effectively leverage the information in practice.
-Then in \autoref{chapter:method} I describe how my own research is
-conducted in regards to the survey and analysis thereof.
-The results will be presented in \autoref{chapter:results}, and further
-discussed in \autoref{chapter:discussion}. I will close with conclusions in
+and other suggestions how to most effectively leverage the information in
+practice.  Then in \autoref{chapter:method} I describe how my own research is
+conducted in regards to the survey and analysis thereof.  The results will be
+presented in \autoref{chapter:results}, and further discussed in
+\autoref{chapter:discussion}. I will close with conclusions in
 \autoref{chapter:conclusions}.
 
 
@@ -147,7 +147,8 @@ My main database for researching existing literature was the JYKDOK search
 engine for international articles \parencite{JYKDOK}.
 I decided to search keywords in abstracts, instead of full-text or only in title.
 In my opinion the full-text search was too lax, and title-only too strict.
-With these search terms I received between 4 to 473 results per search, which was sufficient:
+With these search terms I received between 4 to 473 results per search, which
+was sufficient:
 \begin{itemize}
   \item (Abstract:''cloud native'' AND Abstract:maintainability)
   \item (Abstract:''cloud native'' AND Abstract:architecture)
@@ -159,11 +160,13 @@ With these search terms I received between 4 to 473 results per search, which wa
   \item (Abstract:software AND Abstract:''quality attribute'' AND Abstract:maintainability)
 \end{itemize}
 
-To my chagrin, I was unable to find full-text of some articles with promising abstracts.
-In case of one specific article I emailed the authors \footnote{\textcite{Bogner2018}}, and they kindly sent me a PDF of it.
+To my chagrin, I was unable to find full-text of some articles with promising
+abstracts.
+In case of one specific article I emailed the authors
+\footnote{\textcite{Bogner2018}}, and they kindly sent me a PDF of it.
 
-I also employed an ad-hoc lightweight version of snowballing from bibliographies of
-promising sources, e.g. \todo{example here?}
+I also employed an ad-hoc lightweight version of snowballing from bibliographies
+of promising sources, e.g. \todo{example here?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architecture in software development}
@@ -181,21 +184,21 @@ definition as follows:
   visible properties of those elements, and the relationships among them.
 \end{quote}
 
-A \textbf{software system} is a collection of software components organized to accomplish
-a specific function or set of functions \parencite[3]{IEEE42010}. These components --- or
-elements --- can be entities of varying size: objects, processes, libraries,
-databases, commercial software, and so on. In its most trivial case, we can
-consider the entire system to be a single component. This is indeed an
-architecture, but practically useless due to lack of necessary details
-\parencite[24]{Bass1998}. A software architect is a person, team or organization
-responsible for systems architecture \parencite[3]{IEEE42010}.
+A \textbf{software system} is a collection of software components organized to
+accomplish a specific function or set of functions \parencite[3]{IEEE42010}.
+These components --- or elements --- can be entities of varying size: objects,
+processes, libraries, databases, commercial software, and so on. In its most
+trivial case, we can consider the entire system to be a single component. This
+is indeed an architecture, but practically useless due to lack of necessary
+details \parencite[24]{Bass1998}. A software architect is a person, team or
+organization responsible for systems architecture \parencite[3]{IEEE42010}.
 
-\textcite[53]{Koskimies2005} define a \textbf{component} as an individual software
-unit that offers its services through well-defined interfaces. Implementation
-details of the components are not considered part of architecture, but their
-interactions are. Without describing the interactions we end up with a ''bubbles
-and lines'' diagram which is not sufficient to describe an architecture
-\parencite[24]{Bass1998}.
+\textcite[53]{Koskimies2005} define a \textbf{component} as an individual
+software unit that offers its services through well-defined interfaces.
+Implementation details of the components are not considered part of
+architecture, but their interactions are. Without describing the interactions we
+end up with a ''bubbles and lines'' diagram which is not sufficient to describe
+an architecture \parencite[24]{Bass1998}.
 
 A system can comprise more than one structure \parencite[23]{Bass1998}. Because
 ''structure'' is an abstract concept, it can change depending on perspective. A
@@ -644,6 +647,8 @@ of robust design.
 
 \subsection{How to measure maintainability}
 
+\todo{think: is this section necessary, either in this depth or at all?}
+
 As discussed before, problems discovered early in the software development life
 cycle are easier to address \parencite{Bass1998}. At that point you still have a
 chance to adjust requirements, specification or design with relatively low cost.
@@ -720,7 +725,8 @@ indicators for the quality of a software system in each area. In my opinion,
 these are the architecture-related maintainability \textbf{weaknesses}
 \parencite[38-47]{ISO5055}:
 \begin{itemize}
-  \item invocation of a control element at an unnecessarily deep horizontal layer (layer-skipping call)
+  \item invocation of a control element at an unnecessarily deep horizontal
+        layer (layer-skipping call)
   \item invokable control element with excessive file or data access operations
   \item invokable control element with large number of outward calls (excessive coupling
         or fan-out)
@@ -818,11 +824,11 @@ system as a whole. \parencite[22]{Broy2006}.
 
 \subsection{How to improve maintainability}
 
-Formalizing documenting the system as an explicit requirement lessens the need
-to reverse-engineer systems and elements during maintenance work
-\parencite[96]{IEEE12207}. Utilizing the available standards and system
-development methodologies help create systems that are easily understandable.
-This results in systems that require less effort to maintain.
+There will be less need to reverse-engineer systems and elements during
+maintenance work if we write down documenting the system as an explicit
+requirement \parencite[96]{IEEE12207}. Utilizing the available standards and
+system development methodologies help create systems that are easily
+understandable.  This results in systems that require less effort to maintain.
 \parencite[608]{Gorla2010}.
 
 \textcite{Broy2006} remind us to separate ''facts'' from ''acts''. An activity,
@@ -830,14 +836,15 @@ or \textbf{act}, is something that we try to do. Example acts include concept
 location, impact analysis, coding, and modification. A \textbf{fact} is some
 circumstance surrounding the system, such as readability of documentation,
 processes used in the organization, or availability of debugging tools.
-Maintainability depends from things outside of the product itself. Especially
-organizational facts are often overlooked when assessing maintainability of a
-system. Skill of the maintainers plays a key role in maintainability. A high
-turnover rate can make a system more difficult to maintain, if the company loses
-a large share of its developers to a competitor. Well-defined processes, such as
-a configuration management process, can help create a quality product.
-Trustworthy tools like debuggers, and visualization and refactoring tools are
-critical for performing effective maintenance. \parencite[25-26]{Broy2006}.
+Maintainability also depends on things outside of the product itself.  For
+example organizational facts are not part of the product, and often overlooked
+when assessing maintainability of a system. Skill of the maintainers plays a key
+role in maintainability. A high turnover rate can make a system more difficult
+to maintain, if the company loses a large share of its developers to a
+competitor. Well-defined processes, such as a configuration management process,
+can help create a quality product.  Trustworthy tools like debuggers, and
+visualization and refactoring tools are critical for performing effective
+maintenance. \parencite[25-26]{Broy2006}.
 
 \textcite{Bass1998} collate that the most important thing in improving
 non-runtime attributes like modifiability and testability is to enable and
@@ -921,6 +928,25 @@ of the legacy system, but implementing it properly will cost time and effort.
 
 \subsection{What is cloud-nativity}
 
+\todo{definition of cloud?}
+
+Pahl2018
+- 1: "The cloud is a distributed architecture of individual cloud-native services,
+providing resources as services in a tiered fashion to construct a full
+technology stack from hardware to middleware platforms to applications"
+
+service-orientation: service oriented architecture, microservices
+
+Birth of the public cloud can be dated back to 2006, when \textit{Amazon Web
+  Services} launched their \textit{Simple Storage Service} (S3) and
+\textit{Elastic Compute Cloud} (EC2) \parencite[1]{Kratzke2017}. The so-called
+first wave of cloud computation meant that companies replaced their own data
+centers with virtual machines running on data centers owned by cloud platform
+providers \parencite[17]{Gannon2017}. While revolutionary, it was still
+difficult to support both scalability and security at the same time, and there
+was no cloud-based tooling for data, event or error correction to be used in
+debugging. \parencite[18]{Gannon2017}.
+
 \textbf{Cloud-native} is a term often used, but rarely elaborated beyond ''we
 used the cloud instead of our own data center'' \parencite[17]{Gannon2017}.
 Terminology and related technology have gone through many steps to get where we
@@ -933,17 +959,7 @@ When using disposable infrastructure, units of infrastructure are created,
 scaled, and destroyed quickly with help of automation. There is a fitting
 metaphor of ''cattle vs. pets'', and disposable infrastructure is the cattle.
 All instances are identical, and if one of them requires an update or repairs,
-it will be replaced instead of fixed. \parencite{Microsoft2022}.
-
-Birth of the public cloud can be dated back to 2006, when \textit{Amazon Web
-  Services} launched their \textit{Simple Storage Service} (S3) and
-\textit{Elastic Compute Cloud} (EC2) \parencite[1]{Kratzke2017}. The so-called
-first wave of cloud computation meant that companies replaced their own data
-centers with virtual machines running on data centers owned by cloud platform
-providers \parencite[17]{Gannon2017}. While revolutionary, it was still
-difficult to support both scalability and security at the same time, and there
-was no cloud-based tooling for data, event or error correction to be used in
-debugging. \parencite[18]{Gannon2017}.
+it will be replaced instead of fixed. \parencite{Microsoft2022-CNA}.
 
 \textcite[8]{Kratzke2017} searched ''cloud-native'' from \textit{Google Trends}
 for an overview of its usage. The term was widely used around 2007, around the
@@ -957,7 +973,7 @@ literature in 2012 \footnote{Andrikopoulos, Fehling \& Leymann, 2012. Designing
   Applications} \footnote{Garca-Gmez, et al., 2012. 4CaaSt: Comprehensive
   Management of Cloud Services through a PaaS} .
 
-\textcite{Microsoft2022} offer a definition for ''cloud-native'':
+\textcite{Microsoft2022-CNA} offer a definition for ''cloud-native'':
 
 \begin{quote} Cloud-native architecture and technologies are an approach to
   designing, constructing, and operating workloads that are built in the cloud and
@@ -1022,7 +1038,7 @@ These cloud environments can be either public, private or hybrid
 \parencite{CNAF2018}. The techniques include microservices, containers, service
 meshes, immutable infrastructure, declarative APIs, continuous delivery
 technology, backing services and automation \parencite{CNAF2018, Patrizio2018,
-  Microsoft2022}. Methodologies such as DevOps and agile are often adopted when
+  Microsoft2022-CNA}. Methodologies such as DevOps and agile are often adopted when
 building CNAs \parencite{Patrizio2018}. Other CNA development methodologies are
 often based on design patterns \parencite{Kratzke2017}.
 
@@ -1047,21 +1063,21 @@ important when moving to a cloud-first paradigm. MSA can help overcame the
 limitations of traditional monolithic systems related to scalability
 \parencite[10]{Vale2022}. Monolithic software is often built using layered
 architecture, relational databases shared across all services, and is run as a
-single process \parencite{Microsoft2022}. MSA on the other hand encourages you
+single process \parencite{Microsoft2022-CNA}. MSA on the other hand encourages you
 to implement small-scale, independently distributed services instead of tying up
 all functionality into a single monolith \parencite[1]{Li2021}. When using MSA,
 you will disassemble the application into its basic building blocks by encasing
 a single functionality into a single service \parencite[18]{Gannon2017}. This
 also allows for technological heterogeneity, when different services can use the
 technologies that best allow it to reach its goal \parencite[18]{Li2021}.
-Together these services form the complete application \parencite{Microsoft2022}.
+Together these services form the complete application \parencite{Microsoft2022-CNA}.
 
 A single microservice implements a specific business functionality as part of a
-larger domain context \parencite{Microsoft2022}. This context should be limited,
+larger domain context \parencite{Microsoft2022-CNA}. This context should be limited,
 giving the service limited responsibility, with only a small number of
 dependencies on other services \parencite[18]{Gannon2017}. According to
-\textcite{Microsoft2022}, the service should contain the necessary logic, state,
-data, external dependencies and programming platform \parencite{Microsoft2022}.
+\textcite{Microsoft2022-CNA}, the service should contain the necessary logic, state,
+data, external dependencies and programming platform \parencite{Microsoft2022-CNA}.
 Meanwhile, \textcite[18]{Gannon2017} recommend that each service should pursue
 \textbf{statelessness}, where the state is not saved into the microservice
 itself, but in another service, such as a database, cache or directory. In my
@@ -1074,14 +1090,14 @@ The microservice should run its own process independently of other active
 services, and communicate with them using standard messaging protocols, such as
 \textit{HTTP/HTTPS}, \textit{gRPC}, \textit{WebSockets} or \textit{AMQP}. Every
 microservice should be able to be separately managed, replicated, scaled,
-updated and deployed \parencite[18]{Gannon2017}. \textcite{Microsoft2022}
+updated and deployed \parencite[18]{Gannon2017}. \textcite{Microsoft2022-CNA}
 elaborate that independent scaling enables a more accurate control over the
 system. At the same time this lowers the total costs involved, because there is
 no need to scale services with lower usage alongside those that need it.
 Autonomous development and deployment removes the need to wait for e.g.
 quarterly release schedule to roll out an anticipated feature or fix.
 Independent deployment also reduces the risk of total system malfunction, as the
-changes are isolated to smaller context. \parencite{Microsoft2022}. Security
+changes are isolated to smaller context. \parencite{Microsoft2022-CNA}. Security
 must also be considered. One microservice should only have access to select few
 other microservices, and the target service must verify access rights of the
 requester service. Using role-based access control such as \textit{OAuth},
@@ -1091,7 +1107,7 @@ requester service. Using role-based access control such as \textit{OAuth},
 \textcite[18]{Gannon2017} recount a time when a need arose to pack microservices
 into spaces smaller than an entire virtual machine image. When using
 \textbf{containers} the code, dependencies, and runtime are packed into a
-\textbf{container image} \parencite{Microsoft2022}. The images are then stored
+\textbf{container image} \parencite{Microsoft2022-CNA}. The images are then stored
 in a \textbf{container registry}, where they can be fetched when deploying a
 service that uses them. It is possible to run multiple containers in the cloud
 on a single VM, and achieve startup times even lower than one second
@@ -1099,9 +1115,9 @@ on a single VM, and achieve startup times even lower than one second
 your application include portability, and lack of a need to configure every
 environment separately with the required frameworks, libraries and runtime
 engines. This helps to achieve uniform environments with greater accuracy and
-speed. \parencite{Microsoft2022}. Companies such as \textit{Docker} popularized
+speed. \parencite{Microsoft2022-CNA}. Companies such as \textit{Docker} popularized
 the container technology for use in MSAs \parencite[18]{Gannon2017}. According
-to \textcite{Microsoft2022}, Docker is the most popular container vendor, and it
+to \textcite{Microsoft2022-CNA}, Docker is the most popular container vendor, and it
 has become industry standard for packaging, deploying and running cloud-native
 software.
 
@@ -1111,7 +1127,7 @@ Containers are often arranged in a \textbf{service mesh}, using a
 \textit{IBM Blue Container Service} \parencite[18]{Gannon2017}. The orchestrator
 takes care of things like scheduling, affinity, health monitoring, failover,
 scaling, networking, service discovery, and rolling upgrades
-\parencite{Microsoft2022}. \textbf{Scheduling} means automatic provisioning of
+\parencite{Microsoft2022-CNA}. \textbf{Scheduling} means automatic provisioning of
 the container instances. \textbf{Affinity} and anti-affinity describe how far
 away the containers are from each other, measured in respect to hardware
 topology. \textbf{Health monitoring} allows for automatic detection and recovery
@@ -1123,7 +1139,7 @@ The orchestrator handles the \textbf{networking} overlay for container
 communication. \textbf{Service discovery} makes it possible for containers to
 find each other. Lastly, the orchestrator coordinates incremental updates and
 rollback of problematic changes to achieve \textbf{rolling upgrades}.
-\parencite{Microsoft2022}.
+\parencite{Microsoft2022-CNA}.
 
 Jumping aboard the MSA bandwagon is not all sunshine and roses.
 \textcite[18]{Li2021} point out that if the monolith is complex to begin with,
@@ -1134,16 +1150,40 @@ order to run our services. As I see it, while the container orchestrator service
 take care of automatic operations day-to-day, the initial setup is non-trivial,
 and monitoring is still required.
 
-The distributed nature of applications based on MSA brings many challenges with
-inter-service communication. In a monolith communication is simpler: modules are
-executed together, memory space is shared, and the application might run on a
-single process \parencite{Microsoft2022}. This also comes with performance
-benefits. With MSA on the other hand, the services need to communicate through
-APIs and network protocols. Every service must authenticate and authorize
-incoming requests, and every request must be serialized and deserialized, which
-requires computation time. You need to expect network congestion, latency, and
-intermittent errors, and mitigate problems caused by them by emphasizing
-resilience and recovery from errors. \parencite{Microsoft2022}.
+\textcite{Microsoft2022-CNA} presents some challenges for MSA systems.
+I'd like to reframe these challenges as things to consider when architecting
+such systems, rather than strictly negative aspects of the MSA approach. The listed
+challenges are most often related to either communication, resiliency, and
+distributed data.
+
+Because microservices need to communicate via APIs and network protocols instead
+of in-process, the architect should account for network congestion, latency and
+intermittent errors \parencite{Microsoft2022-Communication}. It is especially
+important to retry failed requests, which is made easier if all state-altering
+requests are idempotent. There will be some overhead for every service from
+serializing, deserializing, decrypting and encrypting messages.
+\parencite{Microsoft2022-Communication}.
+
+While the cloud platform will automatically handle most of the resiliency issues
+that CNAs face, the architect still needs to consider them while designing the
+system \parencite{Microsoft2022-Resiliency}. In my view, this means minimizing
+disruptions caused by A) the issues themselves, and B) the actions that the
+platform takes to respond to the issues. The platform might restart and
+migrate failed process to a new host. The orchestrator might
+be in the middle of a rolling upgrade, or moving the service from one node to
+the next. \parencite{Microsoft2022-Resiliency}.
+
+When following the MSA model to the letter, we will end up with distributed
+data. Because all data is no more in a single shared database, it will be more
+difficult to compose queries across multiple services
+\parencite{Microsoft2022-Data}. The architect must also remember that the ACID
+principles do not hold across the entire system at any one point in time. This
+is because propagating a change of state through multiple data stores will take
+some time. On the plus side, each data store can be individually scaled and
+developed without direct effect on other services. Each of them can select a
+data model that best suits the that specific service: relational, document,
+key-value, graph, or some other database paradigm. This boosts the agility,
+performance and scalability of the system.  \parencite{Microsoft2022-Data}.
 
 
 \subsection{Serverless}

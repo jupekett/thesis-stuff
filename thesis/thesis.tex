@@ -1150,18 +1150,17 @@ order to run our services. As I see it, while the container orchestrator service
 take care of automatic operations day-to-day, the initial setup is non-trivial,
 and monitoring is still required.
 
-\textcite{Microsoft2022-CNA} presents some challenges for MSA systems.
-I'd like to reframe these challenges as things to consider when architecting
-such systems, rather than strictly negative aspects of the MSA approach. The listed
+\textcite{Microsoft2022-CNA} presents some challenges for MSA systems.  I'd like
+to reframe these challenges as things to consider when architecting such
+systems, rather than strictly negative aspects of the MSA approach. The listed
 challenges are most often related to either communication, resiliency, and
-distributed data.
-
-Because microservices need to communicate via APIs and network protocols instead
-of in-process, the architect should account for network congestion, latency and
-intermittent errors \parencite{Microsoft2022-Communication}. It is especially
-important to retry failed requests, which is made easier if all state-altering
-requests are idempotent. There will be some overhead for every service from
-serializing, deserializing, decrypting and encrypting messages.
+distributed data. Firstly, tecause microservices need to communicate via APIs and network
+protocols instead of in-process, the architect should account for network
+congestion, latency and intermittent errors
+\parencite{Microsoft2022-Communication}. It is especially important to retry
+failed requests, which is made easier if all state-altering requests are
+idempotent. There will be some overhead for every service from serializing,
+deserializing, decrypting and encrypting messages.
 \parencite{Microsoft2022-Communication}.
 
 While the cloud platform will automatically handle most of the resiliency issues
@@ -1169,9 +1168,9 @@ that CNAs face, the architect still needs to consider them while designing the
 system \parencite{Microsoft2022-Resiliency}. In my view, this means minimizing
 disruptions caused by A) the issues themselves, and B) the actions that the
 platform takes to respond to the issues. The platform might restart and
-migrate failed process to a new host. The orchestrator might
-be in the middle of a rolling upgrade, or moving the service from one node to
-the next. \parencite{Microsoft2022-Resiliency}.
+migrate a failed process to a new host. A container orchestrator might
+be in the middle of a rolling upgrade, or move the service from one node to
+the next, for one reason or another. \parencite{Microsoft2022-Resiliency}.
 
 When following the MSA model to the letter, we will end up with distributed
 data. Because all data is no more in a single shared database, it will be more
@@ -1188,7 +1187,44 @@ performance and scalability of the system.  \parencite{Microsoft2022-Data}.
 
 \subsection{Serverless}
 
-\subsection{Advantages and challenges of cloud-nativity}
+\subsection{Summary: Advantages and challenges of cloud-nativity}
+
+To sum up, cloud-nativity offers many advantages over on-premises software.
+Cloud-native approach allows the wielder to more easily respond to changing
+market situations with speed and confidence \parencite{Microsoft2022-CNA}. Parts of
+a CNA can scale independently based on demand, which pairs well with elasticity
+and the ''pay what you use'' philosophy of public cloud: there is no need to
+overprovision infrastructure for peak consumption, which in turn helps manage
+costs \parencite{Patrizio2018}. CNAs have high support for automation, which
+enables the developers to concentrate on relevant challenges instead of tedium
+\parencite{Patrizio2018}. Combined with the ability to deploy small individual
+services instead of an entire complex system, a CNA is easy to update. This
+boosts productivity when development teams can make both small-scale and
+sweeping changes with predicable results, and deliver new features to customers
+more often \parencite{CNAF2018, Patrizio2018}.
+
+When following cloud-native principles, the application will be loosely coupled,
+resilient, manageable and observable \parencite{CNAF2018}. Another staple of
+such software is statelessness, which makes it easier to scale to multiple
+servers, leverage caching, use less storage space, and avoid vendor lock-in by
+not being reliant on any specific type of server \parencite{Patrizio2018}. You
+can avoid much downtime because CSP backing systems have inbuilt redundancy, and
+are geographically distributed \parencite{Patrizio2018}.
+
+In previous chapters I have written about challenges relating to a specific way
+of implementing CNAs. \textcite{Patrizio2018} point out some challenges related
+to cloud-native on an organization level. A lift-and-shift operation, where a
+monolithic on-premises application is simply transplanted onto a cloud platform
+as-is, does not benefit from the cloud at an architectural level. On the other
+hand, a full rewrite is an undeniable engineering challenge. The cloud-native
+approach requires organizations to shift their mindset towards more agile
+principles, such as Minimum Viable Product (MVP) development, automation,
+multivariate testing, fast iteration, observability, and DevOps. There is also a
+need to come to terms with the cloud-centered security model, and how to handle
+costs incurred from operating the cloud environments. Lastly, it might be
+difficult to find enough competent personnel to implement all the previous
+points in addition to the organization's other goals. \parencite{Patrizio2018}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Maintainability in cloud-native architecture}

@@ -2,6 +2,10 @@
 \documentclass[utf8,english]{gradu3}
 
 \usepackage{xcolor}
+\usepackage{graphicx} % for including pictures
+
+\usepackage{enumitem}
+\setlist[itemize]{nolistsep}
 
 % NOTE: This must be the last \usepackage in the whole document!
 \usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
@@ -70,8 +74,11 @@
 
 \begin{thetermlist}
   \item [AD] Architectural Definition
+  \item [CaC] Configuration as Code
+  \item [CI/CD] Continuous Integration and Continuous Deployment
   \item [CNA] Cloud-Native Application
   \item [DoS] Denial-of-Service (attack)
+  \item [IaC] Infrastructure as Code
   \item [MSA] Microservices Architecture
   \item [MVP] Minimum Viable Product
 \end{thetermlist}
@@ -1221,8 +1228,8 @@ there's still monitoring, deployment, networking, support, and production
 debugging to handle \parencite{Roberts2018}. Examples of FaaS services are
 \textit{AWS Lambda, Azure Functions, Google Cloud Functions} and many others.
 They are often paired with serverless services such as \textit{AWS SQS, Kinesis,
-Amazon ML} and \textit{DynamoDB}, or \textit{Azure Event Hub, Stream Analytics,
-AzureML} and \textit{CosmosDB}.  \parencite[17]{Gannon2017}.
+  Amazon ML} and \textit{DynamoDB}, or \textit{Azure Event Hub, Stream Analytics,
+  AzureML} and \textit{CosmosDB}.  \parencite[17]{Gannon2017}.
 
 These two approaches are similar in that neither of them concern themselves with
 resource management. They are also frequently used together. For example, a FaaS
@@ -1326,7 +1333,7 @@ points in addition to the organization's other goals. \parencite{Patrizio2018}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Maintainability in cloud-native architecture}
-\tmp{Tie all the above topics together here}
+\todo{Tie all the above topics together here}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Method}
@@ -1418,7 +1425,7 @@ Some of these communities have overlapping audience, but the total reach is over
 a thousand people. I assume our company to employ a few dozen cloud architects.
 My goal was to get 10-20 answers in order to conduct any meaningful statistical
 analysis on the data. This goal was met within a week with 13 answers, with a
-final tally of \todo{<NUMBER>}.
+final tally of 15.
 
 \subsection{Timeline}
 Survey was sent out on Monday 20.03.2023. I was prepared to repost the survey
@@ -1467,9 +1474,30 @@ In this section I present the results I gathered from the survey. \todo{more}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Demographics (Q1-Q3)}
 
-\tmp{
+\todo{
   Show the pie diagrams from Google Forms as-is? Table with counts for each option?
 }
+Figure \ref{fig:experience-cna} shows respondent experience in cloud-native architecture specifically.
+Figure \ref{fig:experience-architecture} shows respondent experience in software architecture in general.
+Figure \ref{fig:experience-it} shows respondent experience in information technology in general.
+
+\begin{figure}[h]\centering
+  \includegraphics[width=10cm]{images/demographics-experience-cloud-native-crop1.png}
+  \caption{Respondent experience in cloud-native architecture}
+  \label{fig:experience-cna}
+\end{figure}
+
+\begin{figure}[h]\centering
+  \includegraphics[width=10cm]{images/demographics-experience-software-architecture-crop1.png}
+  \caption{Respondent experience in software architecture in general}
+  \label{fig:experience-architecture}
+\end{figure}
+
+\begin{figure}[h]\centering
+  \includegraphics[width=10cm]{images/demographics-experience-information-technology-crop1.png}
+  \caption{Respondent experience in information technology in general}
+  \label{fig:experience-it}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Prioritization of maintainability (Q4)}
@@ -1523,23 +1551,51 @@ metrics for the quality attributes.
 \end{table}
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Ways to improve maintainability (Q5 \& Q6)}
 
-\tmp{%
+\todo{%
   Extract suggestions, split to categories, present here, etc.
 }
+
+Some preliminary categorization of results:
+\begin{itemize}
+  \item Platform and technology choices
+        \begin{itemize}
+          \item Common technologies
+          \item Managed services
+          \item Infrastructure as Code (IaC)
+          \item Configuration as Code (CaC)
+          \item Continuous Integration and Continuous Deployment (CI/CD)
+        \end{itemize}
+  \item Application architecture
+        \begin{itemize}
+          \item Microservices Architecture (MSA)
+          \item Statelessness
+          \item Automatic scaling
+          \item Modularity
+          \item Loose coupling
+          \item SOLID principles
+        \end{itemize}
+  \item Others (processes, philosophy, etc)
+        \begin{itemize}
+          \item DevOps
+          \item Clear naming of resources
+          \item Documentation
+          \item Code reviews
+          \item KISS principle
+        \end{itemize}
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experience vs. prioritization of maintainability}
 
-\tmp{should be simple}
+\todo{should be simple}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experience vs. suggested ways to improve maintainability}
 
-\tmp{Slightly more involved. Which metrics to select?
+\todo{Slightly more involved. Which metrics to select?
   \begin{itemize}
     \item number of suggestions?
     \item popularity of suggestions in context of survey?
@@ -1553,7 +1609,7 @@ metrics for the quality attributes.
 \label{chapter:discussion}
 
 In this section I further discuss the results presented in previous chapter.
-\tmp{I also consider the existing literature and contrast my results against
+\tmp{I also consider existing literature and contrast my results against
   findings of those who have researched the topic before me.}
 
 

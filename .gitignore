@@ -19,10 +19,8 @@
 *.gls
 *.xdy
 
-# PDF
-*.pdf
-
 # Supporting material
 thesis template
 sources
+versions-to-send
 *.jpg

@@ -71,6 +71,7 @@
 \begin{thetermlist}
   \item [AD] Architectural Definition
   \item [CNA] Cloud-Native Application
+  \item [DoS] Denial-of-Service (attack)
   \item [MSA] Microservices Architecture
   \item [MVP] Minimum Viable Product
 \end{thetermlist}
@@ -931,9 +932,9 @@ of the legacy system, but implementing it properly will cost time and effort.
 \todo{definition of cloud?}
 
 Pahl2018
-- 1: "The cloud is a distributed architecture of individual cloud-native services,
+- 1: ''The cloud is a distributed architecture of individual cloud-native services,
 providing resources as services in a tiered fashion to construct a full
-technology stack from hardware to middleware platforms to applications"
+technology stack from hardware to middleware platforms to applications''
 
 service-orientation: service oriented architecture, microservices
 
@@ -1186,6 +1187,103 @@ performance and scalability of the system.  \parencite{Microsoft2022-Data}.
 
 
 \subsection{Serverless}
+
+Cloud-nativity doesn't constrain itself to MSA. Another relevant approach is
+striving for the so-called \textbf{serverless architecture}. The title
+''serverless'' is something of an oxymoron, because there is a server, but it's
+not you who is responsible for it. Though it might mean zero system
+administration work for you, the abstraction might leak at times, and then
+you'll become aware that a Systems Administrator is supporting your application
+somewhere. Broadly speaking, this can be achieved in two ways:
+\textbf{Backend-as-a-Service} (BaaS) or \textbf{Functions-as-a-Service} (FaaS).
+\parencite{Roberts2018}.
+
+With BaaS, you manage server-side logic and state by significantly or fully
+incorporating third-party, cloud-hosted applications and services
+\parencite{Roberts2018}.  These services handle everything else but your
+business logic: infrastructure, management, scaling, and so on. When such
+services are combined, we will end up with an application that fulfills the
+criteria for cloud-nativity \parencite[20]{Gannon2017}. Sometimes BaaS is used
+with the prefix ''Mobile'' BaaS, due to their popularity with application
+backends written for mobile devices. Examples of BaaS are \textit{Parse} and
+\textit{Firebase} databases, and \textit{Auth0} and \textit{AWS Cognito}
+authentication services.  \parencite{Roberts2018}.
+
+When going down the FaaS route instead, you use stateless, event-triggered,
+ephemeral, fully managed compute containers to run your server-side logic
+\parencite{Roberts2018}. Vendor handles all the underlying resource provisioning
+and allocation by creating and destroying FaaS instances based on runtime need.
+They are typically triggered as a response to inbound HTTP requests. Because you
+don't have control of the lifecycle of individual instances, you must store any
+persistent data to an external service, such as a database. While the management
+of the underlying compute resource is abstracted away to a very high degree,
+there's still monitoring, deployment, networking, support, and production
+debugging to handle \parencite{Roberts2018}. Examples of FaaS services are
+\textit{AWS Lambda, Azure Functions, Google Cloud Functions} and many others.
+They are often paired with serverless services such as \textit{AWS SQS, Kinesis,
+Amazon ML} and \textit{DynamoDB}, or \textit{Azure Event Hub, Stream Analytics,
+AzureML} and \textit{CosmosDB}.  \parencite[17]{Gannon2017}.
+
+These two approaches are similar in that neither of them concern themselves with
+resource management. They are also frequently used together. For example, a FaaS
+function can rely on a BaaS database for state management.
+\textcite{Roberts2018} describes them as preferring ''choreography over
+orchestration''. I understand this phrase to mean that the control flow is born
+from interaction of the individual components, instead of keeping control in a
+centralized location of the system.  This means that each component is more
+architecturally aware, which is a common idea also with MSA applications
+\parencite{Roberts2018}.
+
+Serverless architecture does have some drawbacks, some of which are inherent to
+the paradigm and some which can be at least partially mitigated with careful
+implementation \parencite{Roberts2018}. \textbf{Inherent drawbacks} cannot be
+entirely fixed, and need to be always considered. With BaaS and FaaS, you have
+to give up some control of your system to a third-party vendor. As features vary
+between vendors, you might suffer from vendor lock-in if migrating to another
+service would require significant changes to code, operational tooling, or even
+architecture. Because it is more economic, vendors might run multiple instances
+of software for several different customers on the same machine, possibly even
+on the same hosting application. This multitenancy might be unacceptable in
+strictly regulated domains. More vendors results in a larger surface area for
+cyber attacks, and more FaaS functions means that identity- and access
+management issues such as IAM policy errors are compounded.
+\parencite{Roberts2018}.
+
+\textcite{Roberts2018} point out that \textbf{implementation drawbacks} can be
+mitigated by either your actions, or the vendor improving their service.
+Immature platforms might offer less options for configuration, monitoring,
+deployment, packaging, versioning and debugging \parencite{Roberts2018}.
+Execution duration for FaaS functions is limited, which might require you to
+re-architect tasks that require long running times. It is entirely possible for
+you to run a denial-of-service (\textbf{DoS}) attack on yourself unwittingly if
+you accidentally or intentionally launch a large number of instances, because
+e.g.  AWS has a limit for maximum number of running instances per cloud account.
+\parencite{Roberts2018}.
+
+Testing can become a pain point. Sometimes a BaaS vendor might not allow load
+testing at all, or might at least bill you dearly \parencite{Roberts2018}.
+Setting up and tearing down state might be difficult with third party services.
+FaaS approach will almost certainly lead to a high number of small units, and
+replicating the cloud environment on your local machine is impossible. This
+makes integration testing more important than with other architectural styles.
+\parencite{Roberts2018}.
+
+Despite these drawbacks, serverless architecture brings many benefits to the
+table. \textcite{AWS-serverless} advertise their serverless offerings to provide
+automatic scaling, built-in high availability, pay-for-value billing model, and
+built-in service integrations. It eliminates infrastructure management tasks,
+which increases agility and optimizes costs \parencite{AWS-serverless}. Reduced
+operational and development costs make sense due to economies of scale and
+commodified services for common functionality \parencite{Roberts2018}. FaaS is
+especially economical for occasional or inconsistent traffic, because the FaaS
+service spins only then necessary number of instances up or down, and you often
+are billed to microsecond accuracy. This way you don't need to overprovision a
+VM for peak traffic. For predictable and consistent traffic however a
+traditional VM might be cheaper, as then it's easier and safer to keep hosts at
+high CPU utilization. Also, time-to-market can be considerably shortened because
+continuous iteration is easier due to simple and fast redeployment of individual
+components. \parencite{Roberts2018}.
+
 
 \subsection{Summary: Advantages and challenges of cloud-nativity}
 

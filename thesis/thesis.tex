@@ -5,12 +5,12 @@
 \usepackage{graphicx} % for including pictures
 
 \usepackage{enumitem}
-\setlist[itemize]{nolistsep}
+\setlist[itemize]{nolistsep} % smaller gap between nested lists
 
 % NOTE: This must be the last \usepackage in the whole document!
 \usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
 
-\addbibresource{thesis.bib} % The file name of your bibliography database
+\addbibresource{thesis.bib}
 
 % My custom macros
 \newcommand{\todo}[1]{\textbf{\textcolor{red}{#1}}}
@@ -74,10 +74,12 @@
 
 \begin{thetermlist}
   \item [AD] Architectural Definition
+  \item [BaaS] Backend-as-a-Service
   \item [CaC] Configuration as Code
-  \item [CI/CD] Continuous Integration and Continuous Deployment
+  \item [CI/CD] Continuous Integration, Continuous Delivery/Deployment
   \item [CNA] Cloud-Native Application
   \item [DoS] Denial-of-Service (attack)
+  \item [FaaS] Functions-as-a-Service
   \item [IaC] Infrastructure as Code
   \item [MSA] Microservices Architecture
   \item [MVP] Minimum Viable Product
@@ -1477,26 +1479,26 @@ In this section I present the results I gathered from the survey. \todo{more}
 \todo{
   Show the pie diagrams from Google Forms as-is? Table with counts for each option?
 }
-Figure \ref{fig:experience-cna} shows respondent experience in cloud-native architecture specifically.
-Figure \ref{fig:experience-architecture} shows respondent experience in software architecture in general.
-Figure \ref{fig:experience-it} shows respondent experience in information technology in general.
+Figure \ref{figure:experience-cna} shows respondent experience in cloud-native architecture specifically.
+Figure \ref{figure:experience-architecture} shows respondent experience in software architecture in general.
+Figure \ref{figure:experience-it} shows respondent experience in information technology in general.
 
 \begin{figure}[h]\centering
   \includegraphics[width=10cm]{images/demographics-experience-cloud-native-crop1.png}
   \caption{Respondent experience in cloud-native architecture}
-  \label{fig:experience-cna}
+  \label{figure:experience-cna}
 \end{figure}
 
 \begin{figure}[h]\centering
   \includegraphics[width=10cm]{images/demographics-experience-software-architecture-crop1.png}
   \caption{Respondent experience in software architecture in general}
-  \label{fig:experience-architecture}
+  \label{figure:experience-architecture}
 \end{figure}
 
 \begin{figure}[h]\centering
   \includegraphics[width=10cm]{images/demographics-experience-information-technology-crop1.png}
   \caption{Respondent experience in information technology in general}
-  \label{fig:experience-it}
+  \label{figure:experience-it}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

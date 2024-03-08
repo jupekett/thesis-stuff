@@ -938,15 +938,9 @@ of the legacy system, but implementing it properly will cost time and effort.
 
 \subsection{What is cloud-nativity}
 
-\todo{definition of cloud?}
-
-Pahl2018
-- 1: ''The cloud is a distributed architecture of individual cloud-native services,
+The cloud is a distributed architecture of individual cloud-native services,
 providing resources as services in a tiered fashion to construct a full
-technology stack from hardware to middleware platforms to applications''
-
-service-orientation: service oriented architecture, microservices
-
+technology stack from hardware to middleware platforms to applications \parencite[1]{Pahl2018}.
 Birth of the public cloud can be dated back to 2006, when \textit{Amazon Web
   Services} launched their \textit{Simple Storage Service} (S3) and
 \textit{Elastic Compute Cloud} (EC2) \parencite[1]{Kratzke2017}. The so-called
@@ -1387,10 +1381,10 @@ Each domain field mentioned in these questions was intended to be a subset of th
 IT is a superset of software architecture, which is a superset of cloud-native architecture.
 All three questions were multiple-choice, single answer with these ranges:
 \begin{itemize}
-  \item 0-2
-  \item 2-5
-  \item 5-10
-  \item 10+
+  \item 0-2 years
+  \item 2-5 years
+  \item 5-10 years
+  \item 10+ years
 \end{itemize}
 
 Second half of the survey was dedicated to the main subject matter:
@@ -1462,14 +1456,12 @@ logging in with a \textit{Google} account, but it was only enforced to kindly re
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analysis}
 
-By analyzing the responses, I aimed to extract multiple pieces of knowledge that would help shed light on the research questions.
-The approach was not strictly quantitative or qualitative, but rather a mix of both depending on the source data.
+My approach to the analysis of the survey results was not strictly quantitative or qualitative, but rather a mix of both depending on the source data.
 Questions \textbf{Q1} to \textbf{Q4} had a limited input space with multiple-choice fields, and as such were a natural candidate for basic quantitative processing.
-To answer research question \textbf{RQ1}, I would utilize data from survey question \textbf{Q4}.
-I decided to calculate the priority of maintainability relative to the other quality attributes based on answers to question \textbf{Q4}.
+To answer research question \textbf{RQ1}, I decided to calculate the priority of maintainability relative to the other quality attributes based on answers to question \textbf{Q4}.
 
-The free text questions \textbf{Q5} and \textbf{Q6} benefitted from a qualitative approach.
-Because the data was free form text, I needed multiple steps to transform the
+The free text questions \textbf{Q5} and \textbf{Q6} benefitted from a more qualitative approach.
+Because the responses were in a free form format, I needed multiple steps to transform the
 data to a format that could be aggregated and analyzed as an answer to
 research questions \textbf{RQ2} and \textbf{RQ3}:
 \begin{itemize}
@@ -1479,7 +1471,7 @@ research questions \textbf{RQ2} and \textbf{RQ3}:
   \item Compare the categories to solutions proposed in literature.
 \end{itemize}
 
-Because I gathered the demographic data with survey questions \textbf{Q1} to \textbf{Q3},
+Because I gathered some demographic data with survey questions \textbf{Q1} to \textbf{Q3},
 I could formulate additional insights when combining those answers with results to the domain questions \textbf{Q4} to \textbf{Q6}.
 It is possible to calculate statistical correlation between years of experience and:
 \begin{itemize}
@@ -1495,35 +1487,65 @@ These last items are not the main focus of the thesis, but could be interesting 
 \chapter{Results}
 \label{chapter:results}
 
-In this section I present the results I gathered from the survey. \todo{more}
+In this section I present the results I gathered from the survey.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Demographics (Q1-Q3)}
 
-\todo{
-  Show the pie diagrams from Google Forms as-is? Table with counts for each option?
-}
-Figure \ref{figure:experience-cna} shows respondent experience in cloud-native architecture specifically.
-Figure \ref{figure:experience-architecture} shows respondent experience in software architecture in general.
-Figure \ref{figure:experience-it} shows respondent experience in information technology in general.
+Table \ref{table:experience-cna} shows respondent experience in cloud-native architecture specifically.
+Table \ref{table:experience-architecture} shows respondent experience in software architecture in general.
+Table \ref{table:experience-it} shows respondent experience in information technology in general.
 
-\begin{figure}[h]\centering
-  \includegraphics[width=10cm]{images/demographics-experience-cloud-native-crop1.png}
-  \caption{Respondent experience in cloud-native architecture}
-  \label{figure:experience-cna}
-\end{figure}
+\begin{table}[!h]
+  \begin{center}
+    \caption{Respondent experience in cloud-native architecture, $n = 15$}
+    \label{table:experience-cna}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \textbf{Option} & \textbf{Responses} & \textbf{Percentage} & \textbf{Rank} \\
+      \hline
+      0-2 years  & 2 & 13.33\% & 3 \\
+      2-5 years  & 6 & 40.00\% & 2 \\
+      5-10 years & 7 & 46.67\% & 1 \\
+      10+ years  & 0 &  0.00\% & 4 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
-\begin{figure}[h]\centering
-  \includegraphics[width=10cm]{images/demographics-experience-software-architecture-crop1.png}
-  \caption{Respondent experience in software architecture in general}
-  \label{figure:experience-architecture}
-\end{figure}
+\begin{table}[!h]
+  \begin{center}
+    \caption{Respondent experience in software architecture in general, $n = 15$}
+    \label{table:experience-architecture}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \textbf{Option} & \textbf{Responses} & \textbf{Percentage} & \textbf{Rank} \\
+      \hline
+      0-2 years  & 3 & 20.00\% & 3 \\
+      2-5 years  & 4 & 26.67\% & 2 \\
+      5-10 years & 3 & 20.00\% & 3 \\
+      10+ years  & 5 & 33.33\% & 1 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
-\begin{figure}[h]\centering
-  \includegraphics[width=10cm]{images/demographics-experience-information-technology-crop1.png}
-  \caption{Respondent experience in information technology in general}
-  \label{figure:experience-it}
-\end{figure}
+\begin{table}[!h]
+  \begin{center}
+    \caption{Respondent experience in information technology in general, $n = 15$}
+    \label{table:experience-it}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \textbf{Option} & \textbf{Responses} & \textbf{Percentage} & \textbf{Rank} \\
+      \hline
+      0-2 years  & 0  &  0.00\% & 4 \\
+      2-5 years  & 1  &  6.67\% & 3 \\
+      5-10 years & 3  & 20.00\% & 2 \\
+      10+ years  & 11 & 73.33\% & 1 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Prioritization of maintainability (Q4)}
@@ -1533,17 +1555,18 @@ incremental integer value from 1 to 5. The value 1 corresponds to option
 \textit{Least Important}, while value 5 corresponds to \textit{Most important}.
 The absolute values chosen here are not of importance as long as the difference
 between each consecutive option is equal, to avoid introducing additional
-bias. This makes our scale analogous to the Likert scale \todo{ref?}, which is
+bias. This makes our scale analogous to the Likert scale \parencite{Likert}, which is
 often used for questionnaires in research.
-
+Table \ref{table:priorities1} lists the integer values given to each priority option,
+and table \ref{table:priorities2} portrays relevant metrics calculated for each quality attribute.
 
 \begin{table}[!h]
   \begin{center}
-    \caption{Priority options and their numerical weights}
+    \caption{Priority options and their integer values}
     \label{table:priorities1}
     \begin{tabular}{|c|c|}
       \hline
-      \textbf{Priority} & \textbf{Weight} \\
+      \textbf{Priority} & \textbf{Value} \\
       \hline
       Most important    & 5               \\
       More important    & 4               \\
@@ -1555,12 +1578,9 @@ often used for questionnaires in research.
   \end{center}
 \end{table}
 
-Table \ref{table:priorities2} shows the average priorities and other relevant
-metrics for the quality attributes.
-
 \begin{table}[!h]
   \begin{center}
-    \caption{Average priorities and other metrics for the quality attributes}
+    \caption{Average priorities and other metrics for the quality attributes, $n = 15$}
     \label{table:priorities2}
     \begin{tabular}{|c|c|c|c|c|}
       \hline

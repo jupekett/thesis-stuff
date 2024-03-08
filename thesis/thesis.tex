@@ -1461,7 +1461,7 @@ Questions \textbf{Q1} to \textbf{Q4} had a limited input space with multiple-cho
 To answer research question \textbf{RQ1}, I decided to calculate the priority of maintainability relative to the other quality attributes based on answers to question \textbf{Q4}.
 
 The free text questions \textbf{Q5} and \textbf{Q6} benefitted from a more qualitative approach.
-Because the responses were in a free form format, I needed multiple steps to transform the
+Because the responses were in an unstructured format, I needed multiple steps to transform the
 data to a format that could be aggregated and analyzed as an answer to
 research questions \textbf{RQ2} and \textbf{RQ3}:
 \begin{itemize}
@@ -1472,7 +1472,7 @@ research questions \textbf{RQ2} and \textbf{RQ3}:
 \end{itemize}
 
 Because I gathered some demographic data with survey questions \textbf{Q1} to \textbf{Q3},
-I could formulate additional insights when combining those answers with results to the domain questions \textbf{Q4} to \textbf{Q6}.
+I could formulate additional insights by combining those results with results to the domain questions \textbf{Q4} to \textbf{Q6}.
 It is possible to calculate statistical correlation between years of experience and:
 \begin{itemize}
   \item Perceived importance of maintainability.
@@ -1553,7 +1553,7 @@ Table \ref{table:experience-it} shows respondent experience in information techn
 To calculate a priority score for each quality attribute, I gave the options an
 incremental integer value from 1 to 5. The value 1 corresponds to option
 \textit{Least Important}, while value 5 corresponds to \textit{Most important}.
-The absolute values chosen here are not of importance as long as the difference
+The exact values chosen here are not of importance as long as the difference
 between each consecutive option is equal, to avoid introducing additional
 bias. This makes our scale analogous to the Likert scale \parencite{Likert}, which is
 often used for questionnaires in research.
@@ -1580,7 +1580,7 @@ and table \ref{table:priorities2} portrays relevant metrics calculated for each 
 
 \begin{table}[!h]
   \begin{center}
-    \caption{Average priorities and other metrics for the quality attributes, $n = 15$}
+    \caption{Quality attributes, their average priorities, and other metrics, $n = 15$}
     \label{table:priorities2}
     \begin{tabular}{|c|c|c|c|c|}
       \hline
@@ -1600,11 +1600,30 @@ and table \ref{table:priorities2} portrays relevant metrics calculated for each 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Ways to improve maintainability (Q5 \& Q6)}
 
-\todo{%
-  Extract suggestions, split to categories, present here, etc.
-}
+I intended the two questions \textbf{Q5} and \textbf{Q6} to be strictly scoped to two separate areas of tech selections and architecture.
+Instead, the responses were varied and included suggestions touching multiple different areas.
+I think this was luck on my part, because otherwise I would not have received process- or philosophy-related answers.
 
-Some preliminary categorization of results:
+I categorized the results to three top-level categories, two of which align to the survey questions \textbf{Q5} and \textbf{Q6}:
+\begin{itemize}
+  \item Platform and technology choices
+  \item Application architecture
+  \item Others (processes, best practices, philosophy, ...)
+\end{itemize}
+
+For each top-level category, I further interpreted subcategories from each suggestion, and aggregated them where reasonable.
+For example, I consider all the following responses belonging to subcategory ''common technologies'':
+\begin{itemize}
+  \item ''Use up-to-date (but established) frameworks'' (respondent 4)
+  \item ''Future-proof technologies'' (respondent 2)
+  \item ''By using commonly used technologies'' (respondent 13)
+\end{itemize}
+
+\todo{%
+  Redo the below list into 3 tables instead? --> category name, number of occurences, list of respondents...
+}
+\todo{and fix it with latest categorizations from the google sheet}
+
 \begin{itemize}
   \item Platform and technology choices
         \begin{itemize}

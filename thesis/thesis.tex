@@ -1350,33 +1350,39 @@ In this chapter I present the research questions, method, and the research proce
 
 Through the research, I aimed to answer three research questions:
 \begin{itemize}
-  \item [\textbf{RQ1}] How much importance do cloud architects place on maintainability during
-        the design phase?
-  \item [\textbf{RQ2}] How to address maintainability concerns when architecting cloud-native
-        applications?
-  \item [\textbf{RQ3}] Do the recommendations from literature match the views of architects
-        working in the field?
+  \item [\textbf{RQ1}] How much importance do cloud architects place on
+  maintainability during the design phase?
+  \item [\textbf{RQ2}] How to address maintainability concerns when architecting
+  cloud-native applications?
+  \item [\textbf{RQ3}] Do the recommendations from literature match the views of
+  architects working in the field?
 \end{itemize}
 
-A digital survey appeared to me to be the best-fitting research method for answering these questions.
-It probably would have been possible find existing data sets through a literary review,
-but finding a reasonable amount of existing data seemed unlikely especially for \textbf{RQ1}.
+A digital survey appeared to me to be the best-fitting research method for
+answering these questions.  It probably would have been possible find existing
+data sets through a literary review, but finding a reasonable amount of existing
+data seemed unlikely especially for \textbf{RQ1}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Survey}
 
-I targeted the survey at cloud architects of \textit{Nordcloud, an IBM company}, where I work.
-When weighing my options how to collect the data necessary to answer the research questions,
-I decided to only utilize my current workplace as the target organization.
-The reasoning behind this was twofold: proximity through my current employment, and the fact that the company employs numerous cloud architects who had experience and, hopefully, opinions about their craft.
-The company uses the \textit{Slack} tool for internal asynchronous messaging.
-I had access to the company's \textit{Slack} workspace, which made contacting potential survey respondents convenient.
+I targeted the survey at cloud architects of \textit{Nordcloud, an IBM company},
+where I work.  When weighing my options how to collect the data necessary to
+answer the research questions, I decided to only utilize my current workplace as
+the target organization.  The reasoning behind this was twofold: proximity
+through my current employment, and the fact that the company employs numerous
+cloud architects who had experience and, hopefully, opinions about their craft.
+The company uses the \textit{Slack} tool for internal asynchronous messaging.  I
+had access to the company's \textit{Slack} workspace, which made contacting
+potential survey respondents convenient.
 
 I used \textit{Google Forms} for creating the survey and collecting the results.
-Before the respondent could proceed to answer the actual questions, the survey briefly described the research topic.
-There was also a data collection disclaimer with a mandatory agree-disagree choice.
-If the respondent disagreed with the disclaimer, they were thanked for initial interest,
-and encouraged to submit the form nevertheless, so I would know that the terms were not preferable.
+Before the respondent could proceed to answer the actual questions, the survey
+briefly described the research topic.  There was also a data collection
+disclaimer with a mandatory agree-disagree choice.  If the respondent disagreed
+with the disclaimer, they were thanked for initial interest, and encouraged to
+submit the form nevertheless, so I would know that the terms were not
+preferable.
 
 The first half of the survey gathered some demographic insights:
 \begin{enumerate}
@@ -1385,9 +1391,10 @@ The first half of the survey gathered some demographic insights:
   \item [\textbf{Q3}] Years of experience in IT in general?
 \end{enumerate}
 
-Each domain field mentioned in these questions was intended to be a subset of the next: in my view,
-IT is a superset of software architecture, which is a superset of cloud-native architecture.
-All three questions were multiple-choice, single answer with these ranges:
+Each domain field mentioned in these questions was intended to be a subset of
+the next: in my view, IT is a superset of software architecture, which is a
+superset of cloud-native architecture.  All three questions were
+multiple-choice, single answer with these ranges:
 \begin{itemize}
   \item 0-2
   \item 2-5
@@ -1397,14 +1404,17 @@ All three questions were multiple-choice, single answer with these ranges:
 
 Second half of the survey was dedicated to the main subject matter:
 \begin{enumerate}
-  \item [\textbf{Q4}] How do you prioritize these software quality attributes when designing cloud-native
-        architecture?
-  \item [\textbf{Q5}] How do you address maintainability with platform- and technology choices?
-  \item [\textbf{Q6}] How do you address maintainability with application architecture?
+  \item [\textbf{Q4}] How do you prioritize these software quality attributes
+  when designing cloud-native architecture?
+  \item [\textbf{Q5}] How do you address maintainability with platform- and
+  technology choices?
+  \item [\textbf{Q6}] How do you address maintainability with application
+  architecture?
 \end{enumerate}
 
-Survey question \textbf{Q4} is directly linked to research question \textbf{RQ1}.
-The question listed a predefined selection of software quality attributes:
+Survey question \textbf{Q4} is directly linked to research question
+\textbf{RQ1}.  The question listed a predefined selection of software quality
+attributes:
 \begin{itemize}
   \item Performance
   \item Reliability
@@ -1423,10 +1433,12 @@ Available options were:
   \item Least important
 \end{itemize}
 
-Survey questions \textbf{Q5} and \textbf{Q6} are both linked to research questions \textbf{RQ2} and \textbf{RQ3}.
-The input was a free text field, so that the respondents could express their thoughts in a non-structured way.
-I did not want to limit the answer space with my own lack of knowledge by providing a predefined set of options.
-My intention was to later interpret the answers in a qualitative fashion to find common factors between the answers.
+Survey questions \textbf{Q5} and \textbf{Q6} are both linked to research
+questions \textbf{RQ2} and \textbf{RQ3}.  The input was a free text field, so
+that the respondents could express their thoughts in a non-structured way.  I
+did not want to limit the answer space with my own lack of knowledge by
+providing a predefined set of options.  My intention was to later interpret the
+answers in a qualitative fashion to find common factors between the answers.
 
 On Monday 20.03.2023 I posted an introductory message along with a link to the
 survey to the company's internal \textit{Slack} channels in order to reach most
@@ -1438,42 +1450,52 @@ of their cloud architects. These channels were used:
   \item \#google-cloud
 \end{itemize}
 
-Some of these communities had overlapping audience, but the total reach was over a thousand people.
-I assumed the company to employ a few dozen cloud architects, but I didn't have exact numbers.
-My goal was to get 10-20 answers, to conduct any meaningful statistical analysis on the data.
-I was prepared to repost the survey in \textit{Slack} once a week up to four times until I decide I have enough answers to proceed.
-In the end there was no need to repost, as a sufficient number of architects responded after the initial posting.
-In early April I managed to convince one additional architect in-person at the company's Jyväskylä office to respond.
-Some stray responses were recorded up to 21.4.2023, with a final tally of 15 responses.
+Some of these communities had overlapping audience, but the total reach was over
+a thousand people.  I assumed the company to employ a few dozen cloud
+architects, but I didn't have exact numbers.  My goal was to get 10-20 answers,
+to conduct any meaningful statistical analysis on the data.  I was prepared to
+repost the survey in \textit{Slack} once a week up to four times until I decide
+I have enough answers to proceed.  In the end there was no need to repost, as a
+sufficient number of architects responded after the initial posting.  In early
+April I managed to convince one additional architect in-person at the company's
+Jyväskylä office to respond.  Some stray responses were recorded up to
+21.4.2023, with a final tally of 15 responses.
 
-I could have widened the target audience to other companies, if I wanted to collect a larger sample base.
-I decided against it, because my preliminary plans at the time did not require more than 20 samples.
-I planned to do some amount of qualitative processing on the results, in addition to basic quantitative analysis.
-If I had included other companies in the research, I would have likely approached the companies via email instead.
+I could have widened the target audience to other companies, if I wanted to
+collect a larger sample base.  I decided against it, because my preliminary
+plans at the time did not require more than 20 samples.  I planned to do some
+amount of qualitative processing on the results, in addition to basic
+quantitative analysis.  If I had included other companies in the research, I
+would have likely approached the companies via email instead.
 
-I used my own university-provided \textit{Google} account for all survey-related functions. Individual
-answers and their aggregated analysis will be stored in \textit{Google Forms} and \textit{Google
-Sheets} in this student account until the end of my study rights and subsequent
-removal of the account.
+I used my own university-provided \textit{Google} account for all survey-related
+functions. Individual answers and their aggregated analysis will be stored in
+\textit{Google Forms} and \textit{Google Sheets} in this student account until
+the end of my study rights and subsequent removal of the account.
 
 All answers were collected and analyzed anonymously. Email addresses or other
-pieces of personal information were not collected. Responding to the survey required
-logging in with a \textit{Google} account, but it was only enforced to kindly remind the busy architects if they had already responded to the survey.
+pieces of personal information were not collected. Responding to the survey
+required logging in with a \textit{Google} account, but it was only enforced to
+kindly remind the busy architects if they had already responded to the survey.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analysis}
 
-By analyzing the responses, I aimed to extract multiple pieces of knowledge that would help shed light on the research questions.
-The approach was not strictly quantitative or qualitative, but rather a mix of both depending on the source data.
-Questions \textbf{Q1} to \textbf{Q4} had a limited input space with multiple-choice fields, and as such were a natural candidate for basic quantitative processing.
-To answer research question \textbf{RQ1}, I would utilize data from survey question \textbf{Q4}.
-I decided to calculate the priority of maintainability relative to the other quality attributes based on answers to question \textbf{Q4}.
+By analyzing the responses, I aimed to extract multiple pieces of knowledge that
+would help shed light on the research questions.  The approach was not strictly
+quantitative or qualitative, but rather a mix of both depending on the source
+data.  Questions \textbf{Q1} to \textbf{Q4} had a limited input space with
+multiple-choice fields, and as such were a natural candidate for basic
+quantitative processing.  To answer research question \textbf{RQ1}, I would
+utilize data from survey question \textbf{Q4}.  I decided to calculate the
+priority of maintainability relative to the other quality attributes based on
+answers to question \textbf{Q4}.
 
-The free text questions \textbf{Q5} and \textbf{Q6} benefitted from a qualitative approach.
-Because the data was free form text, I needed multiple steps to transform the
-data to a format that could be aggregated and analyzed as an answer to
-research questions \textbf{RQ2} and \textbf{RQ3}:
+The free text questions \textbf{Q5} and \textbf{Q6} benefitted from a
+qualitative approach.  Because the data was free form text, I needed multiple
+steps to transform the data to a format that could be aggregated and analyzed as
+an answer to research questions \textbf{RQ2} and \textbf{RQ3}:
 \begin{itemize}
   \item Interpret and list the suggestions from answers to questions Q5 and Q6.
   \item Normalize the suggestions to find common categories.
@@ -1481,17 +1503,19 @@ research questions \textbf{RQ2} and \textbf{RQ3}:
   \item Compare the categories to solutions proposed in literature.
 \end{itemize}
 
-Because I gathered the demographic data with survey questions \textbf{Q1} to \textbf{Q3},
-I could formulate additional insights when combining those answers with results to the domain questions \textbf{Q4} to \textbf{Q6}.
-It is possible to calculate statistical correlation between years of experience and:
+Because I gathered the demographic data with survey questions \textbf{Q1} to
+\textbf{Q3}, I could formulate additional insights when combining those answers
+with results to the domain questions \textbf{Q4} to \textbf{Q6}.  It is possible
+to calculate statistical correlation between years of experience and:
 \begin{itemize}
   \item Perceived importance of maintainability.
   \item Number of categories proposed in Q5 and Q6.
   \item Popularity of categories proposed in Q5 and Q6.
 \end{itemize}
 
-These last items are not the main focus of the thesis, but could be interesting as additional sidenotes.
-\todo{remove mention of these last analysis items, if you don't execute them}
+These last items are not the main focus of the thesis, but could be interesting
+as additional sidenotes.  \todo{remove mention of these last analysis items, if
+you don't execute them}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Results}
@@ -1505,9 +1529,11 @@ In this section I present the results I gathered from the survey. \todo{more}
 \todo{
   Show the pie diagrams from Google Forms as-is? Table with counts for each option?
 }
-Figure \ref{figure:experience-cna} shows respondent experience in cloud-native architecture specifically.
-Figure \ref{figure:experience-architecture} shows respondent experience in software architecture in general.
-Figure \ref{figure:experience-it} shows respondent experience in information technology in general.
+Figure \ref{figure:experience-cna} shows respondent experience in cloud-native
+architecture specifically. Figure \ref{figure:experience-architecture} shows
+respondent experience in software architecture in general.  Figure
+\ref{figure:experience-it} shows respondent experience in information technology
+in general.
 
 \begin{figure}[h]\centering
   \includegraphics[width=10cm]{images/demographics-experience-cloud-native-crop1.png}

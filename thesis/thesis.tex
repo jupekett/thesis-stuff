@@ -78,11 +78,9 @@
   \item [CaC] Configuration as Code
   \item [CI/CD] Continuous Integration, Continuous Delivery/Deployment
   \item [CNA] Cloud-Native Application
-  \item [DoS] Denial-of-Service (attack)
   \item [FaaS] Functions-as-a-Service
   \item [IaC] Infrastructure as Code
   \item [MSA] Microservices Architecture
-  \item [MVP] Minimum Viable Product
   \item [VM] Virtual Machine
 \end{thetermlist}
 
@@ -190,10 +188,10 @@ provide us a definition as follows:
   visible properties of those elements, and the relationships among them.
 \end{quote}
 
-Next I will define the different parts of this definition, and adjacent terminology. A \textbf{software
-  system} is a collection of software components organized to
+Next I will define the different parts of this definition, and adjacent terminology. A software
+  system is a collection of software components organized to
 accomplish a specific function or set of functions \parencite[3]{IEEE42010}.
-These components --- or \textbf{elements} --- can be entities of varying size: objects,
+These components --- or elements --- can be entities of varying size: objects,
 processes, libraries, databases, commercial software, and so on. In its most
 trivial case, we can consider the entire system to be a single component. This
 is indeed an architecture, but practically useless due to lack of necessary
@@ -205,12 +203,12 @@ end up with a ''bubbles and lines'' diagram which is not sufficient to describe
 an architecture \parencite[24]{Bass1998}.
 
 A software architect is a person, team or organization responsible for systems architecture \parencite[3]{IEEE42010}.
-A system can include more than one \textbf{structure} \parencite[23]{Bass1998}. Because
+A system can include more than one structure \parencite[23]{Bass1998}. Because
 ''structure'' is an abstract concept, it can change depending on perspective. A
-\textbf{architectural view} models some aspect of the system
+architectural view models some aspect of the system
 \parencite{Koskimies2005}. It is a representation of the whole system from the
 perspective of a related set of concerns, such as a specific stakeholder's
-specific concern \parencite[3]{IEEE42010}. A \textbf{stakeholder} is an
+specific concern \parencite[3]{IEEE42010}. A stakeholder is an
 individual, team or organization with interests in, or concerns relative to, a
 system. Examples of stakeholders include clients, users, the architect, developers, reviewers,
 and so on. \parencite[3]{IEEE42010}. Examples of architectural views include a
@@ -251,7 +249,7 @@ domain than during implementation \parencite{Koskimies2005}.
 
 When selecting a reference architecture or a fundamental architectural style, we
 are dealing with a generic solution that will be further specified later. An
-\textbf{architectural style} is a general, high-level guideline for structuring
+architectural style is a general, high-level guideline for structuring
 the components and their responsibilities \parencite[24]{Bass1998}. For example,
 client-server architecture is an architectural style. It is not an architecture
 in itself: terminology is generic or domain-specific, and the style is not
@@ -261,8 +259,8 @@ style. \parencite[24]{Bass1998}.
 
 As we've read, architecture is of utmost importance for the implementation and
 future of the system. Because of this, it seems common sense to document it
-somehow. \textcite[24]{Bass1998} define an \textbf{architectural description
-  (AD)} as a collection of products to document an architecture.
+somehow. \textcite[24]{Bass1998} define an Architectural Description
+  (\textbf{AD}) as a collection of products to document an architecture.
 They outscope the documentation of
 guiding processes from actual architecture, which means that an architecture
 can live independently of its description or specification. In contrast,
@@ -320,8 +318,8 @@ databases, spreadsheets, windowing systems, or WWW itself.
 \subsection{Software development life cycle}
 
 In addition to every software system having an architecture, every software
-system also has a life cycle \parencite[17]{IEEE12207}. A \textbf{life
-  cycle model} is a framework that contains the processes, activities and tasks
+system also has a life cycle \parencite[17]{IEEE12207}. A life
+  cycle model is a framework that contains the processes, activities and tasks
 used during the life of the system, from initial requirements gathering to the
 termination of its use \parencite[3]{IEEE42010}. The specific life cycle stages
 depend on the chosen life cycle model, of which there are many to choose from:
@@ -357,7 +355,7 @@ In addition to these architecting activities,
 
 The standard \textcite{IEEE12207} defines processes related to architecture and design. Next
 I will make a distinction between two related but separate processes: the
-\textbf{Architectural Definition process}, and the Design Definition process.
+Architectural Definition process, and the Design Definition process.
 The purpose of the Architectural Definition process, as outlined in
 \textcite[66]{IEEE12207}, is threefold. First, the architect should create
 alternatives for a system's architecture. Then, we should choose one or
@@ -365,7 +363,7 @@ multiple alternatives that properly frame the stakeholders' needs and fulfill
 the requirements placed on the system. Lastly, all of this should be described
 with a set of uniform architectural views.
 
-At a lower abstraction level, the \textbf{Design Definition process}
+At a lower abstraction level, the Design Definition process
 \parencite[71]{IEEE12207} is expected to provide enough detailed data and
 information about the system and its components for implementation to be in line
 with the architectural entities. It involves preparing for software system
@@ -402,7 +400,7 @@ that best serves the stakeholders' needs. The finer details, such as the choice
 of programming language or code-level design patterns, can be left to software
 developers, as also implied by the ISO/IEC standards.
 
-\textbf{Maintenance stage} is a phase in software life cycle that is often
+Maintenance stage is a phase in software life cycle that is often
 considered less glamorous than working on greenfield projects and building the
 next software hit. Despite this, it is generally accepted that a substantial
 portion of the total cost of software is spent on maintenance.
@@ -414,7 +412,7 @@ as early as possible in the software life cycle can pay off.
 timely manner, because the cost of fixing those kinds of problems later can be
 exceptionally high.
 
-The standard \textcite{IEEE12207} outlines the \textbf{Maintenance process}, which
+The standard \textcite{IEEE12207} outlines the Maintenance process, which
 happens later in the software life cycle after Architectural Definition and Design
 Definition processes. Its purpose is to sustain the capability of the system to
 provide a service. This can be achieved by monitoring the system's capability to
@@ -508,7 +506,7 @@ and suitability of development method, programming language or database model
 relevant in this thesis, which is why I mostly -- although not exclusively --
 focus on factors that can be influenced by the software architect.
 
-\textbf{Quality attributes} are used to describe specific aspects of quality as
+Quality attributes are used to describe specific aspects of quality as
 it relates to software. From management perspective, we are likely interested in
 business-related attributes and metrics such as cost and effort of development
 work, productivity estimation, and time-to-market
@@ -582,7 +580,7 @@ quality attributes and decide which ones to emphasize \parencite[129]{Bass1998}.
 
 \subsection{What is maintainability, and why is it important}
 
-The quality attribute \textbf{maintainability} describes the efforts needed to
+The quality attribute maintainability describes the efforts needed to
 fix errors or to make enhancements to the system \parencite[603]{Gorla2010}.
 Based on their mapping study on design-time quality attributes and metrics,
 \textcite{Arvanitou2017} found that maintainability is the most often researched
@@ -593,11 +591,11 @@ management, requirements, or testing stages. \parencite[61-62]{Arvanitou2017}.
 
 Like many other quality attributes, maintainability can be further subdivided
 into more specific quality attributes, some of which we have discussed before.
-\textcite[233]{ISO5055} lists \textbf{modularity}, \textbf{reusability}, \textbf{analyzability},
-\textbf{changeability}, \textbf{modification stability}, \textbf{testability},
-and \textbf{compliance} as components of maintainability. Many of these are also
+\textcite[233]{ISO5055} lists modularity, reusability, analyzability,
+changeability, modification stability, testability,
+and compliance as components of maintainability. Many of these are also
 echoed by \textcite[61]{Arvanitou2017}. Some other categories, such as
-\textbf{understandability}, are sometimes related to maintainability.
+understandability, are sometimes related to maintainability.
 \textcite{Arvanitou2017} consider it a separate quality attribute for two
 reasons. First, some other quality models make a distinction between
 maintainability and understandability. Second, a unique research community has
@@ -630,7 +628,7 @@ adapt their business processes to changing market circumstances, and to
 implement innovative products and services \parencite[21]{Broy2006}.
 
 Even if the software itself stays unchanged for years, it can break if and when
-its environment changes. This phenomenon is called \textbf{software rot}
+its environment changes. This phenomenon is called software rot
 \footnote{\url{http://www.catb.org/jargon/html/S/software-rot.html}.}. In other
 words, software rot happens when a system's assumptions go out of date. A good
 example of this is the infamous ''Y2K'' event which resulted in uncountable bugs
@@ -721,7 +719,7 @@ The standard \textcite[1-2]{ISO5055} points out that faults in architectural or 
 can also be detected by statically analysing design specifications. This
 requires that the specification is written in a design language with a formal
 syntax and semantics. The standard presents a long list of
-\textbf{Automated Source Code Quality Measures (ASCQM)} that provide strong
+''Automated Source Code Quality Measures'' (ASCQM) that provide strong
 indicators for the quality of a software system in each area. In my opinion,
 the following maintainability weaknesses are related to architecture
 \parencite[38-47]{ISO5055}:
@@ -771,7 +769,7 @@ single function is non-trivial, which is why few research have suggested such a
 function for high-level attributes like maintainability.
 \parencite[67]{Arvanitou2017}.
 
-In regards to software, a ''\textbf{smell}'' is considered synonymous to
+In regards to software, a ''smell'' is considered synonymous to
 antipattern, flaw, or anomaly \parencite[1]{Mumtaz2021}. In their paper about
 architectural smells detection, \textcite[20]{Mumtaz2021} found that research
 tends to focus on dependency smells, which are usually connected
@@ -790,7 +788,7 @@ approaches to detect architectural smells in a software system
   \item rules-based
 \end{itemize}
 
-\textbf{Graph-based} approach depicts system's components as nodes, and their
+Graph-based approach depicts system's components as nodes, and their
 relationships as edges \parencite{Mumtaz2021}. This makes it easy to notice
 problematic relationships between them. A design structure matrix is a
 two-dimensional matrix to represent the structural relationships of the
@@ -802,7 +800,7 @@ and a visualization approach can help us understand large software
 systems with multivariate and multidimensional data.
 \parencite[9-14]{Mumtaz2021}.
 
-\textbf{Rules-based} approach takes advantage of metrics, their thresholds, and
+Rules-based approach takes advantage of metrics, their thresholds, and
 predefined frameworks, heuristics or guidelines \parencite[8]{Mumtaz2021}. It is
 related to code smells analysis, which combs through source code to identify
 code smells in order to detect architectural smells from them. This approach can
@@ -935,7 +933,7 @@ Birth of the public cloud can be dated back to 2006, when \textit{Amazon Web
   Services} launched their \textit{Simple Storage Service} (S3) and
 \textit{Elastic Compute Cloud} (EC2) \parencite[1]{Kratzke2017}. The so-called
 first wave of cloud computation meant that companies replaced their own data
-centers with virtual machines (\textbf{VMs}) running on data centers owned by cloud platform
+centers with virtual machines (\textbf{VM}s) running on data centers owned by cloud platform
 providers \parencite[17]{Gannon2017}. While revolutionary, it was still
 difficult to support both scalability and security at the same time, and there
 was no cloud-based tooling for data, event or error correction to be used in
@@ -981,8 +979,8 @@ run software systems, and leverages the elasticity, scalability and resilience
 offered by cloud computation. A still more specific
 definition comes from \textcite{Kratzke2017}, whose systematic mapping study
 aimed to collate the research trends around cloud-native software development
-practices. They also wanted to define the \textbf{Cloud-Native Application
-  (CNA)}, for which the resulting definition is as follows \parencite[13]{Kratzke2017}:
+practices. They also wanted to define the Cloud-Native Application (\textbf{CNA}),
+for which the resulting definition is as follows \parencite[13]{Kratzke2017}:
 
 \begin{quote}
   A cloud-native application (CNA) is a distributed, elastic and horizontal
@@ -1005,7 +1003,7 @@ companies, you might come up with \textit{Netflix}, \textit{Spotify},
 Companies such as \textit{Microsoft}, \textit{Google}, \textit{Amazon},
 \textit{Oracle}, \textit{IBM}, \textit{Alibaba}, \textit{Heroku}, and
 \textit{Redhat} provide public cloud platforms for other companies to build
-cloud software on. They are called \textbf{Cloud Service Providers (CSP)}. CSPs'
+cloud software on. They are called Cloud Service Providers (\textbf{CSP}). CSPs'
 own software products might utilize the CSP's own infrastructure, which makes
 sense for simplicity of logistics. Some services such as \textit{AWS Kinesis},
 \textit{DynamoDB}, \textit{SQS}, and \textit{Amazon Redshift}; \textit{Microsoft
@@ -1073,7 +1071,7 @@ dependencies on other services \parencite[18]{Gannon2017}. According to
 \textcite{Microsoft2022-CNA}, the service should contain the necessary logic, state,
 data, external dependencies and programming platform \parencite{Microsoft2022-CNA}.
 Meanwhile, \textcite[18]{Gannon2017} recommend that each service should pursue
-\textbf{statelessness}, where the state is not saved into the microservice
+statelessness, where the state is not saved into the microservice
 itself, but in another service, such as a database, cache or directory. In my
 opinion these differing views on handling state are not conflicting. Absolutes
 are harmful, and as prescribed in the CNA definition by
@@ -1100,9 +1098,9 @@ requester service. Using role-based access control such as \textit{OAuth},
 
 \textcite[18]{Gannon2017} remember a time when a need arose to pack microservices
 into spaces smaller than an entire VM image. When using
-\textbf{containers} the code, dependencies, and runtime are packed into a
-\textbf{container image} \parencite{Microsoft2022-CNA}. The images are then stored
-in a \textbf{container registry}, where they can be fetched when deploying a
+containers, the code, dependencies, and runtime are packed into a
+container image \parencite{Microsoft2022-CNA}. The images are then stored
+in a container registry, where they can be fetched when deploying a
 service that uses them. It is possible to run multiple containers in the cloud
 on a single VM, and achieve startup times even lower than one second
 \parencite[18]{Gannon2017}. Other reasons to select containers as a basis for
@@ -1115,8 +1113,8 @@ to \textcite{Microsoft2022-CNA}, Docker is the most popular container vendor, an
 has become industry standard for packaging, deploying and running cloud-native
 software.
 
-Containers are often arranged in a \textbf{service mesh}, using a
-\textbf{container orchestration} solution like \textit{Kubernetes},
+Containers are often arranged in a service mesh, using a
+container orchestration solution like \textit{Kubernetes},
 \textit{Apache Mesos}, \textit{Docker Swarm}, \textit{Azure Service Fabric} or
 \textit{IBM Blue Container Service} \parencite[18]{Gannon2017}. The orchestrator
 takes care of things like scheduling, affinity, health monitoring, failover,
@@ -1249,7 +1247,7 @@ Immature platforms might offer less options for configuration, monitoring,
 deployment, packaging, versioning, and debugging \parencite{Roberts2018}.
 Execution duration for FaaS functions is limited, which might require you to
 re-architect tasks that require long running times. It is entirely possible for
-you to run a denial-of-service (\textbf{DoS}) attack on yourself unwittingly if
+you to run a denial-of-service (DoS) attack on yourself unwittingly if
 you accidentally or intentionally launch a large number of instances, because
 e.g.  AWS has a limit for maximum number of running instances per cloud account.
 \parencite{Roberts2018}.

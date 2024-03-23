@@ -189,7 +189,7 @@ provide us a definition as follows:
 \end{quote}
 
 Next I will define the different parts of this definition, and adjacent terminology. A software
-  system is a collection of software components organized to
+system is a collection of software components organized to
 accomplish a specific function or set of functions \parencite[3]{IEEE42010}.
 These components --- or elements --- can be entities of varying size: objects,
 processes, libraries, databases, commercial software, and so on. In its most
@@ -260,12 +260,12 @@ style. \parencite[24]{Bass1998}.
 As we've read, architecture is of utmost importance for the implementation and
 future of the system. Because of this, it seems common sense to document it
 somehow. \textcite[24]{Bass1998} define an Architectural Description
-  (\textbf{AD}) as a collection of products to document an architecture.
+(\textbf{AD}) as a collection of products to document an architecture.
 They outscope the documentation of
 guiding processes from actual architecture, which means that an architecture
 can live independently of its description or specification. In contrast,
 \textcite[3]{IEEE42010} mentions ''\textit{... and principles guiding its design and
-evolution}'' when defining ''architecture''. The standard states that chosen architectural concepts, as well as
+  evolution}'' when defining ''architecture''. The standard states that chosen architectural concepts, as well as
 considered alternatives, must be justified in the description. According to
 the standard, the description can be utilized at multiple different
 levels of abstraction, at each level emphasizing the details necessary for that
@@ -319,7 +319,7 @@ databases, spreadsheets, windowing systems, or WWW itself.
 
 In addition to every software system having an architecture, every software
 system also has a life cycle \parencite[17]{IEEE12207}. A life
-  cycle model is a framework that contains the processes, activities and tasks
+cycle model is a framework that contains the processes, activities and tasks
 used during the life of the system, from initial requirements gathering to the
 termination of its use \parencite[3]{IEEE42010}. The specific life cycle stages
 depend on the chosen life cycle model, of which there are many to choose from:
@@ -532,7 +532,7 @@ include \parencites[79-81]{Bass1998}[13]{Li2021}[60]{Arvanitou2017}:
 \end{itemize}
 
 The second category of quality attributes --- those that cannot be
-  observed by running the system --- tell us how easy the system is to test,
+observed by running the system --- tell us how easy the system is to test,
 integrate and modify \parencite[81]{Bass1998}. It contains, among others, these
 attributes:
 \begin{itemize}
@@ -646,6 +646,7 @@ of robust design.
 
 
 \subsection{How to measure maintainability}
+\label{section:how-to-measure-maintainability}
 
 As discussed before, problems discovered early in the software development life
 cycle are easier to address \parencite{Bass1998}. At that point you still have a
@@ -703,7 +704,7 @@ processes related to the quality attributes in question. These lower-level
 attributes include measuring code coverage, time taken to resolve issues, and
 analysis of architectural debt, which all are indirect metrics for
 maintainability. Vale and others reason that this might be because lower level
-attributes are easier to measure and check directly than maintainability, which is 
+attributes are easier to measure and check directly than maintainability, which is
 in line with \textcite{Arvanitou2017}. \textcite[9]{Vale2022}
 also postulate that subjective understanding of quality attributes is very much
 personal and often vague. This makes it difficult to mutually agree on a
@@ -1034,11 +1035,11 @@ technology, backing services and automation \parencite{CNAF2018, Patrizio2018,
 building CNAs \parencite{Patrizio2018}. Other CNA development methodologies are
 often based on design patterns \parencite{Kratzke2017}.
 
-The three most common ways to build CNAs are microservice architecture, fully
+The three most common ways to build CNAs are microservices architecture, fully
 managed high-abstraction services, and serverless computing
 \parencite[17]{Gannon2017}. In fully managed services, the service handles
 everything outside of business logic: infrastructure, management, scaling, and
-so on. Microservice architecture is the most common approach. Serverless
+so on. Microservices architecture is the most common approach. Serverless
 computing means utilizing CSP-provided services to build software without
 VMs and sometimes even without containers.
 \parencite[17]{Gannon2017}. I will discuss microservices and serverless in the
@@ -1286,14 +1287,14 @@ software is mapped onto physical tiers and their services. A physical tier means
 the physical location of the application execution, and the places where
 software layers are deployed and where they run. Each node in a cloud
 architecture should handle management and recovery tasks themself, which is why
-cloud services are self-managed entities. \parencite[5]{Pahl2018}
+cloud services are self-managed entities. \parencite[5]{Pahl2018}.
 
 Due to these factors and the need for continuous services,
 \textcite[5]{Pahl2018} think that the cloud requires its own architectural
 style. They define cloud architecture as ''\textit{an abstract model of a distributed
-cloud system with the appropriate elements to represent not only application
-components and their relationships but also the resources these components are
-deployed on and the respective management elements}''. This aligns with my
+  cloud system with the appropriate elements to represent not only application
+  components and their relationships but also the resources these components are
+  deployed on and the respective management elements}''. This aligns with my
 experiences, where architectural diagrams for cloud-native applications always
 seem to include the names of the used platform services. For example in case of an
 application built on AWS, the diagram will specify each usage of \textit{SNS},
@@ -1340,12 +1341,182 @@ or inadequate, if multiple distributed monitoring systems are in use. This makes
 reliable measurement of quality attributes of cloud software difficult. For
 example, creating or freeing cloud resources such as VMs is not
 immediate, which contributes to uncertainty during the change as the workload
-varies. \parencite[3-11]{Pahl2018}
+varies. \parencite[3-11]{Pahl2018}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Maintainability in cloud-native architecture}
-\todo{Tie all the above topics together here}
+
+In this section I will tie together the topics I discussed in previous sections:
+architecture, maintainability, and cloud-nativity.
+
+The Twelfe-Factor App \parencite{12factor2017} is a methodology for building
+software for the web and software-as-a-service model (\textbf{SaaS}), and as
+such fits the cloud-native paradigm. It is intended to increase awareness of
+system-level problems in modern software development, offer a shared vocabulary
+to discuss them, and showcase a selection of broad concept-level solutions to
+them. Some of these solutions will support maintainability. Solution \#2
+encourages to explicitly declare and isolate dependencies. This means that one
+should never rely on the supposed existence of system-wide packages or tools. If
+you need them, you should package them along with your application. All
+dependencies should be explicitly declared, and the environment should be
+isolated from external dependencies. These can be achieved by using the
+preferred tools in your programming language, such as \textit{Gemfiles} and
+\textit{bundle exec} with \textit{Ruby} programming language, or \textit{pip}
+and \textit{virtualenv} with \textit{Python}. \parencite{12factor2017}.
+\textcite{Microsoft2022-CNA} concur that packaging dependencies in the container
+image of a microservice belonging to an MSA application fulfills this solution.
+This speeds up development, as a new developer will only need the codebase,
+the language runtime, and a dependency manager to run the application.
+
+A ''log'' is a stream of aggregated, time-ordered events collected from the
+output streams of all running processes and backing services
+\parencite{12factor2017}. Logs are often saved to a text file for later browsing. I
+consider software logs to be an inseparable part of a software maintainer's
+daily life. Twelve-factor app solution \#11 says that logs should be treated as event
+streams, and forwarded unchanged into the standard output. This means relying on
+the platform's log management capabilities instead of trying to manage the log
+files yourself. Then the logs will be directed to the execution environment,
+which manages the logs for you. \parencite{12factor2017}.
+
+In section \ref{section:how-to-measure-maintainability} I mentioned ''smells''
+that are synonymous to antipattern, flaw, or anomaly \parencite[1]{Mumtaz2021}.
+Service-oriented architecture was covered nicely in the research, but
+unfortunately there was only a little research into smells related to MSA or
+cloud architectures; the researchers identified only one research about cloud
+architecture smells. The researchers suggest more investigations into these
+architectural styles that are currently popular in the industry. Maintainability
+was the most commonly studied quality characteristic, which is fortunate for the
+researchers as this can shed light into the efforts required to fix the problems
+resulting from the smells. There is however still room for investigating the
+sub-characteristics of maintainability, such as testability and reusability.
+Modularity and modifiability were well covered in the available research.
+\parencite[21-22]{Mumtaz2021}.
+
+Almost like an answer to the suggestion by \textcite{Mumtaz2021},
+\textcite{Lichtenthaler2022} formulated a quality
+model\footnote{\url{https://r0light.github.io/cna-quality-model/}} that is
+focused on the design time attributes of cloud-native software. This makes it
+possible to evaluate architecture before the implementation, because it doesn't
+rely on source code. They say that the model can be used to approximate the
+level of ''cloud-nativeness'' of the application. The higher-level quality
+aspects in the model are mapped from the ISO/IEC 25010
+standard\footnote{\url{https://iso25000.com/index.php/en/iso-25000-standards/iso-25010}}.
+According to the ISO/IEC 25010 standard, the quality aspect maintainability can
+be split into sub-characteristics modularity, reusability, analysability,
+modifiability, and testability. \textcite{Lichtenthaler2022} add simplicity to
+this list. The model then connects these quality aspect to the so-called ''product factors''.
+Product factors characterize an architecture, and evaluating them will give us an idea how to practically
+improve the quality of the architecture in relation to that aspect.
+Additionally, the researchers list the metrics related to each product factor,
+but I omit them here for sake of brevity.  \parencite{Lichtenthaler2022}.
+
+The quality aspect reusability can be improved by focusing on standardization on
+system, component, and link levels \parencite{Lichtenthaler2022}. The goal is to
+have similarity between components. ''System'' means the cloud-native
+application as a whole.  A ''component'' is an abstract entity for representing
+a distinct part of the system that provides certain functionalities. It can for
+example be a service or a certain cloud resource. A ''link'' then is
+a directed potential connection between a specific component and a specific
+endpoint of a different component. \parencite{Lichtenthaler2022}.
+
+The quality aspect modularity is related to product factors service-orientation,
+isolated state, and loose coupling \parencite{Lichtenthaler2022}. Each of these
+three contains additional nested product factors. Service-orientation can be
+deconstructed into limited functional scope, and separation by gateways. Limited
+functional scope consists of nested product factors limited data scope, limited
+endpoint scope, and command query responsibility segregation. Isolated state
+means moving majority of the system state into specialized stateful services,
+and keeping most of the other services as stateless as possible. Loose coupling
+can be achieved by implementing asynchronous communication, and communication
+partner abstractions. Focusing on these factors would improve modularity as a
+whole. \parencite{Lichtenthaler2022}.
+
+The quality aspect analysability is improved by implementing automated
+monitoring. This can mean consistent centralized logging and metrics,
+distributed tracing of invocations, and health and readiness checks
+\parencite{Lichtenthaler2022}. Monitorability is related to analysability, and is especially relevant for MSA
+systems, because such systems contain many dynamic structures and behaviors
+\parencite[13]{Li2021}. It is possible to monitor many aspects of the stack
+separately: infrastructure, such as VM or a container metrics; software metrics
+such as response time; or the platform metrics, such as network latency. However
+with CNAs, we only need to worry about monitoring our own services, and leave
+the platform and infrastructure monitoring to the cloud service provider. In
+general, monitoring includes generating, storing, processing, and presenting the
+monitored data \parencite[13]{Li2021}. These steps might require installing an
+agent and other additional tooling, but luckily cloud services often provide
+basic functionality out of the box.
+
+The quality aspect simplicity can be broken down into sparsity, operation
+outsourcing, and usage of existing solutions for non-core capabilities.
+Operation outsourcing means using managed infrastructure, and managed backing
+services \parencite{Lichtenthaler2022}. It is understandable how this increases
+maintainability: the lower the scope of your maintenance responsibilities, the
+higher the maintainability. Cloud service providers offer backing services to
+facilitate building software. Backing services can help with monitoring,
+streaming, security, analytics, message brokering, storage, caching, and other
+needs \parencite{Microsoft2022-CNA}. One should favor backing services provided
+by the cloud service provider in order save time and money by not having to
+worry about the backing service's performance, security or maintenance. Backing
+services are best utilized as an attached resource, that are dynamically
+attached to the application as an external configuration, for example via
+environment variables. This enables us to attach and detach a backing service
+without code changes. Another best practice is to implement a middle layer that
+sits between the business code and backing service. This helps avoid being
+tightly coupled to specific APIs, and changing the service will be easier if
+needed. \parencite{Microsoft2022-CNA}.
+
+The quality aspect modifiability can be  improved by emphasizing service
+independence, which in turn can be achieved with low coupling, functional
+decentralization, limited request trace scope, logical grouping, and backing
+service decentralization. Implementing abstractions for addressing these
+services will also benefit modifiability. Automated infrastructure provisioning
+is important, for which the natural companion is infrastructure-as-code
+(\textbf{IaC}). It helps automate platform provisioning and software deployment,
+because you are able to utilize software development practices such as testing
+and version control for the infrastructure definitions
+\parencite{Microsoft2022-CNA}. IaC technologies include \textit{AWS Cloudformation},
+\textit{Azure Resource Manager (ARM)}, \textit{Azure Bicep}, \textit{Terraform},
+and \textit{Ansible}. Resource names, locations, capacities and secrets are
+parametrized and dynamic in IaC. IaC scripts are also designed to be idempotent,
+meaning that you can change one resource's definition and rerun the script
+without altering the other resources. This makes IaC play nicely with continuous
+integration and continuous deployment (CI/CD) technologies: changes to
+infrastructure are easy to execute. If deployments are easy, integration and
+deployment likely happens more often than once a quarter, which leads to better
+communication and mistakes that are cheaper to fix, resulting in higher quality
+software. \parencite{Microsoft2022-CNA}.
+
+If a system is highly testable, it is able to demonstrate its flaws through testing
+\parencite[17]{Li2021}. Testability is important with MSA applications, because
+microservices go through many changes during their life, and their interactions
+are often complex. By maximizing testability, we aim to minimize threats for
+performance, availability, and security, in addition to maintainability.
+Testability can be increased by API documentation and management, where we
+manage API versions and changes over time. This management should be automated
+as far as possible by tools such as \textit{Swagger} and \textit{RAML}, to avoid
+"forgetting" to update documentation. \parencite[17]{Li2021}.
+
+Testing can be made easier - and in turn more effective - by implementing
+automatic test procedures \parencite[17]{Li2021}. Increasing automation in the
+testing process reduces the complexity and effort required. Comprehensive manual
+testing is in many cases impossible, due to the complexity inherent to MSAs.
+Automated testing procedures align well with the DevOps approach, which
+emphasizes automating away as much manual work as possible, in order to avoid
+tedium and human mistakes. Many different testing paradigms can be automated,
+not only unit tests. As a few examples, \textit{LBTest} uses machine learning to
+automate end-to-end testing, \textit{EVOMASTER} uses an evolutionary genetic
+algorithm for service testing, \textit{Diffy} uses a continuous delivery
+pipeline for regression testing, and \textit{GMAT} uses graph-based dependency
+analysis for contract testing. Integrating these tools into the development
+process will require a learning curve, especially when the aimed at production
+software. \parencite[18]{Li2021}.
+
+This concludes the overview of the scientific background of maintainability in cloud-native architecture.
+In the following chapters I will present the basis of my own research: research method,
+results, and analysis. After that I will draw conclusions, and describe how they relate to
+the literary background I presented in this chapter \ref{chapter:background}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Method}
@@ -1755,7 +1926,7 @@ components when a fix is needed. The decisions made during architecting can also
 affect the need and possibilities for e.g. remote diagnostics and maintenance,
 roll back, backup, and recovering data. \parencite[95-96]{IEEE12207}.
 
-\subsection{Summary: Advantages and challenges of cloud-nativity}
+Summary: Advantages and challenges of cloud-nativity
 
 To sum up, cloud-nativity offers many advantages over on-premises software.
 Cloud-native approach allows the wielder to more easily respond to changing
